@@ -1,3 +1,3 @@
 # PMS
 Patient Monitoring System 
-Developed using C#, MySQL
+Developed in Visual Studio Windows Presentatin Foundation using C# and MySQL for database.
