@@ -1,2 +1,3 @@
 # PMS
-Patient Monitoring System
+Patient Monitoring System 
+Developed using C#, MySQL
