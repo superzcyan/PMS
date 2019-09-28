@@ -16,12 +16,27 @@ namespace PMS.UserControls
     {
         MySqlConnection connect = new MySqlConnection("Server = localhost; Uid =root; Password=root; Database =pms; Port =3306");
         MySqlCommand command = new MySqlCommand();
-        String datetimenow;
+        MySqlDataReader msqlReader;
+        String datetimenow, fullName, patientID;
         public userAppointments()
         {
             InitializeComponent();
+            loadcmbboxDoctors();
+            dgvappointments.ClearSelection();
         }
 
+        private void loadcmbboxDoctors()
+        {
+            connect.Open();
+            command.CommandText = "SELECT * FROM staffs WHERE position ='Doctor'";
+            command.Connection = connect;
+            msqlReader = command.ExecuteReader();
+            while (msqlReader.Read())
+            {
+                cmbDoctor.Items.Add(msqlReader.GetString("firstname") + ' ' + msqlReader.GetString("middlename") + ' ' + msqlReader.GetString("surname"));
+            }
+            connect.Close();
+        }
         private void UserAppointments_Load(object sender, EventArgs e)
         {
             connect.Open();
@@ -51,23 +66,53 @@ namespace PMS.UserControls
             connect.Close();
         }
 
-        private void Search()
+        public void autoComplete()
         {
+            connect.Close();
             connect.Open();
             command.Connection = connect;
             command.Parameters.Clear();
-            command.CommandText = "Select * from patients where (patientid = '" + txtpatientID.Text + "') OR ((firstname = '" + txtname.Text + "' AND lastname = '" + txtsurname.Text + "'))  ";
+            command.CommandText = "Select CONCAT(firstname,' ', middlename,' ', lastname) FROM patients ";
+            msqlReader = command.ExecuteReader();
+            AutoCompleteStringCollection autoCompletePatient = new AutoCompleteStringCollection();
+            while (msqlReader.Read())
+            {
+                autoCompletePatient.Add(msqlReader.GetString(0));
+
+            }
+            txtSearch.AutoCompleteCustomSource = autoCompletePatient;
+            connect.Close();
+
+        }
+
+        private void searchPatient()
+        {
+            
+            //Search query using Full Name
+            connect.Open();
+            command.CommandText = "Select patientid FROM patients WHERE CONCAT(firstname, ' ', middlename, ' ', lastname) = '" + fullName + "' OR patientid = '" +patientID+ "'";
+            msqlReader = command.ExecuteReader();
+            if (msqlReader.Read())
+            {
+                txtpatientID.Text = msqlReader["patientid"].ToString();
+                patientID = txtpatientID.Text;
+            }
+            connect.Close();
+
+            connect.Open();
+            command.Connection = connect;
+            command.Parameters.Clear();
+            command.CommandText = "Select * FROM patients WHERE patientid = '" + patientID + "'";
             try
             {
-                MySqlDataReader msqlReader = command.ExecuteReader();
+                msqlReader = command.ExecuteReader();
                 if (msqlReader.Read())
                 {
-                    txtname.Text = msqlReader.GetValue(1).ToString();
-                    txtmidname.Text = msqlReader.GetValue(2).ToString();
-                    txtsurname.Text = msqlReader.GetValue(3).ToString();
-                    txtcontact.Text = msqlReader.GetValue(9).ToString();
-                    txtemail.Text = msqlReader.GetValue(8).ToString();
-
+                    txtname.Text = msqlReader["firstname"].ToString();
+                    txtmidname.Text = msqlReader["middlename"].ToString();
+                    txtsurname.Text = msqlReader["lastname"].ToString();
+                    txtemail.Text = msqlReader["email"].ToString();
+                    txtcontact.Text = msqlReader["mobileno"].ToString();                 
                 }
                 else
                 {
@@ -79,52 +124,52 @@ namespace PMS.UserControls
                 //do something with the exception
                 MessageBox.Show(er.Message);
 
-            }
-            finally
-            {
-                //always close the connection
-                this.connect.Close();
-            }
+            }            
+            this.connect.Close();
         }
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            Search();
+            patientID = txtSearch.Text;
+            fullName = txtSearch.Text;
+            searchPatient();
         }
 
+        private void filltextboxes()
+        {
+            string patientid = dgvappointments.SelectedRows[0].Cells[0].Value + string.Empty;
+            string name = dgvappointments.SelectedRows[0].Cells[1].Value + string.Empty;
+            string midname = dgvappointments.SelectedRows[0].Cells[2].Value + string.Empty;
+            string surname = dgvappointments.SelectedRows[0].Cells[3].Value + string.Empty;
+            string contactno = dgvappointments.SelectedRows[0].Cells[4].Value + string.Empty;
+            string email = dgvappointments.SelectedRows[0].Cells[5].Value + string.Empty;
+            string doctor = dgvappointments.SelectedRows[0].Cells[6].Value + string.Empty;
+            string description = dgvappointments.SelectedRows[0].Cells[7].Value + string.Empty;
+            string date = dgvappointments.SelectedRows[0].Cells[8].Value + string.Empty;
+            string start = dgvappointments.SelectedRows[0].Cells[9].Value + string.Empty;
+            string end = dgvappointments.SelectedRows[0].Cells[10].Value + string.Empty;
+
+            txtpatientID.Text = patientid;
+            txtname.Text = name;
+            txtmidname.Text = midname;
+            txtsurname.Text = surname;
+            txtcontact.Text = contactno;
+            txtemail.Text = email;
+            cmbDoctor.Text = doctor;
+            txtDescription.Text = description;
+            dateTimePickerDate.Value = Convert.ToDateTime(date);
+            dateTimePickerStart.Value = Convert.ToDateTime(start);
+            dateTimePickerEnd.Value = Convert.ToDateTime(end);
+            
+        }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             if (dgvappointments.SelectedRows.Count > 0)
             {
-                string patientid = dgvappointments.SelectedRows[0].Cells[0].Value + string.Empty;
-                string name = dgvappointments.SelectedRows[0].Cells[1].Value + string.Empty;
-                string midname = dgvappointments.SelectedRows[0].Cells[2].Value + string.Empty;
-                string surname = dgvappointments.SelectedRows[0].Cells[3].Value + string.Empty;
-                string contactno = dgvappointments.SelectedRows[0].Cells[4].Value + string.Empty;
-                string email = dgvappointments.SelectedRows[0].Cells[5].Value + string.Empty;
-                string doctor = dgvappointments.SelectedRows[0].Cells[6].Value + string.Empty;
-                string description = dgvappointments.SelectedRows[0].Cells[7].Value + string.Empty;
-                string date = dgvappointments.SelectedRows[0].Cells[8].Value + string.Empty;
-                string start = dgvappointments.SelectedRows[0].Cells[9].Value + string.Empty;
-                string end = dgvappointments.SelectedRows[0].Cells[10].Value + string.Empty;
-
-                txtpatientID.Text = patientid;
-                txtname.Text = name;
-                txtmidname.Text = midname;
-                txtsurname.Text = surname;
-                txtcontact.Text = contactno;
-                txtemail.Text = email;
-                cmbdoctor.Text = doctor;
-                rtxtdesc.Text = description;
-                dateTimePickerDate.Value = Convert.ToDateTime(date);
-                dateTimePickerStart.Value = Convert.ToDateTime(start);
-                dateTimePickerEnd.Value = Convert.ToDateTime(end);
-                btnConfirm.Text = "Save";
-
-
+                updateAppointment();
             }
             else
             {
-                MessageBox.Show("You haven't selected any row.");
+                MessageBox.Show("Please select a row to be updated.");
             }
         }
 
@@ -184,135 +229,133 @@ namespace PMS.UserControls
             }
             else
             {
-                MessageBox.Show("Please select a row in schedule table to delete.");
+                MessageBox.Show("Please select a row in schedule table to be deleted.");
             }
         }
 
-        private void SetDefaultValues()
+        private void setDefaultValues()
         {
-            txtpatientID.Text = "";
-            txtname.Text = "";
-            txtmidname.Text = "";
-            txtsurname.Text = "";
-            txtcontact.Text = "";
-            txtemail.Text = "";
-            rtxtdesc.Text = "";
-            dateTimePickerDate.ResetText();
-            dateTimePickerStart.ResetText();
-            dateTimePickerEnd.ResetText();
-
-
+            foreach(Control obj in this.Controls)
+            {
+                if(obj is TextBox)
+                {
+                    obj.Text = "";
+                }
+                if(obj is DateTimePicker)
+                {
+                    obj.ResetText();
+                }               
+            }
         }
 
-        private void BtnConfirm_Click(object sender, EventArgs e)
+        private void confirmAppointment()
+        {
+            connect.Close();
+            connect.Open();
+            command.Parameters.Clear();
+            command.CommandText = @"INSERT INTO appointments(patientid, firstname, middlename, surname, email, contactno, description, doctor, date, start, end) 
+                    VALUES (@patientid, @firstname, @middlename, @surname, @email, @contactno, @description, @doctor, @date, @start, @end)";
+            command.Parameters.AddWithValue("@patientid", txtpatientID.Text);
+            command.Parameters.AddWithValue("@firstname", txtname.Text);
+            command.Parameters.AddWithValue("@middlename", txtmidname.Text);
+            command.Parameters.AddWithValue("@surname", txtsurname.Text);
+            command.Parameters.AddWithValue("@email", txtemail.Text);
+            command.Parameters.AddWithValue("@contactno", txtcontact.Text);
+            command.Parameters.AddWithValue("@description", txtDescription.Text);
+            command.Parameters.AddWithValue("@doctor", cmbDoctor.Text);
+            command.Parameters.AddWithValue("@date", dateTimePickerDate.Text);
+            command.Parameters.AddWithValue("@start", dateTimePickerStart.Text);
+            command.Parameters.AddWithValue("@end", dateTimePickerEnd.Text);
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("Appoinment Plotted");
+
+            MySqlDataAdapter adapter6 = new MySqlDataAdapter("Select * FROM appointments", connect);
+
+
+            DataTable table6 = new DataTable();
+            adapter6.Fill(table6);
+            dgvappointments.AutoGenerateColumns = false;
+            dgvappointments.DataSource = table6;
+
+
+            cmbpatientid.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbpatientid.AutoCompleteSource = AutoCompleteSource.ListItems;
+            command.CommandText = "Select patientid FROM appointments";
+            MySqlDataAdapter adapter = new MySqlDataAdapter("Select DISTINCT patientid FROM appointments", connect);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            DataRow row = dt.NewRow();
+            row["patientid"] = "All";
+            dt.Rows.InsertAt(row, 0);
+            cmbpatientid.DataSource = dt;
+            cmbpatientid.DisplayMember = "patientid";
+            cmbpatientid.ValueMember = "patientid";
+
+            connect.Close();
+            setDefaultValues();
+        }
+
+        private void updateAppointment()
         {
             connect.Open();
+            command.Parameters.Clear();
+            command.CommandText = @"UPDATE appointments SET patientid = @patientid, firstname = @firstname, middlename = @middlename, surname = @surname, email =  @email , contactno = @contactno, description  = @description, doctor = @doctor, date =  @date, start =  @start, end = @end";
+            command.Parameters.AddWithValue("@patientid", txtpatientID.Text);
+            command.Parameters.AddWithValue("@firstname", txtname.Text);
+            command.Parameters.AddWithValue("@middlename", txtmidname.Text);
+            command.Parameters.AddWithValue("@surname", txtsurname.Text);
+            command.Parameters.AddWithValue("@email", txtemail.Text);
+            command.Parameters.AddWithValue("@contactno", txtcontact.Text);
+            command.Parameters.AddWithValue("@description", txtDescription.Text);
+            command.Parameters.AddWithValue("@doctor", cmbDoctor.Text);
+            command.Parameters.AddWithValue("@date", dateTimePickerDate.Text);
+            command.Parameters.AddWithValue("@start", dateTimePickerStart.Text);
+            command.Parameters.AddWithValue("@end", dateTimePickerEnd.Text);
+            command.ExecuteNonQuery();
+            connect.Close();
+            btnConfirm.Text = "Add";
+            MessageBox.Show("Appoinment Updated!");
+            connect.Close();
+        }
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
 
-            if (btnConfirm.Text == "Add")
+            if (txtpatientID.Text == "")
             {
-
-                if (txtpatientID.Text == "")
-                {
-                    MessageBox.Show("Patient ID is blank");
-                }
-                else if (rtxtdesc.Text == " ")
-                {
-                    MessageBox.Show("Reason for appointments is required.");
-                }
-                else if (cmbdoctor.Text == "Choose a doctor")
-                {
-                    MessageBox.Show("Please select a Doctor");
-                }
-                else
-                {
-
-                    command.Parameters.Clear();
-                    command.CommandText = "Select * from appointments where doctor = @doctor and date = @date and start= @start and end= @end";
-                    command.Parameters.AddWithValue("@doctor", cmbdoctor.Text);
-                    command.Parameters.AddWithValue("@date", dateTimePickerDate.Text);
-                    command.Parameters.AddWithValue("@start", dateTimePickerStart.Text);
-                    command.Parameters.AddWithValue("@end", dateTimePickerEnd.Text);
-                    MySqlDataReader msqlReader = command.ExecuteReader();
-                    if (msqlReader.Read())
-                    {
-
-                        MessageBox.Show("Schedule already taken");
-                        connect.Close();
-                    }
-                    else
-                    {
-                        connect.Close();
-                        connect.Open();
-                        command.Parameters.Clear();
-                        command.CommandText = @"INSERT INTO appointments(patientid, firstname, middlename, surname, email, contactno, description, doctor, date, start, end) 
-                    VALUES (@patientid, @firstname, @middlename, @surname, @email, @contactno, @description, @doctor, @date, @start, @end)";
-                        command.Parameters.AddWithValue("@patientid", txtpatientID.Text);
-                        command.Parameters.AddWithValue("@firstname", txtname.Text);
-                        command.Parameters.AddWithValue("@middlename", txtmidname.Text);
-                        command.Parameters.AddWithValue("@surname", txtsurname.Text);
-                        command.Parameters.AddWithValue("@email", txtemail.Text);
-                        command.Parameters.AddWithValue("@contactno", txtcontact.Text);
-                        command.Parameters.AddWithValue("@description", rtxtdesc.Text);
-                        command.Parameters.AddWithValue("@doctor", cmbdoctor.Text);
-                        command.Parameters.AddWithValue("@date", dateTimePickerDate.Text);
-                        command.Parameters.AddWithValue("@start", dateTimePickerStart.Text);
-                        command.Parameters.AddWithValue("@end", dateTimePickerEnd.Text);
-                        command.ExecuteNonQuery();
-
-                        MessageBox.Show("Appoinment Plotted");
-
-                        MySqlDataAdapter adapter6 = new MySqlDataAdapter("Select * FROM appointments", connect);
-
-
-                        DataTable table6 = new DataTable();
-                        adapter6.Fill(table6);
-                        dgvappointments.AutoGenerateColumns = false;
-                        dgvappointments.DataSource = table6;
-
-
-                        cmbpatientid.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                        cmbpatientid.AutoCompleteSource = AutoCompleteSource.ListItems;
-                        command.CommandText = "Select patientid FROM appointments";
-                        MySqlDataAdapter adapter = new MySqlDataAdapter("Select DISTINCT patientid FROM appointments", connect);
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        DataRow row = dt.NewRow();
-                        row["patientid"] = "All";
-                        dt.Rows.InsertAt(row, 0);
-                        cmbpatientid.DataSource = dt;
-                        cmbpatientid.DisplayMember = "patientid";
-                        cmbpatientid.ValueMember = "patientid";
-
-                        connect.Close();
-                        SetDefaultValues();
-
-                    }
-                }
+                MessageBox.Show("Patient ID is blank");
             }
-            else if (btnConfirm.Text == "Save")
+            else if (txtDescription.Text == " ")
+            {
+                MessageBox.Show("Reason for appointments is required.");
+            }
+            else if (cmbDoctor.Text == "Choose a doctor")
+            {
+                MessageBox.Show("Please select a Doctor");
+            }
+            else
             {
                 connect.Open();
                 command.Parameters.Clear();
-                command.CommandText = @"UPDATE appointments SET patientid = @patientid, firstname = @firstname, middlename = @middlename, surname = @surname, email =  @email , contactno = @contactno, description  = @description, doctor = @doctor, date =  @date, start =  @start, end = @end";
-                command.Parameters.AddWithValue("@patientid", txtpatientID.Text);
-                command.Parameters.AddWithValue("@firstname", txtname.Text);
-                command.Parameters.AddWithValue("@middlename", txtmidname.Text);
-                command.Parameters.AddWithValue("@surname", txtsurname.Text);
-                command.Parameters.AddWithValue("@email", txtemail.Text);
-                command.Parameters.AddWithValue("@contactno", txtcontact.Text);
-                command.Parameters.AddWithValue("@description", rtxtdesc.Text);
-                command.Parameters.AddWithValue("@doctor", cmbdoctor.Text);
+                command.CommandText = "Select * from appointments where doctor = @doctor and date = @date and start= @start and end= @end";
+                command.Parameters.AddWithValue("@doctor", cmbDoctor.Text);
                 command.Parameters.AddWithValue("@date", dateTimePickerDate.Text);
                 command.Parameters.AddWithValue("@start", dateTimePickerStart.Text);
                 command.Parameters.AddWithValue("@end", dateTimePickerEnd.Text);
-                command.ExecuteNonQuery();
-                connect.Close();
-                btnConfirm.Text = "Add";
-                MessageBox.Show("Appoinment Updated!");
+                MySqlDataReader msqlReader = command.ExecuteReader();
+                    if (msqlReader.Read())
+                    {
+
+                        MessageBox.Show("Exact schedule was already taken");
+                        connect.Close();
+                    }
+
+                
+                    else
+                    {
+                        confirmAppointment();
+                    }
             }
-
-
-            connect.Close();
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -320,16 +363,25 @@ namespace PMS.UserControls
 
         }
 
-        private void TxtpatientID_KeyPress(object sender, KeyPressEventArgs e)
+        
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            autoComplete();
+        }
+
+        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
             {
-                Search();
+                fullName = txtSearch.Text;
+                patientID = txtSearch.Text;                
+                searchPatient();
             }
-            if (e.KeyChar == (char)'\'')
-            {
-                e.Handled = true;
-            }
+        }
+
+        private void Dgvappointments_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            filltextboxes();
         }
 
         private void BtnDelete_MouseEnter(object sender, EventArgs e)
@@ -341,5 +393,7 @@ namespace PMS.UserControls
         {
             btnDelete.ForeColor = Color.Black;
         }
+
+       
     }
 }

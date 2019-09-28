@@ -58,7 +58,7 @@ namespace PMS
             this.txtusername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtusername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusername.ForeColor = System.Drawing.Color.Silver;
-            this.txtusername.Location = new System.Drawing.Point(0, 5);
+            this.txtusername.Location = new System.Drawing.Point(1, 5);
             this.txtusername.Margin = new System.Windows.Forms.Padding(10);
             this.txtusername.MaxLength = 40;
             this.txtusername.Name = "txtusername";
@@ -140,7 +140,7 @@ namespace PMS
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(247)))), ((int)(((byte)(231)))));
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderSize = 0;
@@ -155,12 +155,12 @@ namespace PMS
             this.btnExit.Size = new System.Drawing.Size(27, 25);
             this.btnExit.TabIndex = 7;
             this.toolTip1.SetToolTip(this.btnExit, "Exit");
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnMini
             // 
-            this.btnMini.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(247)))), ((int)(((byte)(231)))));
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
             this.btnMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnMini.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMini.FlatAppearance.BorderSize = 0;
@@ -174,7 +174,7 @@ namespace PMS
             this.btnMini.Size = new System.Drawing.Size(27, 25);
             this.btnMini.TabIndex = 6;
             this.toolTip2.SetToolTip(this.btnMini, "Minimize");
-            this.btnMini.UseVisualStyleBackColor = true;
+            this.btnMini.UseVisualStyleBackColor = false;
             this.btnMini.Click += new System.EventHandler(this.BtnMini_Click);
             // 
             // piclogo
@@ -193,7 +193,8 @@ namespace PMS
             // 
             this.userPanel.BackColor = System.Drawing.Color.White;
             this.userPanel.Controls.Add(this.txtusername);
-            this.userPanel.Location = new System.Drawing.Point(61, 150);
+            this.userPanel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userPanel.Location = new System.Drawing.Point(60, 152);
             this.userPanel.Name = "userPanel";
             this.userPanel.Size = new System.Drawing.Size(300, 30);
             this.userPanel.TabIndex = 0;

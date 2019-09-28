@@ -16,19 +16,32 @@ namespace PMS.UserControls
         MySqlConnection connect = new MySqlConnection("Server = localhost; Uid =root; Password=root; Database =pms; Port =3306");
         MySqlCommand command = new MySqlCommand();
         MySqlDataReader msqlReader;
-        int prescribedqty = 0, morning = 0, noon = 0, afternoon = 0, quantity = 0;
-        string patientid, medicine, dosage, presDate, other, procedure, targetillness, treatDoctor, session, results, treatDate, fullName;
+        int treatcount, prescribedcount, dosage, prescribedqty = 0, morning = 0, noon = 0, afternoon = 0, quantity = 0;
+        string patientid, medicine,  presDate, other, procedure, targetillness, treatDoctor, session, results, treatDate, fullName;
         public string presDoctor;
         public userPatientRecords()
         {
             InitializeComponent();
+            loadcmbboxDoctors();
             
+        }
+
+        private void loadcmbboxDoctors()
+        {
+            connect.Open();
+            command.CommandText = "SELECT * FROM staffs WHERE position ='Doctor'";
+            command.Connection = connect;
+            msqlReader = command.ExecuteReader();
+            while (msqlReader.Read())
+            {
+                cmbDoctor.Items.Add(msqlReader.GetString("firstname") +' '+ msqlReader.GetString("middlename") +' '+ msqlReader.GetString("surname"));
+            }
+            connect.Close();
         }
         
         private void searchPatient()
         {
-            connect.Open();
-            command.Connection = connect;
+            connect.Open();            
             command.CommandText = "Select patientid FROM patients WHERE CONCAT(firstname, ' ', middlename, ' ', lastname) = '" + fullName + "' OR patientid = '" + patientid + "'";
             msqlReader = command.ExecuteReader();
             if (msqlReader.Read())
@@ -239,8 +252,9 @@ namespace PMS.UserControls
 
                 connect.Open();
                 command.Parameters.Clear();
-                command.CommandText = @"UPDATE treatments SET proceed = @proceed, targetillness = @illness, sessions = @session, result= @result, doctor = @doctor
-                                        WHERE patientid = @patientid";
+                command.CommandText = @"UPDATE treatments SET  proceed = @proceed, targetillness = @illness, sessions = @session, result= @result, doctor = @doctor
+                                        WHERE count = @treatcount AND patientid = @patientid";
+                command.Parameters.AddWithValue("@treatcount", treatcount);
                 command.Parameters.AddWithValue("@patientid", patientid);
                 command.Parameters.AddWithValue("@proceed", txtproceed.Text);
                 command.Parameters.AddWithValue("@illness", txtillness.Text);
@@ -251,7 +265,7 @@ namespace PMS.UserControls
                 command.ExecuteNonQuery();
                 connect.Close();
 
-                MySqlDataAdapter adapter7 = new MySqlDataAdapter("Select * FROM treatments WHERE treatments.patientid = '" + txtSearch.Text + "'", connect);
+                MySqlDataAdapter adapter7 = new MySqlDataAdapter("Select * FROM treatments WHERE treatments.patientid = '" + patientid + "'", connect);
 
                 DataTable table7 = new DataTable();
                 adapter7.Fill(table7);
@@ -265,7 +279,8 @@ namespace PMS.UserControls
 
 
         private void addTreatment()
-        {
+        {   
+                    
                          
                     command.Parameters.Clear();
                     command.CommandText = @"INSERT INTO treatments(patientid, proceed, targetillness, sessions, result, doctor, date )
@@ -277,7 +292,7 @@ namespace PMS.UserControls
                     command.Parameters.AddWithValue("@sessions", txtsession.Text);
                     command.Parameters.AddWithValue("@result", txtOtherTreat.Text);
                     command.Parameters.AddWithValue("@doctor", cmbDoctor.Text);
-                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy"));
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
 
                     connect.Open();
                     command.ExecuteNonQuery();
@@ -315,12 +330,14 @@ namespace PMS.UserControls
                
         public void fillTreamentTextbox()
         {
-            procedure = dgvtreatment.CurrentRow.Cells[0].Value.ToString();
-            targetillness = dgvtreatment.CurrentRow.Cells[1].Value.ToString();
-            session = dgvtreatment.CurrentRow.Cells[2].Value.ToString();
-            results = dgvtreatment.CurrentRow.Cells[3].Value.ToString();
-            treatDoctor = dgvtreatment.CurrentRow.Cells[4].Value.ToString();
-            treatDate = dgvtreatment.CurrentRow.Cells[5].Value.ToString();
+
+            treatcount = Convert.ToInt32(dgvtreatment.CurrentRow.Cells[0].Value);
+            procedure = dgvtreatment.CurrentRow.Cells[1].Value.ToString();
+            targetillness = dgvtreatment.CurrentRow.Cells[2].Value.ToString();
+            session = dgvtreatment.CurrentRow.Cells[3].Value.ToString();
+            results = dgvtreatment.CurrentRow.Cells[4].Value.ToString();
+            treatDoctor = dgvtreatment.CurrentRow.Cells[5].Value.ToString();
+            treatDate = dgvtreatment.CurrentRow.Cells[6].Value.ToString();
             txtproceed.Text = procedure;
             txtillness.Text = targetillness;
             txtsession.Text = session;
@@ -347,7 +364,8 @@ namespace PMS.UserControls
                 {
                     connect.Open();
                     command.Parameters.Clear();
-                    command.CommandText = "DELETE FROM treatments WHERE patientid = @patientid AND proceed =@proceed AND targetillness = @targetillness AND sessions = @sessions  AND result = @result AND doctor = @doctor AND date=@date";
+                    command.CommandText = "DELETE FROM treatments WHERE count = @treatcount AND patientid = @patientid";
+                    command.Parameters.AddWithValue("@treatcount", treatcount);
                     command.Parameters.AddWithValue("@patientid", patientid);
                     command.Parameters.AddWithValue("@proceed", procedure);
                     command.Parameters.AddWithValue("@targetillness", targetillness);
@@ -383,25 +401,33 @@ namespace PMS.UserControls
 
         public void fillPrescriptionTextbox()
         {
-
-            medicine = dgvprescription.CurrentRow.Cells[0].Value.ToString();
-            dosage = dgvprescription.CurrentRow.Cells[1].Value.ToString();
-            quantity = Convert.ToInt32(dgvprescription.CurrentRow.Cells[2].Value);
-            morning = Convert.ToInt32(dgvprescription.CurrentRow.Cells[3].Value);
-            noon = Convert.ToInt32(dgvprescription.CurrentRow.Cells[4].Value);
-            afternoon = Convert.ToInt32(dgvprescription.CurrentRow.Cells[5].Value);
-            other = dgvprescription.CurrentRow.Cells[6].Value.ToString();
-            presDoctor = dgvprescription.CurrentRow.Cells[7].Value.ToString();
-            presDate = dgvprescription.CurrentRow.Cells[8].Value.ToString();
+            prescribedcount = Convert.ToInt32(dgvprescription.CurrentRow.Cells[0].Value);
+            medicine = dgvprescription.CurrentRow.Cells[1].Value.ToString();
+            dosage = Convert.ToInt32(dgvprescription.CurrentRow.Cells[2].Value.ToString());
+            prescribedqty = Convert.ToInt32(dgvprescription.CurrentRow.Cells[3].Value);
+            morning = Convert.ToInt32(dgvprescription.CurrentRow.Cells[4].Value);
+            noon = Convert.ToInt32(dgvprescription.CurrentRow.Cells[5].Value);
+            afternoon = Convert.ToInt32(dgvprescription.CurrentRow.Cells[6].Value);
+            other = dgvprescription.CurrentRow.Cells[7].Value.ToString();
+            presDoctor = dgvprescription.CurrentRow.Cells[8].Value.ToString();
+            presDate = dgvprescription.CurrentRow.Cells[9].Value.ToString();
             txtmed.Text = medicine;
-            txtdosage.Text = dosage;
-            txtqty.Text = quantity.ToString();
+            txtdosage.Text = dosage.ToString();
+            txtqty.Text = prescribedqty.ToString();
             txtmorning.Text = morning.ToString();
             txtNoon.Text = noon.ToString();
             txtafternoon.Text = afternoon.ToString();
             txtOtherPresc.Text = other;
+            
         }
-
+        public void fillprescripedVariables()
+        {
+            prescribedqty = Convert.ToInt32(txtqty.Text);
+            dosage = Convert.ToInt32(txtdosage.Text);
+            morning = Convert.ToInt32(txtmorning.Text);
+            noon = Convert.ToInt32(txtNoon.Text);
+            afternoon = Convert.ToInt32(txtafternoon.Text);
+        }
         public void filldatagridPrescription()
         {
             
@@ -415,6 +441,7 @@ namespace PMS.UserControls
         }
         private void addPrescription()
         {
+            fillprescripedVariables();
             connect.Open();
             command.Parameters.Clear();
 
@@ -431,7 +458,7 @@ namespace PMS.UserControls
             command.Parameters.AddWithValue("@afternoon", txtafternoon.Text);
             command.Parameters.AddWithValue("@other", txtOtherPresc.Text);
             command.Parameters.AddWithValue("@doctor", presDoctor);
-            command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy"));
+            command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
             command.ExecuteNonQuery();
             command.Parameters.Clear();
             filldatagridPrescription();
@@ -442,11 +469,13 @@ namespace PMS.UserControls
 
         private void savePrescription()
         {
+
             connect.Open();
             command.Parameters.Clear();
-            command.CommandText = @"UPDATE treatments SET medicine = @medicine, dosage = @dosage, quantity = @quantity, morning = @morning, noon = @noon, afternoon = @afternoon, doctor = @doctor, date = @date
-                                        WHERE patientid = @patientid";
-            command.Parameters.AddWithValue("@patientids", txtpatientid.Text);
+            command.CommandText = @"UPDATE prescriptions SET medicine = @medicine, dosage = @dosage, quantity = @quantity, morning = @morning, noon = @noon, afternoon = @afternoon, doctor = @doctor, date = @date
+                                        WHERE count = @count AND patientid = @patientid";
+            command.Parameters.AddWithValue("@count", prescribedcount); 
+            command.Parameters.AddWithValue("@patientid", patientid);
             command.Parameters.AddWithValue("@medicine", txtmed.Text);
             command.Parameters.AddWithValue("@dosage", txtdosage.Text);
             command.Parameters.AddWithValue("@quantity", txtqty.Text);
@@ -454,29 +483,29 @@ namespace PMS.UserControls
             command.Parameters.AddWithValue("@noon", txtNoon.Text);
             command.Parameters.AddWithValue("@afternoon", txtafternoon.Text);
             command.Parameters.AddWithValue("@doctor", presDoctor);
-            command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy"));
+            command.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
             command.ExecuteNonQuery();
             command.Parameters.Clear();
             filldatagridPrescription();
             connect.Close();
             prescriptionReset();
-            MessageBox.Show("Updated!");
+            MessageBox.Show("Record has been updated!");
         }
         private void BtnAddPres_Click(object sender, EventArgs e)
         {
-          
+            fillprescripedVariables();
             if (txtmed.Text == "" || txtmed.Text == "" || txtdosage.Text == "" || txtdosage.Text == "" || txtqty.Text == "" || txtqty.Text == ""
                 || txtmorning.Text == "" || txtmorning.Text == "" || txtNoon.Text == "" || txtNoon.Text == "" || txtafternoon.Text == "" || txtafternoon.Text == ""
                 || txtOtherPresc.Text == "")
             {
-                MessageBox.Show("Please complete all fields or 0 if none");
+                MessageBox.Show("Please complete all fields");
             }
-            else if (prescribedqty <= 0)
+            else if (prescribedqty == 0)
             {
 
                 MessageBox.Show("Quantity cannot be 0");
             }
-            else if (dosage == "0")
+            else if (dosage == 0)
             {
 
                 MessageBox.Show("Dosage cannot be 0");
@@ -496,8 +525,8 @@ namespace PMS.UserControls
         {
             if (dgvprescription.SelectedRows.Count > 0) // make sure user select at least 1 row 
             {
-                fillPrescriptionTextbox();
-                btnAddPres.Text = "Save";
+                savePrescription();
+                
             }
             else
             {
@@ -515,9 +544,9 @@ namespace PMS.UserControls
                 {
                     connect.Open();
                     command.Parameters.Clear();
-                    command.CommandText = "DELETE FROM prescriptions WHERE patientid = @patientid AND medicine =@medicine AND dosage = @dosage AND quantity= @quantity AND morning= @morning AND noon= @noon AND afternoon =@afternoon AND other = @other AND doctor=@doctor AND date=@date";
+                    command.CommandText = "DELETE FROM prescriptions WHERE patientid = @patientid AND count = @count";
 
-
+                    command.Parameters.AddWithValue("@count", prescribedcount);
                     command.Parameters.AddWithValue("@patientid", patientid);
                     command.Parameters.AddWithValue("@medicine", medicine);
                     command.Parameters.AddWithValue("@dosage", dosage);
@@ -535,11 +564,10 @@ namespace PMS.UserControls
                     prescriptionReset();
                     MessageBox.Show("Deleted!");
 
-
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-
+                    txtmed.Focus();
                 }
             }
             else

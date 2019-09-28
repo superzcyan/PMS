@@ -39,7 +39,7 @@
             this.txtcontact = new System.Windows.Forms.TextBox();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.cmbdoctor = new System.Windows.Forms.ComboBox();
+            this.cmbDoctor = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -68,14 +68,16 @@
             this.coldate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colstart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colend = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbpatientid = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.rtxtdesc = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvappointments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,11 +95,11 @@
             this.txtname.BackColor = System.Drawing.Color.White;
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.Location = new System.Drawing.Point(149, 125);
+            this.txtname.Location = new System.Drawing.Point(160, 143);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtname.Name = "txtname";
             this.txtname.ReadOnly = true;
-            this.txtname.Size = new System.Drawing.Size(229, 21);
+            this.txtname.Size = new System.Drawing.Size(201, 21);
             this.txtname.TabIndex = 1;
             // 
             // txtmidname
@@ -105,11 +107,11 @@
             this.txtmidname.BackColor = System.Drawing.Color.White;
             this.txtmidname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtmidname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmidname.Location = new System.Drawing.Point(149, 147);
+            this.txtmidname.Location = new System.Drawing.Point(160, 165);
             this.txtmidname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtmidname.Name = "txtmidname";
             this.txtmidname.ReadOnly = true;
-            this.txtmidname.Size = new System.Drawing.Size(229, 21);
+            this.txtmidname.Size = new System.Drawing.Size(201, 21);
             this.txtmidname.TabIndex = 2;
             // 
             // txtsurname
@@ -117,11 +119,11 @@
             this.txtsurname.BackColor = System.Drawing.Color.White;
             this.txtsurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtsurname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsurname.Location = new System.Drawing.Point(149, 169);
+            this.txtsurname.Location = new System.Drawing.Point(160, 187);
             this.txtsurname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtsurname.Name = "txtsurname";
             this.txtsurname.ReadOnly = true;
-            this.txtsurname.Size = new System.Drawing.Size(229, 21);
+            this.txtsurname.Size = new System.Drawing.Size(201, 21);
             this.txtsurname.TabIndex = 3;
             // 
             // txtcontact
@@ -129,7 +131,7 @@
             this.txtcontact.BackColor = System.Drawing.Color.White;
             this.txtcontact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcontact.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontact.Location = new System.Drawing.Point(149, 213);
+            this.txtcontact.Location = new System.Drawing.Point(160, 231);
             this.txtcontact.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtcontact.Name = "txtcontact";
             this.txtcontact.ReadOnly = true;
@@ -141,11 +143,11 @@
             this.txtemail.BackColor = System.Drawing.Color.White;
             this.txtemail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtemail.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(149, 191);
+            this.txtemail.Location = new System.Drawing.Point(160, 209);
             this.txtemail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtemail.Name = "txtemail";
             this.txtemail.ReadOnly = true;
-            this.txtemail.Size = new System.Drawing.Size(229, 21);
+            this.txtemail.Size = new System.Drawing.Size(201, 21);
             this.txtemail.TabIndex = 6;
             // 
             // btnSearch
@@ -158,33 +160,30 @@
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(268, 100);
+            this.btnSearch.Location = new System.Drawing.Point(364, 51);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(25, 25);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // cmbdoctor
+            // cmbDoctor
             // 
-            this.cmbdoctor.BackColor = System.Drawing.Color.White;
-            this.cmbdoctor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbdoctor.FormattingEnabled = true;
-            this.cmbdoctor.Items.AddRange(new object[] {
-            "Phd. Cortejo",
-            "Phd. Dagohoy"});
-            this.cmbdoctor.Location = new System.Drawing.Point(149, 235);
-            this.cmbdoctor.Name = "cmbdoctor";
-            this.cmbdoctor.Size = new System.Drawing.Size(243, 24);
-            this.cmbdoctor.TabIndex = 2;
-            this.cmbdoctor.Text = "Choose Doctor";
+            this.cmbDoctor.BackColor = System.Drawing.Color.White;
+            this.cmbDoctor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDoctor.FormattingEnabled = true;
+            this.cmbDoctor.Location = new System.Drawing.Point(527, 121);
+            this.cmbDoctor.Name = "cmbDoctor";
+            this.cmbDoctor.Size = new System.Drawing.Size(195, 24);
+            this.cmbDoctor.TabIndex = 2;
+            this.cmbDoctor.Text = "Choose Doctor";
             // 
             // dateTimePickerDate
             // 
             this.dateTimePickerDate.CustomFormat = "MMMM dd, yyyy";
             this.dateTimePickerDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerDate.Location = new System.Drawing.Point(506, 103);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(527, 150);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.Size = new System.Drawing.Size(195, 21);
             this.dateTimePickerDate.TabIndex = 3;
@@ -194,7 +193,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(462, 105);
+            this.label1.Location = new System.Drawing.Point(483, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 16);
             this.label1.TabIndex = 13;
@@ -211,11 +210,11 @@
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConfirm.Location = new System.Drawing.Point(506, 231);
+            this.btnConfirm.Location = new System.Drawing.Point(903, 661);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(90, 35);
             this.btnConfirm.TabIndex = 7;
-            this.btnConfirm.Text = "Add";
+            this.btnConfirm.Text = "Confirm";
             this.btnConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
@@ -229,9 +228,9 @@
             this.btnClear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.Location = new System.Drawing.Point(602, 231);
+            this.btnClear.Location = new System.Drawing.Point(16, 661);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 35);
+            this.btnClear.Size = new System.Drawing.Size(90, 35);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -244,7 +243,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(437, 127);
+            this.label2.Location = new System.Drawing.Point(458, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 19;
@@ -255,7 +254,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(441, 149);
+            this.label4.Location = new System.Drawing.Point(462, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 16);
             this.label4.TabIndex = 20;
@@ -266,7 +265,7 @@
             this.dateTimePickerStart.CustomFormat = "hh:mm tt";
             this.dateTimePickerStart.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(506, 125);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(527, 172);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.ShowUpDown = true;
             this.dateTimePickerStart.Size = new System.Drawing.Size(145, 21);
@@ -277,7 +276,7 @@
             this.dateTimePickerEnd.CustomFormat = "hh:mm tt";
             this.dateTimePickerEnd.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(506, 147);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(527, 194);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.ShowUpDown = true;
             this.dateTimePickerEnd.Size = new System.Drawing.Size(145, 21);
@@ -287,7 +286,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(78, 127);
+            this.label6.Location = new System.Drawing.Point(89, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 23;
@@ -298,7 +297,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(58, 149);
+            this.label7.Location = new System.Drawing.Point(69, 167);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 16);
             this.label7.TabIndex = 24;
@@ -309,7 +308,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(84, 171);
+            this.label8.Location = new System.Drawing.Point(95, 189);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 16);
             this.label8.TabIndex = 25;
@@ -320,7 +319,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(60, 193);
+            this.label9.Location = new System.Drawing.Point(71, 211);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 16);
             this.label9.TabIndex = 26;
@@ -332,7 +331,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            this.label3.Location = new System.Drawing.Point(531, 304);
+            this.label3.Location = new System.Drawing.Point(566, 317);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 23);
             this.label3.TabIndex = 1;
@@ -342,7 +341,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(68, 215);
+            this.label10.Location = new System.Drawing.Point(79, 233);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 16);
             this.label10.TabIndex = 27;
@@ -354,7 +353,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(96, 239);
+            this.label11.Location = new System.Drawing.Point(474, 125);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 16);
             this.label11.TabIndex = 28;
@@ -365,12 +364,11 @@
             this.txtpatientID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtpatientID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpatientID.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpatientID.Location = new System.Drawing.Point(149, 103);
+            this.txtpatientID.Location = new System.Drawing.Point(160, 121);
             this.txtpatientID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtpatientID.Name = "txtpatientID";
             this.txtpatientID.Size = new System.Drawing.Size(116, 21);
             this.txtpatientID.TabIndex = 0;
-            this.txtpatientID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtpatientID_KeyPress);
             // 
             // dgvappointments
             // 
@@ -388,7 +386,8 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvappointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvappointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvappointments.ColumnHeadersHeight = 30;
+            this.dgvappointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvappointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colpatientid,
             this.colPatient,
@@ -410,17 +409,19 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvappointments.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvappointments.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvappointments.Location = new System.Drawing.Point(16, 331);
+            this.dgvappointments.Location = new System.Drawing.Point(16, 344);
             this.dgvappointments.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgvappointments.MultiSelect = false;
             this.dgvappointments.Name = "dgvappointments";
             this.dgvappointments.ReadOnly = true;
             this.dgvappointments.RowHeadersVisible = false;
+            this.dgvappointments.RowHeadersWidth = 30;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvappointments.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvappointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvappointments.Size = new System.Drawing.Size(1175, 309);
             this.dgvappointments.TabIndex = 42;
+            this.dgvappointments.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgvappointments_CellMouseClick);
             // 
             // colpatientid
             // 
@@ -510,24 +511,24 @@
             this.colend.Name = "colend";
             this.colend.ReadOnly = true;
             // 
-            // btnUpdate
+            // btnSave
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.Location = new System.Drawing.Point(1001, 648);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(90, 35);
-            this.btnUpdate.TabIndex = 46;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            this.btnSave.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(1001, 661);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 35);
+            this.btnSave.TabIndex = 46;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -538,7 +539,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(1101, 648);
+            this.btnDelete.Location = new System.Drawing.Point(1101, 661);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 35);
@@ -555,7 +556,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(12, 304);
+            this.label13.Location = new System.Drawing.Point(988, 315);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 16);
@@ -569,7 +570,7 @@
             this.cmbpatientid.FormattingEnabled = true;
             this.cmbpatientid.Items.AddRange(new object[] {
             "All"});
-            this.cmbpatientid.Location = new System.Drawing.Point(53, 301);
+            this.cmbpatientid.Location = new System.Drawing.Point(1029, 312);
             this.cmbpatientid.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cmbpatientid.Name = "cmbpatientid";
             this.cmbpatientid.Size = new System.Drawing.Size(162, 24);
@@ -580,7 +581,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(82, 105);
+            this.label12.Location = new System.Drawing.Point(93, 123);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 16);
             this.label12.TabIndex = 23;
@@ -592,21 +593,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(433, 171);
+            this.label5.Location = new System.Drawing.Point(454, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 56;
             this.label5.Text = "Description:";
-            // 
-            // rtxtdesc
-            // 
-            this.rtxtdesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtxtdesc.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtdesc.Location = new System.Drawing.Point(506, 174);
-            this.rtxtdesc.Name = "rtxtdesc";
-            this.rtxtdesc.Size = new System.Drawing.Size(246, 51);
-            this.rtxtdesc.TabIndex = 55;
-            this.rtxtdesc.Text = "";
             // 
             // label14
             // 
@@ -621,18 +612,56 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Appointments";
             // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(160, 53);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(201, 21);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(105, 55);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 16);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Search:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BackColor = System.Drawing.Color.White;
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(527, 222);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.Size = new System.Drawing.Size(195, 76);
+            this.txtDescription.TabIndex = 5;
+            // 
             // userAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.rtxtdesc);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtpatientID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbpatientid);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dgvappointments);
             this.Controls.Add(this.label14);
@@ -645,15 +674,17 @@
             this.Controls.Add(this.txtmidname);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtsurname);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtcontact);
             this.Controls.Add(this.dateTimePickerEnd);
             this.Controls.Add(this.txtemail);
             this.Controls.Add(this.dateTimePickerStart);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbdoctor);
+            this.Controls.Add(this.cmbDoctor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePickerDate);
             this.Controls.Add(this.btnClear);
@@ -676,7 +707,7 @@
         private System.Windows.Forms.TextBox txtcontact;
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox cmbdoctor;
+        private System.Windows.Forms.ComboBox cmbDoctor;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirm;
@@ -694,13 +725,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtpatientID;
         private System.Windows.Forms.DataGridView dgvappointments;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         public System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbpatientid;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox rtxtdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colpatientid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPatient;
         private System.Windows.Forms.DataGridViewTextBoxColumn coldmidname;
@@ -713,5 +743,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colstart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colend;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtDescription;
     }
 }

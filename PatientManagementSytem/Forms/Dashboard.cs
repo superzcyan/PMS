@@ -10,22 +10,37 @@ using System.Windows.Forms;
 
 namespace PMS.Forms
 {
-    public partial class Dashboard : Form    {
+    public partial class Dashboard : Form {
         public string loginName, doctorName;
+
+        class Globals
+        {
+            public static Form dashboard;
+        }
+
         public Dashboard()
         {
             InitializeComponent();
         }
 
-
+       
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            lblname.Text = loginName;            
+
+            lblname.Text = loginName;
+            Globals.dashboard = this;
+
             UserControls.userHome home = new UserControls.userHome();
             panelDashboard.Controls.Add(home);
             sidePanel.Height = btnHome.Height;
             sidePanel.Top = btnHome.Top;
+            checkAccess();
 
+        }
+
+       
+        public void checkAccess()
+        {
 
             if (lblname.Text.Contains("admin"))
             {
@@ -42,24 +57,24 @@ namespace PMS.Forms
             if (lblname.Text.Contains("Doctor") || lblname.Text.Contains("Nurse"))
             {
                 btnViewRecords.Location = btnRegisterPatient.Location;
-                btnViewRecords.Visible = true;                
-                
+                btnViewRecords.Visible = true;
+
             }
 
             if (lblname.Text.Contains("Receptionist"))
             {
                 btnViewRecords.Visible = true;
                 btnRegisterPatient.Visible = true;
-                btnNewAppointment.Visible = true;                
+                btnNewAppointment.Visible = true;
 
             }
 
             if (lblname.Text.Contains("Cashier") || lblname.Text.Contains("Pharmacist"))
             {
-                btnViewRecords.Visible = true;                
+                btnViewRecords.Visible = true;
 
             }
-        }        
+        }
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -68,26 +83,28 @@ namespace PMS.Forms
                 login.Show();
             }
         }
-       
+
         private void BtnHome_Click(object sender, EventArgs e)
         {
+            sidePanel.Height = btnHome.Height;
+            sidePanel.Top = btnHome.Top;
             panelDashboard.Controls.Clear();
             UserControls.userHome home = new UserControls.userHome();
             panelDashboard.Controls.Add(home);
             home.Dock = DockStyle.Fill;
-            sidePanel.Height = btnHome.Height;
-            sidePanel.Top = btnHome.Top;
+
         }
 
 
         private void loadUserPatient()
         {
+            sidePanel.Height = btnRegisterPatient.Height;
+            sidePanel.Top = btnRegisterPatient.Top;
             panelDashboard.Controls.Clear();
             UserControls.userPatientInfo patienInfo = new UserControls.userPatientInfo();
             panelDashboard.Controls.Add(patienInfo);
             patienInfo.Dock = DockStyle.Fill;
-            sidePanel.Height = btnRegisterPatient.Height;
-            sidePanel.Top = btnRegisterPatient.Top;
+
         }
         private void BtnRegisterPatient_Click(object sender, EventArgs e)
         {
@@ -96,32 +113,34 @@ namespace PMS.Forms
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
+            sidePanel.Height = btnRegisterStaff.Height;
+            sidePanel.Top = btnRegisterStaff.Top;
             panelDashboard.Controls.Clear();
             UserControls.userRegisterStaff registerStaff = new UserControls.userRegisterStaff();
             panelDashboard.Controls.Add(registerStaff);
             registerStaff.Dock = DockStyle.Fill;
-            sidePanel.Height = btnRegisterStaff.Height;            
-            sidePanel.Top = btnRegisterStaff.Top;
+
         }
 
         private void BtnNewAppointment_Click(object sender, EventArgs e)
         {
+            sidePanel.Height = btnNewAppointment.Height;
+            sidePanel.Top = btnNewAppointment.Top;
             panelDashboard.Controls.Clear();
             UserControls.userAppointments appointments = new UserControls.userAppointments();
             panelDashboard.Controls.Add(appointments);
             appointments.Dock = DockStyle.Fill;
-            sidePanel.Height = btnNewAppointment.Height;
-            sidePanel.Top = btnNewAppointment.Top;
+
         }
 
         private void BtnViewRecords_Click(object sender, EventArgs e)
         {
+            sidePanel.Height = btnViewRecords.Height;
+            sidePanel.Top = btnViewRecords.Top;
             panelDashboard.Controls.Clear();
             UserControls.userPatientRecords patientRecords = new UserControls.userPatientRecords();
             panelDashboard.Controls.Add(patientRecords);
             patientRecords.Dock = DockStyle.Fill;
-            sidePanel.Height = btnViewRecords.Height;
-            sidePanel.Top = btnViewRecords.Top;
 
             patientRecords.presDoctor = doctorName;
         }
@@ -133,7 +152,9 @@ namespace PMS.Forms
 
         private void BtnLogOut_MouseLeave(object sender, EventArgs e)
         {
-            btnLogOut.ForeColor = Color.Black;            
-        }
+            btnLogOut.ForeColor = Color.Black;
+        }              
+            
+       
     }
 }

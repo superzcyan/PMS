@@ -30,31 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userPatientInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Kidney Disease:\n");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Kidney Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Bladder Disease:\n");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Bladder Cancer:\n");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Reproductive Disease:\n");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Ovarian Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Endometrial Cancer:\n");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Cervical Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Osteoporosis:\n");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Other Diseases/Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("High Blood Pressure:");
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("Stroke:");
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("Bleeding Disorder:");
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("Diabetes:");
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("Thyroid Disease:");
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("Heart Disease:");
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("Lung Disease:");
-            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("Lung Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("Gastrointestinal Disease:");
-            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("Colon Cancer:");
-            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem("Pancreatic Cancer:");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -74,11 +57,11 @@
             this.txtothersmed = new System.Windows.Forms.TextBox();
             this.chkListMedical = new System.Windows.Forms.CheckedListBox();
             this.chkboxOther = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpboxGenInfo = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtPatientID = new System.Windows.Forms.TextBox();
             this.txthistory = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.txtPatientID = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -115,46 +98,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridSupMeds = new System.Windows.Forms.DataGridView();
-            this.colSupname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupdosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSuptaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupRegular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridCurrentMeds = new System.Windows.Forms.DataGridView();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collastTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpboxallegergies = new System.Windows.Forms.GroupBox();
             this.chkListAllergy = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.grpboxfam = new System.Windows.Forms.GroupBox();
-            this.listviewFam2 = new System.Windows.Forms.ListView();
+            this.datagridFamMedHistory = new System.Windows.Forms.DataGridView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.listviewFam = new System.Windows.Forms.ListView();
-            this.txtotherdc = new System.Windows.Forms.TextBox();
-            this.txtosteo = new System.Windows.Forms.TextBox();
-            this.txtcervc = new System.Windows.Forms.TextBox();
-            this.txtendoc = new System.Windows.Forms.TextBox();
-            this.txtovarianc = new System.Windows.Forms.TextBox();
-            this.txtreprod = new System.Windows.Forms.TextBox();
-            this.txtbladderc = new System.Windows.Forms.TextBox();
-            this.txtbladderd = new System.Windows.Forms.TextBox();
-            this.txtkidneyc = new System.Windows.Forms.TextBox();
-            this.txtkidneyd = new System.Windows.Forms.TextBox();
-            this.txtpancrea = new System.Windows.Forms.TextBox();
-            this.txtcolonc = new System.Windows.Forms.TextBox();
-            this.txtgastro = new System.Windows.Forms.TextBox();
-            this.txtlungc = new System.Windows.Forms.TextBox();
-            this.txtlungd = new System.Windows.Forms.TextBox();
-            this.txtheartd = new System.Windows.Forms.TextBox();
-            this.txtthyroid = new System.Windows.Forms.TextBox();
-            this.txtdiabetes = new System.Windows.Forms.TextBox();
-            this.txtbleeding = new System.Windows.Forms.TextBox();
-            this.txtstroke = new System.Windows.Forms.TextBox();
-            this.txthb = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grpboxreview = new System.Windows.Forms.GroupBox();
             this.chkListPsych = new System.Windows.Forms.CheckedListBox();
@@ -183,7 +134,7 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.grpboxMentrualandObs = new System.Windows.Forms.GroupBox();
             this.txtnomiscar = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.txtnoofchild = new System.Windows.Forms.TextBox();
@@ -229,12 +180,25 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colMaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSupname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupdosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSuptaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupRegular = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.collastTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTaken = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridPatients)).BeginInit();
             this.grpboxSurgical.SuspendLayout();
             this.grpboxMedical.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpboxGenInfo.SuspendLayout();
             this.grpGender.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -243,9 +207,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCurrentMeds)).BeginInit();
             this.grpboxallegergies.SuspendLayout();
             this.grpboxfam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridFamMedHistory)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.grpboxreview.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.grpboxMentrualandObs.SuspendLayout();
             this.grpboxregularity.SuspendLayout();
             this.grpboxHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridpersonalhistory)).BeginInit();
@@ -279,7 +244,7 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.grpboxSurgical);
             this.tabPage1.Controls.Add(this.grpboxMedical);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.grpboxGenInfo);
             this.tabPage1.Controls.Add(this.txtSearch);
             this.tabPage1.Controls.Add(this.lblSearch);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -547,77 +512,64 @@
             this.chkboxOther.UseVisualStyleBackColor = true;
             this.chkboxOther.Click += new System.EventHandler(this.chkboxOther_CheckedChanged);
             // 
-            // groupBox1
+            // grpboxGenInfo
             // 
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.txtPatientID);
-            this.groupBox1.Controls.Add(this.txthistory);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.txtEmobile);
-            this.groupBox1.Controls.Add(this.txthome);
-            this.groupBox1.Controls.Add(this.txtmobileno);
-            this.groupBox1.Controls.Add(this.dtBirthday);
-            this.groupBox1.Controls.Add(this.txtrelationship);
-            this.groupBox1.Controls.Add(this.txtnamemergency);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtreligion);
-            this.groupBox1.Controls.Add(this.txtemail);
-            this.groupBox1.Controls.Add(this.txtaddress);
-            this.groupBox1.Controls.Add(this.txtage);
-            this.groupBox1.Controls.Add(this.txtsurname);
-            this.groupBox1.Controls.Add(this.txtmidname);
-            this.groupBox1.Controls.Add(this.txtname);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.grpGender);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(276, 80);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(464, 490);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General Information";
+            this.grpboxGenInfo.Controls.Add(this.label24);
+            this.grpboxGenInfo.Controls.Add(this.txthistory);
+            this.grpboxGenInfo.Controls.Add(this.label23);
+            this.grpboxGenInfo.Controls.Add(this.txtPatientID);
+            this.grpboxGenInfo.Controls.Add(this.label22);
+            this.grpboxGenInfo.Controls.Add(this.label21);
+            this.grpboxGenInfo.Controls.Add(this.label20);
+            this.grpboxGenInfo.Controls.Add(this.label19);
+            this.grpboxGenInfo.Controls.Add(this.label17);
+            this.grpboxGenInfo.Controls.Add(this.label15);
+            this.grpboxGenInfo.Controls.Add(this.label12);
+            this.grpboxGenInfo.Controls.Add(this.label10);
+            this.grpboxGenInfo.Controls.Add(this.label8);
+            this.grpboxGenInfo.Controls.Add(this.label7);
+            this.grpboxGenInfo.Controls.Add(this.label6);
+            this.grpboxGenInfo.Controls.Add(this.label4);
+            this.grpboxGenInfo.Controls.Add(this.label16);
+            this.grpboxGenInfo.Controls.Add(this.txtEmobile);
+            this.grpboxGenInfo.Controls.Add(this.txthome);
+            this.grpboxGenInfo.Controls.Add(this.txtmobileno);
+            this.grpboxGenInfo.Controls.Add(this.dtBirthday);
+            this.grpboxGenInfo.Controls.Add(this.txtrelationship);
+            this.grpboxGenInfo.Controls.Add(this.txtnamemergency);
+            this.grpboxGenInfo.Controls.Add(this.label1);
+            this.grpboxGenInfo.Controls.Add(this.txtreligion);
+            this.grpboxGenInfo.Controls.Add(this.txtemail);
+            this.grpboxGenInfo.Controls.Add(this.txtaddress);
+            this.grpboxGenInfo.Controls.Add(this.txtage);
+            this.grpboxGenInfo.Controls.Add(this.txtsurname);
+            this.grpboxGenInfo.Controls.Add(this.txtmidname);
+            this.grpboxGenInfo.Controls.Add(this.txtname);
+            this.grpboxGenInfo.Controls.Add(this.label14);
+            this.grpboxGenInfo.Controls.Add(this.grpGender);
+            this.grpboxGenInfo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpboxGenInfo.Location = new System.Drawing.Point(276, 80);
+            this.grpboxGenInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpboxGenInfo.Name = "grpboxGenInfo";
+            this.grpboxGenInfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpboxGenInfo.Size = new System.Drawing.Size(464, 490);
+            this.grpboxGenInfo.TabIndex = 0;
+            this.grpboxGenInfo.TabStop = false;
+            this.grpboxGenInfo.Text = "General Information";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(27, 36);
+            this.label24.Location = new System.Drawing.Point(26, 26);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 16);
             this.label24.TabIndex = 68;
             this.label24.Text = "Patient ID:";
             // 
-            // txtPatientID
-            // 
-            this.txtPatientID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtPatientID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtPatientID.BackColor = System.Drawing.Color.White;
-            this.txtPatientID.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientID.Location = new System.Drawing.Point(97, 34);
-            this.txtPatientID.Name = "txtPatientID";
-            this.txtPatientID.ReadOnly = true;
-            this.txtPatientID.Size = new System.Drawing.Size(113, 21);
-            this.txtPatientID.TabIndex = 67;
-            this.txtPatientID.TextChanged += new System.EventHandler(this.TxtPatientID_TextChanged);
-            // 
             // txthistory
             // 
-            this.txthistory.Location = new System.Drawing.Point(97, 281);
+            this.txthistory.Location = new System.Drawing.Point(96, 274);
             this.txthistory.Multiline = true;
             this.txthistory.Name = "txthistory";
             this.txthistory.Size = new System.Drawing.Size(258, 96);
@@ -627,17 +579,30 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(8, 260);
+            this.label23.Location = new System.Drawing.Point(7, 253);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(83, 16);
             this.label23.TabIndex = 65;
             this.label23.Text = "Email Address:";
             // 
+            // txtPatientID
+            // 
+            this.txtPatientID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtPatientID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtPatientID.BackColor = System.Drawing.Color.White;
+            this.txtPatientID.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPatientID.Location = new System.Drawing.Point(96, 24);
+            this.txtPatientID.Name = "txtPatientID";
+            this.txtPatientID.ReadOnly = true;
+            this.txtPatientID.Size = new System.Drawing.Size(113, 21);
+            this.txtPatientID.TabIndex = 67;
+            this.txtPatientID.TextChanged += new System.EventHandler(this.TxtPatientID_TextChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(39, 237);
+            this.label22.Location = new System.Drawing.Point(38, 230);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(52, 16);
             this.label22.TabIndex = 64;
@@ -647,7 +612,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(39, 191);
+            this.label21.Location = new System.Drawing.Point(38, 184);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(52, 16);
             this.label21.TabIndex = 63;
@@ -657,7 +622,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(269, 168);
+            this.label20.Location = new System.Drawing.Point(268, 161);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(61, 16);
             this.label20.TabIndex = 62;
@@ -667,7 +632,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(25, 168);
+            this.label19.Location = new System.Drawing.Point(24, 161);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 16);
             this.label19.TabIndex = 61;
@@ -677,7 +642,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(38, 137);
+            this.label17.Location = new System.Drawing.Point(37, 130);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 16);
             this.label17.TabIndex = 60;
@@ -687,7 +652,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(32, 108);
+            this.label15.Location = new System.Drawing.Point(31, 101);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 16);
             this.label15.TabIndex = 59;
@@ -697,7 +662,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 84);
+            this.label12.Location = new System.Drawing.Point(5, 77);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 16);
             this.label12.TabIndex = 58;
@@ -707,7 +672,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(47, 60);
+            this.label10.Location = new System.Drawing.Point(46, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 16);
             this.label10.TabIndex = 57;
@@ -717,7 +682,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 453);
+            this.label8.Location = new System.Drawing.Point(18, 446);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 16);
             this.label8.TabIndex = 55;
@@ -727,7 +692,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 430);
+            this.label7.Location = new System.Drawing.Point(17, 423);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 16);
             this.label7.TabIndex = 54;
@@ -737,7 +702,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(50, 407);
+            this.label6.Location = new System.Drawing.Point(49, 400);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 53;
@@ -747,7 +712,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(267, 214);
+            this.label4.Location = new System.Drawing.Point(266, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 52;
@@ -757,7 +722,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(2, 284);
+            this.label16.Location = new System.Drawing.Point(1, 277);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 16);
             this.label16.TabIndex = 51;
@@ -767,7 +732,7 @@
             // 
             this.txtEmobile.AcceptsReturn = true;
             this.txtEmobile.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmobile.Location = new System.Drawing.Point(97, 451);
+            this.txtEmobile.Location = new System.Drawing.Point(96, 444);
             this.txtEmobile.MaxLength = 11;
             this.txtEmobile.Name = "txtEmobile";
             this.txtEmobile.Size = new System.Drawing.Size(128, 21);
@@ -777,7 +742,7 @@
             // 
             this.txthome.AcceptsReturn = true;
             this.txthome.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthome.Location = new System.Drawing.Point(336, 166);
+            this.txthome.Location = new System.Drawing.Point(335, 159);
             this.txthome.MaxLength = 8;
             this.txthome.Name = "txthome";
             this.txthome.Size = new System.Drawing.Size(120, 21);
@@ -787,7 +752,7 @@
             // 
             this.txtmobileno.AcceptsReturn = true;
             this.txtmobileno.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmobileno.Location = new System.Drawing.Point(97, 166);
+            this.txtmobileno.Location = new System.Drawing.Point(96, 159);
             this.txtmobileno.MaxLength = 11;
             this.txtmobileno.Name = "txtmobileno";
             this.txtmobileno.Size = new System.Drawing.Size(163, 21);
@@ -798,7 +763,7 @@
             this.dtBirthday.CustomFormat = "MMMM dd, yyyy";
             this.dtBirthday.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBirthday.Location = new System.Drawing.Point(97, 212);
+            this.dtBirthday.Location = new System.Drawing.Point(96, 205);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Size = new System.Drawing.Size(163, 21);
             this.dtBirthday.TabIndex = 9;
@@ -807,7 +772,7 @@
             // txtrelationship
             // 
             this.txtrelationship.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrelationship.Location = new System.Drawing.Point(97, 428);
+            this.txtrelationship.Location = new System.Drawing.Point(96, 421);
             this.txtrelationship.Name = "txtrelationship";
             this.txtrelationship.Size = new System.Drawing.Size(128, 21);
             this.txtrelationship.TabIndex = 14;
@@ -815,7 +780,7 @@
             // txtnamemergency
             // 
             this.txtnamemergency.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnamemergency.Location = new System.Drawing.Point(97, 405);
+            this.txtnamemergency.Location = new System.Drawing.Point(96, 398);
             this.txtnamemergency.Name = "txtnamemergency";
             this.txtnamemergency.Size = new System.Drawing.Size(260, 21);
             this.txtnamemergency.TabIndex = 13;
@@ -824,7 +789,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 383);
+            this.label1.Location = new System.Drawing.Point(14, 376);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 16);
             this.label1.TabIndex = 11;
@@ -833,7 +798,7 @@
             // txtreligion
             // 
             this.txtreligion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtreligion.Location = new System.Drawing.Point(97, 189);
+            this.txtreligion.Location = new System.Drawing.Point(96, 182);
             this.txtreligion.Name = "txtreligion";
             this.txtreligion.Size = new System.Drawing.Size(163, 21);
             this.txtreligion.TabIndex = 8;
@@ -841,7 +806,7 @@
             // txtemail
             // 
             this.txtemail.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(97, 258);
+            this.txtemail.Location = new System.Drawing.Point(96, 251);
             this.txtemail.Multiline = true;
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(258, 20);
@@ -850,7 +815,7 @@
             // txtaddress
             // 
             this.txtaddress.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtaddress.Location = new System.Drawing.Point(97, 235);
+            this.txtaddress.Location = new System.Drawing.Point(96, 228);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(359, 21);
             this.txtaddress.TabIndex = 10;
@@ -860,7 +825,7 @@
             this.txtage.BackColor = System.Drawing.Color.White;
             this.txtage.Enabled = false;
             this.txtage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtage.Location = new System.Drawing.Point(305, 212);
+            this.txtage.Location = new System.Drawing.Point(304, 205);
             this.txtage.Name = "txtage";
             this.txtage.ReadOnly = true;
             this.txtage.Size = new System.Drawing.Size(50, 21);
@@ -869,7 +834,7 @@
             // txtsurname
             // 
             this.txtsurname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsurname.Location = new System.Drawing.Point(97, 106);
+            this.txtsurname.Location = new System.Drawing.Point(96, 99);
             this.txtsurname.Name = "txtsurname";
             this.txtsurname.Size = new System.Drawing.Size(233, 21);
             this.txtsurname.TabIndex = 4;
@@ -878,7 +843,7 @@
             // 
             this.txtmidname.CausesValidation = false;
             this.txtmidname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmidname.Location = new System.Drawing.Point(97, 82);
+            this.txtmidname.Location = new System.Drawing.Point(96, 75);
             this.txtmidname.Name = "txtmidname";
             this.txtmidname.Size = new System.Drawing.Size(233, 21);
             this.txtmidname.TabIndex = 3;
@@ -886,7 +851,7 @@
             // txtname
             // 
             this.txtname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.Location = new System.Drawing.Point(97, 58);
+            this.txtname.Location = new System.Drawing.Point(96, 51);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(233, 21);
             this.txtname.TabIndex = 2;
@@ -895,7 +860,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(36, 214);
+            this.label14.Location = new System.Drawing.Point(35, 207);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 16);
             this.label14.TabIndex = 17;
@@ -908,7 +873,7 @@
             this.grpGender.Controls.Add(this.radMale);
             this.grpGender.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpGender.ForeColor = System.Drawing.Color.Black;
-            this.grpGender.Location = new System.Drawing.Point(97, 124);
+            this.grpGender.Location = new System.Drawing.Point(96, 117);
             this.grpGender.Name = "grpGender";
             this.grpGender.Size = new System.Drawing.Size(134, 39);
             this.grpGender.TabIndex = 5;
@@ -984,15 +949,15 @@
             this.groupBox6.Controls.Add(this.dataGridSupMeds);
             this.groupBox6.Location = new System.Drawing.Point(10, 323);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(602, 186);
+            this.groupBox6.Size = new System.Drawing.Size(733, 186);
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SUPPLEMENTS / VITAMINS / HERBAL MEDICATION/S";
             // 
             // dataGridSupMeds
             // 
-            this.dataGridSupMeds.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSupMeds.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridSupMeds.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSupMeds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSupMeds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSupname,
@@ -1000,69 +965,34 @@
             this.colSupFreq,
             this.colSuptaken,
             this.colSupRegular});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSupMeds.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridSupMeds.Location = new System.Drawing.Point(18, 23);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSupMeds.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridSupMeds.Location = new System.Drawing.Point(6, 23);
             this.dataGridSupMeds.Name = "dataGridSupMeds";
             this.dataGridSupMeds.RowHeadersVisible = false;
-            this.dataGridSupMeds.Size = new System.Drawing.Size(578, 150);
+            this.dataGridSupMeds.Size = new System.Drawing.Size(721, 150);
             this.dataGridSupMeds.TabIndex = 0;
-            // 
-            // colSupname
-            // 
-            this.colSupname.DataPropertyName = "brandname";
-            this.colSupname.FillWeight = 177.665F;
-            this.colSupname.HeaderText = "Name(Generic or Brand name)";
-            this.colSupname.Name = "colSupname";
-            // 
-            // colSupdosage
-            // 
-            this.colSupdosage.DataPropertyName = "dosage";
-            this.colSupdosage.FillWeight = 80.58376F;
-            this.colSupdosage.HeaderText = "Dosage(mg/ml)";
-            this.colSupdosage.Name = "colSupdosage";
-            // 
-            // colSupFreq
-            // 
-            this.colSupFreq.DataPropertyName = "frequency";
-            this.colSupFreq.FillWeight = 80.58376F;
-            this.colSupFreq.HeaderText = "Frequency";
-            this.colSupFreq.Name = "colSupFreq";
-            // 
-            // colSuptaken
-            // 
-            this.colSuptaken.DataPropertyName = "lasttaken";
-            this.colSuptaken.FillWeight = 80.58376F;
-            this.colSuptaken.HeaderText = "Last Taken";
-            this.colSuptaken.Name = "colSuptaken";
-            // 
-            // colSupRegular
-            // 
-            this.colSupRegular.DataPropertyName = "regularly";
-            this.colSupRegular.FillWeight = 80.58376F;
-            this.colSupRegular.HeaderText = "Taken Regularly";
-            this.colSupRegular.Name = "colSupRegular";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridCurrentMeds);
             this.groupBox5.Location = new System.Drawing.Point(10, 131);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(602, 186);
+            this.groupBox5.Size = new System.Drawing.Size(733, 186);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "CURRENT MEDICATION/S (Prescription and Over-the-Counter Drugs)";
             // 
             // dataGridCurrentMeds
             // 
-            this.dataGridCurrentMeds.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridCurrentMeds.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridCurrentMeds.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridCurrentMeds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCurrentMeds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
@@ -1070,58 +1000,19 @@
             this.colFreq,
             this.collastTaken,
             this.colTaken});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridCurrentMeds.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridCurrentMeds.Location = new System.Drawing.Point(18, 23);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridCurrentMeds.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridCurrentMeds.Location = new System.Drawing.Point(6, 23);
             this.dataGridCurrentMeds.Name = "dataGridCurrentMeds";
             this.dataGridCurrentMeds.RowHeadersVisible = false;
-            this.dataGridCurrentMeds.Size = new System.Drawing.Size(578, 150);
+            this.dataGridCurrentMeds.Size = new System.Drawing.Size(721, 150);
             this.dataGridCurrentMeds.TabIndex = 0;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "brandname";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colName.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colName.FillWeight = 181.9787F;
-            this.colName.HeaderText = "Name (Generic or Brand name)";
-            this.colName.Name = "colName";
-            // 
-            // colDosage
-            // 
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.FillWeight = 92.38922F;
-            this.colDosage.HeaderText = "Dosage(mg/ml)";
-            this.colDosage.Name = "colDosage";
-            // 
-            // colFreq
-            // 
-            this.colFreq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colFreq.DataPropertyName = "frequency";
-            this.colFreq.FillWeight = 50.76142F;
-            this.colFreq.HeaderText = "Frequency";
-            this.colFreq.Name = "colFreq";
-            this.colFreq.Width = 90;
-            // 
-            // collastTaken
-            // 
-            this.collastTaken.DataPropertyName = "lasttaken";
-            this.collastTaken.FillWeight = 92.38922F;
-            this.collastTaken.HeaderText = "Last Taken";
-            this.collastTaken.Name = "collastTaken";
-            // 
-            // colTaken
-            // 
-            this.colTaken.DataPropertyName = "regularly";
-            this.colTaken.FillWeight = 82.48139F;
-            this.colTaken.HeaderText = "Taken Regularly";
-            this.colTaken.Name = "colTaken";
             // 
             // grpboxallegergies
             // 
@@ -1129,7 +1020,7 @@
             this.grpboxallegergies.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpboxallegergies.Location = new System.Drawing.Point(10, 50);
             this.grpboxallegergies.Name = "grpboxallegergies";
-            this.grpboxallegergies.Size = new System.Drawing.Size(602, 75);
+            this.grpboxallegergies.Size = new System.Drawing.Size(733, 75);
             this.grpboxallegergies.TabIndex = 1;
             this.grpboxallegergies.TabStop = false;
             this.grpboxallegergies.Text = "Do you experience an allergic reaction with the following?";
@@ -1169,73 +1060,59 @@
             // 
             // grpboxfam
             // 
-            this.grpboxfam.Controls.Add(this.listviewFam2);
-            this.grpboxfam.Controls.Add(this.listviewFam);
-            this.grpboxfam.Controls.Add(this.txtotherdc);
-            this.grpboxfam.Controls.Add(this.txtosteo);
-            this.grpboxfam.Controls.Add(this.txtcervc);
-            this.grpboxfam.Controls.Add(this.txtendoc);
-            this.grpboxfam.Controls.Add(this.txtovarianc);
-            this.grpboxfam.Controls.Add(this.txtreprod);
-            this.grpboxfam.Controls.Add(this.txtbladderc);
-            this.grpboxfam.Controls.Add(this.txtbladderd);
-            this.grpboxfam.Controls.Add(this.txtkidneyc);
-            this.grpboxfam.Controls.Add(this.txtkidneyd);
-            this.grpboxfam.Controls.Add(this.txtpancrea);
-            this.grpboxfam.Controls.Add(this.txtcolonc);
-            this.grpboxfam.Controls.Add(this.txtgastro);
-            this.grpboxfam.Controls.Add(this.txtlungc);
-            this.grpboxfam.Controls.Add(this.txtlungd);
-            this.grpboxfam.Controls.Add(this.txtheartd);
-            this.grpboxfam.Controls.Add(this.txtthyroid);
-            this.grpboxfam.Controls.Add(this.txtdiabetes);
-            this.grpboxfam.Controls.Add(this.txtbleeding);
-            this.grpboxfam.Controls.Add(this.txtstroke);
-            this.grpboxfam.Controls.Add(this.txthb);
-            this.grpboxfam.Location = new System.Drawing.Point(644, 50);
+            this.grpboxfam.Controls.Add(this.datagridFamMedHistory);
+            this.grpboxfam.Location = new System.Drawing.Point(759, 13);
             this.grpboxfam.Name = "grpboxfam";
-            this.grpboxfam.Size = new System.Drawing.Size(490, 459);
+            this.grpboxfam.Size = new System.Drawing.Size(310, 520);
             this.grpboxfam.TabIndex = 6;
             this.grpboxfam.TabStop = false;
-            this.grpboxfam.Text = "FAMILY MEDICAL HISTORY  (Please note the family member; Maternal(M) or Paternal(P" +
-    ") when appropriate)";
+            this.grpboxfam.Text = "FAMILY MEDICAL HISTORY  ";
             // 
-            // listviewFam2
+            // datagridFamMedHistory
             // 
-            this.listviewFam2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listviewFam2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listviewFam2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listviewFam2.HideSelection = false;
-            listViewItem11.StateImageIndex = 0;
-            listViewItem12.StateImageIndex = 0;
-            listViewItem13.StateImageIndex = 0;
-            listViewItem14.StateImageIndex = 0;
-            listViewItem15.StateImageIndex = 0;
-            listViewItem16.StateImageIndex = 0;
-            listViewItem17.StateImageIndex = 0;
-            listViewItem18.StateImageIndex = 0;
-            listViewItem19.StateImageIndex = 0;
-            listViewItem20.StateImageIndex = 0;
-            this.listviewFam2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20});
-            this.listviewFam2.Location = new System.Drawing.Point(219, 36);
-            this.listviewFam2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 10);
-            this.listviewFam2.MultiSelect = false;
-            this.listviewFam2.Name = "listviewFam2";
-            this.listviewFam2.Size = new System.Drawing.Size(140, 309);
-            this.listviewFam2.SmallImageList = this.imageList1;
-            this.listviewFam2.TabIndex = 63;
-            this.listviewFam2.UseCompatibleStateImageBehavior = false;
-            this.listviewFam2.View = System.Windows.Forms.View.List;
+            this.datagridFamMedHistory.AllowUserToAddRows = false;
+            this.datagridFamMedHistory.AllowUserToDeleteRows = false;
+            this.datagridFamMedHistory.AllowUserToResizeColumns = false;
+            this.datagridFamMedHistory.AllowUserToResizeRows = false;
+            this.datagridFamMedHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridFamMedHistory.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.datagridFamMedHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datagridFamMedHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datagridFamMedHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridFamMedHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.datagridFamMedHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridFamMedHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colType,
+            this.colPaternal,
+            this.colMaternal});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridFamMedHistory.DefaultCellStyle = dataGridViewCellStyle5;
+            this.datagridFamMedHistory.Location = new System.Drawing.Point(4, 20);
+            this.datagridFamMedHistory.MultiSelect = false;
+            this.datagridFamMedHistory.Name = "datagridFamMedHistory";
+            this.datagridFamMedHistory.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.datagridFamMedHistory.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.datagridFamMedHistory.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.datagridFamMedHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.datagridFamMedHistory.Size = new System.Drawing.Size(300, 490);
+            this.datagridFamMedHistory.TabIndex = 64;
             // 
             // imageList1
             // 
@@ -1243,243 +1120,11 @@
             this.imageList1.ImageSize = new System.Drawing.Size(5, 26);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // listviewFam
-            // 
-            this.listviewFam.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listviewFam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listviewFam.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listviewFam.HideSelection = false;
-            listViewItem21.StateImageIndex = 0;
-            listViewItem21.Tag = "High Blood Pressure:";
-            listViewItem22.StateImageIndex = 0;
-            listViewItem23.StateImageIndex = 0;
-            listViewItem24.StateImageIndex = 0;
-            listViewItem25.StateImageIndex = 0;
-            listViewItem26.StateImageIndex = 0;
-            listViewItem27.StateImageIndex = 0;
-            listViewItem28.StateImageIndex = 0;
-            listViewItem29.StateImageIndex = 0;
-            listViewItem30.StateImageIndex = 0;
-            listViewItem31.StateImageIndex = 0;
-            this.listviewFam.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24,
-            listViewItem25,
-            listViewItem26,
-            listViewItem27,
-            listViewItem28,
-            listViewItem29,
-            listViewItem30,
-            listViewItem31});
-            this.listviewFam.Location = new System.Drawing.Point(4, 36);
-            this.listviewFam.MultiSelect = false;
-            this.listviewFam.Name = "listviewFam";
-            this.listviewFam.Size = new System.Drawing.Size(148, 323);
-            this.listviewFam.SmallImageList = this.imageList1;
-            this.listviewFam.TabIndex = 62;
-            this.listviewFam.UseCompatibleStateImageBehavior = false;
-            this.listviewFam.View = System.Windows.Forms.View.List;
-            // 
-            // txtotherdc
-            // 
-            this.txtotherdc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtotherdc.Location = new System.Drawing.Point(365, 280);
-            this.txtotherdc.Name = "txtotherdc";
-            this.txtotherdc.Size = new System.Drawing.Size(52, 23);
-            this.txtotherdc.TabIndex = 20;
-            this.txtotherdc.Tag = "Other";
-            // 
-            // txtosteo
-            // 
-            this.txtosteo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtosteo.Location = new System.Drawing.Point(365, 253);
-            this.txtosteo.Name = "txtosteo";
-            this.txtosteo.Size = new System.Drawing.Size(52, 23);
-            this.txtosteo.TabIndex = 19;
-            // 
-            // txtcervc
-            // 
-            this.txtcervc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcervc.Location = new System.Drawing.Point(365, 226);
-            this.txtcervc.Name = "txtcervc";
-            this.txtcervc.Size = new System.Drawing.Size(52, 23);
-            this.txtcervc.TabIndex = 18;
-            // 
-            // txtendoc
-            // 
-            this.txtendoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtendoc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtendoc.Location = new System.Drawing.Point(365, 199);
-            this.txtendoc.Name = "txtendoc";
-            this.txtendoc.Size = new System.Drawing.Size(52, 23);
-            this.txtendoc.TabIndex = 17;
-            this.txtendoc.Tag = "Endometrial Cancer";
-            // 
-            // txtovarianc
-            // 
-            this.txtovarianc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtovarianc.Location = new System.Drawing.Point(365, 172);
-            this.txtovarianc.Name = "txtovarianc";
-            this.txtovarianc.Size = new System.Drawing.Size(52, 23);
-            this.txtovarianc.TabIndex = 16;
-            this.txtovarianc.Tag = "Ovarian Cancer";
-            // 
-            // txtreprod
-            // 
-            this.txtreprod.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtreprod.Location = new System.Drawing.Point(365, 145);
-            this.txtreprod.Name = "txtreprod";
-            this.txtreprod.Size = new System.Drawing.Size(52, 23);
-            this.txtreprod.TabIndex = 15;
-            this.txtreprod.Tag = "Reproductive Disease";
-            // 
-            // txtbladderc
-            // 
-            this.txtbladderc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbladderc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbladderc.Location = new System.Drawing.Point(365, 118);
-            this.txtbladderc.Name = "txtbladderc";
-            this.txtbladderc.Size = new System.Drawing.Size(52, 23);
-            this.txtbladderc.TabIndex = 14;
-            this.txtbladderc.Tag = "Bladder Cancer";
-            // 
-            // txtbladderd
-            // 
-            this.txtbladderd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbladderd.Location = new System.Drawing.Point(365, 91);
-            this.txtbladderd.Name = "txtbladderd";
-            this.txtbladderd.Size = new System.Drawing.Size(52, 23);
-            this.txtbladderd.TabIndex = 13;
-            this.txtbladderd.Tag = "Bladder Disease";
-            // 
-            // txtkidneyc
-            // 
-            this.txtkidneyc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtkidneyc.Location = new System.Drawing.Point(365, 64);
-            this.txtkidneyc.Name = "txtkidneyc";
-            this.txtkidneyc.Size = new System.Drawing.Size(52, 23);
-            this.txtkidneyc.TabIndex = 12;
-            this.txtkidneyc.Tag = "Kidney Cancer";
-            // 
-            // txtkidneyd
-            // 
-            this.txtkidneyd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtkidneyd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtkidneyd.Location = new System.Drawing.Point(365, 37);
-            this.txtkidneyd.Name = "txtkidneyd";
-            this.txtkidneyd.Size = new System.Drawing.Size(52, 23);
-            this.txtkidneyd.TabIndex = 11;
-            this.txtkidneyd.Tag = "Kidney Disease";
-            // 
-            // txtpancrea
-            // 
-            this.txtpancrea.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpancrea.Location = new System.Drawing.Point(156, 308);
-            this.txtpancrea.Name = "txtpancrea";
-            this.txtpancrea.Size = new System.Drawing.Size(50, 21);
-            this.txtpancrea.TabIndex = 10;
-            this.txtpancrea.Tag = "Pancreatic Cancer";
-            // 
-            // txtcolonc
-            // 
-            this.txtcolonc.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcolonc.Location = new System.Drawing.Point(156, 281);
-            this.txtcolonc.Name = "txtcolonc";
-            this.txtcolonc.Size = new System.Drawing.Size(50, 21);
-            this.txtcolonc.TabIndex = 9;
-            this.txtcolonc.Tag = "Colon Cancer";
-            // 
-            // txtgastro
-            // 
-            this.txtgastro.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgastro.Location = new System.Drawing.Point(156, 254);
-            this.txtgastro.Name = "txtgastro";
-            this.txtgastro.Size = new System.Drawing.Size(50, 21);
-            this.txtgastro.TabIndex = 8;
-            this.txtgastro.Tag = "Gastrointestinal Disease";
-            // 
-            // txtlungc
-            // 
-            this.txtlungc.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlungc.Location = new System.Drawing.Point(156, 227);
-            this.txtlungc.Name = "txtlungc";
-            this.txtlungc.Size = new System.Drawing.Size(50, 21);
-            this.txtlungc.TabIndex = 7;
-            this.txtlungc.Tag = "Lung Cancer";
-            // 
-            // txtlungd
-            // 
-            this.txtlungd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtlungd.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlungd.Location = new System.Drawing.Point(156, 200);
-            this.txtlungd.Name = "txtlungd";
-            this.txtlungd.Size = new System.Drawing.Size(50, 21);
-            this.txtlungd.TabIndex = 6;
-            this.txtlungd.Tag = "Lung Disease";
-            // 
-            // txtheartd
-            // 
-            this.txtheartd.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtheartd.Location = new System.Drawing.Point(156, 173);
-            this.txtheartd.Name = "txtheartd";
-            this.txtheartd.Size = new System.Drawing.Size(50, 21);
-            this.txtheartd.TabIndex = 5;
-            this.txtheartd.Tag = "Heart Disease";
-            // 
-            // txtthyroid
-            // 
-            this.txtthyroid.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtthyroid.Location = new System.Drawing.Point(156, 146);
-            this.txtthyroid.Name = "txtthyroid";
-            this.txtthyroid.Size = new System.Drawing.Size(50, 21);
-            this.txtthyroid.TabIndex = 4;
-            this.txtthyroid.Tag = "Thyroid Disease";
-            // 
-            // txtdiabetes
-            // 
-            this.txtdiabetes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtdiabetes.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdiabetes.Location = new System.Drawing.Point(156, 119);
-            this.txtdiabetes.Name = "txtdiabetes";
-            this.txtdiabetes.Size = new System.Drawing.Size(50, 21);
-            this.txtdiabetes.TabIndex = 3;
-            this.txtdiabetes.Tag = "Diabetes";
-            // 
-            // txtbleeding
-            // 
-            this.txtbleeding.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbleeding.Location = new System.Drawing.Point(156, 92);
-            this.txtbleeding.Name = "txtbleeding";
-            this.txtbleeding.Size = new System.Drawing.Size(50, 21);
-            this.txtbleeding.TabIndex = 2;
-            this.txtbleeding.Tag = "Bleeding Disorder";
-            // 
-            // txtstroke
-            // 
-            this.txtstroke.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstroke.Location = new System.Drawing.Point(156, 65);
-            this.txtstroke.Name = "txtstroke";
-            this.txtstroke.Size = new System.Drawing.Size(50, 21);
-            this.txtstroke.TabIndex = 1;
-            this.txtstroke.Tag = "Stroke";
-            // 
-            // txthb
-            // 
-            this.txthb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txthb.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthb.Location = new System.Drawing.Point(156, 38);
-            this.txthb.Name = "txthb";
-            this.txthb.Size = new System.Drawing.Size(50, 21);
-            this.txthb.TabIndex = 0;
-            this.txthb.Tag = "High Blood Pressure";
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage3.Controls.Add(this.grpboxreview);
-            this.tabPage3.Controls.Add(this.groupBox9);
+            this.tabPage3.Controls.Add(this.grpboxMentrualandObs);
             this.tabPage3.Controls.Add(this.grpboxHistory);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
@@ -1884,32 +1529,32 @@
             this.label45.TabIndex = 52;
             this.label45.Text = "General";
             // 
-            // groupBox9
+            // grpboxMentrualandObs
             // 
-            this.groupBox9.Controls.Add(this.txtnomiscar);
-            this.groupBox9.Controls.Add(this.label43);
-            this.groupBox9.Controls.Add(this.txtnoofchild);
-            this.groupBox9.Controls.Add(this.label37);
-            this.groupBox9.Controls.Add(this.txtnoofpreg);
-            this.groupBox9.Controls.Add(this.label41);
-            this.groupBox9.Controls.Add(this.txtageofmenopause);
-            this.groupBox9.Controls.Add(this.label42);
-            this.groupBox9.Controls.Add(this.txtmenscycle);
-            this.groupBox9.Controls.Add(this.label36);
-            this.groupBox9.Controls.Add(this.txtdaysmens);
-            this.groupBox9.Controls.Add(this.label38);
-            this.groupBox9.Controls.Add(this.txtpads);
-            this.groupBox9.Controls.Add(this.label39);
-            this.groupBox9.Controls.Add(this.txtagemens);
-            this.groupBox9.Controls.Add(this.label40);
-            this.groupBox9.Controls.Add(this.grpboxregularity);
-            this.groupBox9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(6, 372);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(565, 193);
-            this.groupBox9.TabIndex = 1;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Menstrual and Obstetric History";
+            this.grpboxMentrualandObs.Controls.Add(this.txtnomiscar);
+            this.grpboxMentrualandObs.Controls.Add(this.label43);
+            this.grpboxMentrualandObs.Controls.Add(this.txtnoofchild);
+            this.grpboxMentrualandObs.Controls.Add(this.label37);
+            this.grpboxMentrualandObs.Controls.Add(this.txtnoofpreg);
+            this.grpboxMentrualandObs.Controls.Add(this.label41);
+            this.grpboxMentrualandObs.Controls.Add(this.txtageofmenopause);
+            this.grpboxMentrualandObs.Controls.Add(this.label42);
+            this.grpboxMentrualandObs.Controls.Add(this.txtmenscycle);
+            this.grpboxMentrualandObs.Controls.Add(this.label36);
+            this.grpboxMentrualandObs.Controls.Add(this.txtdaysmens);
+            this.grpboxMentrualandObs.Controls.Add(this.label38);
+            this.grpboxMentrualandObs.Controls.Add(this.txtpads);
+            this.grpboxMentrualandObs.Controls.Add(this.label39);
+            this.grpboxMentrualandObs.Controls.Add(this.txtagemens);
+            this.grpboxMentrualandObs.Controls.Add(this.label40);
+            this.grpboxMentrualandObs.Controls.Add(this.grpboxregularity);
+            this.grpboxMentrualandObs.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpboxMentrualandObs.Location = new System.Drawing.Point(6, 372);
+            this.grpboxMentrualandObs.Name = "grpboxMentrualandObs";
+            this.grpboxMentrualandObs.Size = new System.Drawing.Size(565, 193);
+            this.grpboxMentrualandObs.TabIndex = 1;
+            this.grpboxMentrualandObs.TabStop = false;
+            this.grpboxMentrualandObs.Text = "Menstrual and Obstetric History";
             // 
             // txtnomiscar
             // 
@@ -2117,64 +1762,77 @@
             this.datagridpersonalhistory.AllowUserToDeleteRows = false;
             this.datagridpersonalhistory.AllowUserToResizeRows = false;
             this.datagridpersonalhistory.BackgroundColor = System.Drawing.Color.White;
-            this.datagridpersonalhistory.ColumnHeadersHeight = 29;
+            this.datagridpersonalhistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridpersonalhistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.datagridpersonalhistory.ColumnHeadersHeight = 40;
             this.datagridpersonalhistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colActivity,
             this.colPerDay,
             this.colPerWeek,
             this.colKind,
             this.colMonth});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridpersonalhistory.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridpersonalhistory.DefaultCellStyle = dataGridViewCellStyle8;
             this.datagridpersonalhistory.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.datagridpersonalhistory.Location = new System.Drawing.Point(15, 20);
+            this.datagridpersonalhistory.Location = new System.Drawing.Point(6, 20);
             this.datagridpersonalhistory.MultiSelect = false;
             this.datagridpersonalhistory.Name = "datagridpersonalhistory";
             this.datagridpersonalhistory.RowHeadersVisible = false;
             this.datagridpersonalhistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridpersonalhistory.Size = new System.Drawing.Size(540, 145);
+            this.datagridpersonalhistory.Size = new System.Drawing.Size(553, 152);
             this.datagridpersonalhistory.TabIndex = 52;
             // 
             // colActivity
             // 
             this.colActivity.DataPropertyName = "Activity";
+            this.colActivity.FillWeight = 90.57971F;
             this.colActivity.HeaderText = "Activity";
             this.colActivity.Name = "colActivity";
-            this.colActivity.Width = 110;
             // 
             // colPerDay
             // 
             this.colPerDay.DataPropertyName = "day";
-            this.colPerDay.HeaderText = "PerDay(Bottle/Cup/Glass/Stick/Hrs)";
+            this.colPerDay.FillWeight = 145.9394F;
+            this.colPerDay.HeaderText = "PerDay (Bottle/Cup/Glass/Stick/Hrs)";
             this.colPerDay.Name = "colPerDay";
-            this.colPerDay.Width = 120;
+            this.colPerDay.Width = 161;
             // 
             // colPerWeek
             // 
             this.colPerWeek.DataPropertyName = "week";
+            this.colPerWeek.FillWeight = 78.93027F;
             this.colPerWeek.HeaderText = "PerWeek(Days)";
             this.colPerWeek.Name = "colPerWeek";
-            this.colPerWeek.Width = 95;
+            this.colPerWeek.Width = 87;
             // 
             // colKind
             // 
             this.colKind.DataPropertyName = "kind";
+            this.colKind.FillWeight = 130.7397F;
             this.colKind.HeaderText = "Kind/Type";
             this.colKind.Name = "colKind";
-            this.colKind.Width = 150;
+            this.colKind.Width = 145;
             // 
             // colMonth
             // 
             this.colMonth.DataPropertyName = "month";
+            this.colMonth.FillWeight = 53.81094F;
             this.colMonth.HeaderText = "Month/s";
             this.colMonth.Name = "colMonth";
-            this.colMonth.Width = 60;
+            this.colMonth.Width = 59;
             // 
             // chkboxChild
             // 
@@ -2378,9 +2036,127 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(81)))), ((int)(((byte)(79)))));
             this.label18.Location = new System.Drawing.Point(444, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(316, 42);
+            this.label18.Size = new System.Drawing.Size(319, 42);
             this.label18.TabIndex = 9;
             this.label18.Text = "Patient Information";
+            // 
+            // colType
+            // 
+            this.colType.DataPropertyName = "type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.Width = 180;
+            // 
+            // colPaternal
+            // 
+            this.colPaternal.DataPropertyName = "paternal";
+            this.colPaternal.HeaderText = "Paternal";
+            this.colPaternal.Name = "colPaternal";
+            this.colPaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colPaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colPaternal.Width = 60;
+            // 
+            // colMaternal
+            // 
+            this.colMaternal.DataPropertyName = "maternal";
+            this.colMaternal.HeaderText = "Maternal";
+            this.colMaternal.Name = "colMaternal";
+            this.colMaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMaternal.Width = 60;
+            // 
+            // colSupname
+            // 
+            this.colSupname.DataPropertyName = "brandname";
+            this.colSupname.FillWeight = 125.7609F;
+            this.colSupname.HeaderText = "Name";
+            this.colSupname.Name = "colSupname";
+            this.colSupname.Width = 223;
+            // 
+            // colSupdosage
+            // 
+            this.colSupdosage.DataPropertyName = "dosage";
+            this.colSupdosage.FillWeight = 61.2802F;
+            this.colSupdosage.HeaderText = "Dosage(mg/ml)";
+            this.colSupdosage.Name = "colSupdosage";
+            this.colSupdosage.Width = 107;
+            // 
+            // colSupFreq
+            // 
+            this.colSupFreq.DataPropertyName = "frequency";
+            this.colSupFreq.FillWeight = 48.05496F;
+            this.colSupFreq.HeaderText = "Frequency";
+            this.colSupFreq.Name = "colSupFreq";
+            this.colSupFreq.Width = 95;
+            // 
+            // colSuptaken
+            // 
+            this.colSuptaken.DataPropertyName = "lasttaken";
+            this.colSuptaken.FillWeight = 71.78851F;
+            this.colSuptaken.HeaderText = "Last Taken (MM/dd/yy)";
+            this.colSuptaken.Name = "colSuptaken";
+            this.colSuptaken.Width = 160;
+            // 
+            // colSupRegular
+            // 
+            this.colSupRegular.DataPropertyName = "regularly";
+            this.colSupRegular.FillWeight = 71.78851F;
+            this.colSupRegular.HeaderText = "Taken Regularly";
+            this.colSupRegular.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.colSupRegular.Name = "colSupRegular";
+            this.colSupRegular.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSupRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSupRegular.Width = 127;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "brandname";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colName.FillWeight = 163.501F;
+            this.colName.HeaderText = "Name ";
+            this.colName.Name = "colName";
+            this.colName.Width = 225;
+            // 
+            // colDosage
+            // 
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.FillWeight = 86.86781F;
+            this.colDosage.HeaderText = "Dosage(mg/ml)";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.Width = 105;
+            // 
+            // colFreq
+            // 
+            this.colFreq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colFreq.DataPropertyName = "frequency";
+            this.colFreq.FillWeight = 50.76142F;
+            this.colFreq.HeaderText = "Frequency";
+            this.colFreq.Name = "colFreq";
+            this.colFreq.Width = 90;
+            // 
+            // collastTaken
+            // 
+            this.collastTaken.DataPropertyName = "lasttaken";
+            this.collastTaken.FillWeight = 103.4628F;
+            this.collastTaken.HeaderText = "Last Taken (MM/dd/yy)";
+            this.collastTaken.Name = "collastTaken";
+            this.collastTaken.Width = 170;
+            // 
+            // colTaken
+            // 
+            this.colTaken.DataPropertyName = "regularly";
+            this.colTaken.FillWeight = 95.40694F;
+            this.colTaken.HeaderText = "Taken Regularly";
+            this.colTaken.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.colTaken.Name = "colTaken";
+            this.colTaken.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTaken.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colTaken.Width = 120;
             // 
             // userPatientInfo
             // 
@@ -2402,8 +2178,8 @@
             this.grpboxSurgical.PerformLayout();
             this.grpboxMedical.ResumeLayout(false);
             this.grpboxMedical.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpboxGenInfo.ResumeLayout(false);
+            this.grpboxGenInfo.PerformLayout();
             this.grpGender.ResumeLayout(false);
             this.grpGender.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -2414,12 +2190,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCurrentMeds)).EndInit();
             this.grpboxallegergies.ResumeLayout(false);
             this.grpboxfam.ResumeLayout(false);
-            this.grpboxfam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridFamMedHistory)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.grpboxreview.ResumeLayout(false);
             this.grpboxreview.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.grpboxMentrualandObs.ResumeLayout(false);
+            this.grpboxMentrualandObs.PerformLayout();
             this.grpboxregularity.ResumeLayout(false);
             this.grpboxregularity.PerformLayout();
             this.grpboxHistory.ResumeLayout(false);
@@ -2449,7 +2225,7 @@
         private System.Windows.Forms.GroupBox grpboxMedical;
         private System.Windows.Forms.CheckedListBox chkListMedical;
         private System.Windows.Forms.CheckBox chkboxOther;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpboxGenInfo;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
@@ -2488,40 +2264,12 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dataGridSupMeds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupdosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupFreq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSuptaken;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupRegular;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridCurrentMeds;
         private System.Windows.Forms.GroupBox grpboxallegergies;
         private System.Windows.Forms.CheckedListBox chkListAllergy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox grpboxfam;
-        private System.Windows.Forms.ListView listviewFam2;
-        private System.Windows.Forms.ListView listviewFam;
-        private System.Windows.Forms.TextBox txtotherdc;
-        private System.Windows.Forms.TextBox txtosteo;
-        private System.Windows.Forms.TextBox txtcervc;
-        private System.Windows.Forms.TextBox txtendoc;
-        private System.Windows.Forms.TextBox txtovarianc;
-        private System.Windows.Forms.TextBox txtreprod;
-        private System.Windows.Forms.TextBox txtbladderc;
-        private System.Windows.Forms.TextBox txtbladderd;
-        private System.Windows.Forms.TextBox txtkidneyc;
-        private System.Windows.Forms.TextBox txtkidneyd;
-        private System.Windows.Forms.TextBox txtpancrea;
-        private System.Windows.Forms.TextBox txtcolonc;
-        private System.Windows.Forms.TextBox txtgastro;
-        private System.Windows.Forms.TextBox txtlungc;
-        private System.Windows.Forms.TextBox txtlungd;
-        private System.Windows.Forms.TextBox txtheartd;
-        private System.Windows.Forms.TextBox txtthyroid;
-        private System.Windows.Forms.TextBox txtdiabetes;
-        private System.Windows.Forms.TextBox txtbleeding;
-        private System.Windows.Forms.TextBox txtstroke;
-        private System.Windows.Forms.TextBox txthb;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox grpboxreview;
         private System.Windows.Forms.CheckedListBox chkListPsych;
@@ -2550,7 +2298,7 @@
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox grpboxMentrualandObs;
         private System.Windows.Forms.TextBox txtnomiscar;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox txtnoofchild;
@@ -2588,25 +2336,34 @@
         private System.Windows.Forms.TextBox txtchallenges;
         private System.Windows.Forms.TextBox txtgoals;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFreq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn collastTaken;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTaken;
         private System.Windows.Forms.DataGridView datagridpersonalhistory;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colActivity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPerDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPerWeek;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKind;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMonth;
         private System.Windows.Forms.TextBox txthistory;
         private System.Windows.Forms.TextBox txtotherssurgical;
         private System.Windows.Forms.TextBox txtothersmed;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtPatientID;
+        private System.Windows.Forms.DataGridView datagridFamMedHistory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActivity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPerDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPerWeek;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colPaternal;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colMaternal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupdosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupFreq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSuptaken;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colSupRegular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFreq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn collastTaken;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colTaken;
     }
 }

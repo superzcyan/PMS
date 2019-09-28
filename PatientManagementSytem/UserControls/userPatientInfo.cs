@@ -20,11 +20,13 @@ namespace PMS.UserControls
         MySqlDataReader msqlReader;
         TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
         String allergies = "", medical = "", surgical = "", fammedhistory = "", reviews = "", regularity = "", gender = "", result = "", patientid = "", fullName = "";
-        int From, To;
+        int From, To, paternalRow;
         public userPatientInfo()
         {
             InitializeComponent();
             autoComplete();
+           
+            
         }
 
         public void autoComplete()
@@ -45,24 +47,38 @@ namespace PMS.UserControls
             connect.Close();
 
          }
+
+        public void clearControls()
+        {
+            userPatientInfo userPatientInfoForm = new userPatientInfo();
+            foreach (Control controls in tabControl1.Controls)
+            {
+                if (controls is TextBox)
+                {
+                    controls.Text = String.Empty;
+                }
+             
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            this.InitializeComponent();
+            infoReload();
+            
+        }
+
         public void clearAll()
         {
-            foreach (Control obj in groupBox1.Controls)
+            foreach (Control obj in grpboxGenInfo.Controls)
             {
 
                 if (obj is TextBox)
                 {
                     obj.Text = "";
-                }
-                if (obj is RichTextBox)
-                {
-                    obj.Text = "";
-                }
-
-                radFemale.Checked = false;
-                radMale.Checked = false;
+                }                
             }
-
 
             foreach (int i in chkListMedical.CheckedIndices)
             {
@@ -162,8 +178,7 @@ namespace PMS.UserControls
                     obj.Text = "";
                 }
             }
-
-
+            
             dtBirthday.ResetText();
             chkboxOther.Checked = false;
             chkboxOther1.Checked = false;
@@ -175,8 +190,7 @@ namespace PMS.UserControls
             dataGridCurrentMeds.DataSource = null;
             dataGridSupMeds.DataSource = null;
             datagridpersonalhistory.DataSource = null;
-            datagridPatients.Refresh();
-            
+            datagridPatients.Refresh();            
 
         }
         
@@ -189,51 +203,91 @@ namespace PMS.UserControls
             TimeSpan span = to - from;
             double days = span.TotalDays;
             txtage.Text = Math.Truncate(days / 365).ToString("0");
-
-
-
         }
 
         public void infoReload()
         {
-
             txtSearch.Focus();
             radAdd.Checked = true;
             connect.Open();
             command.Connection = connect;
-
             MySqlDataAdapter adapterpatients = new MySqlDataAdapter("Select *, CONCAT(firstname,' ',middlename,' ',lastname) AS patientname FROM patients", connect);
-
-
+            
             DataTable tablepatients = new DataTable();
             adapterpatients.Fill(tablepatients);
             datagridPatients.AutoGenerateColumns = false;
             datagridPatients.DataSource = tablepatients;
-
+            datagridPatients.ClearSelection();
+            
 
             command.CommandText = "Select COUNT(*) from patients";
             int count = Convert.ToInt16(command.ExecuteScalar()) + 1;
             txtPatientID.Text = "P" + count.ToString();
-            connect.Close();
-            
-
-           
+            connect.Close();          
 
         }
 
+        private void addFamMedHistory()
+        {
+            int highBlood = datagridFamMedHistory.Rows.Add();
+            int stroke = datagridFamMedHistory.Rows.Add();
+            int bleedDisorder = datagridFamMedHistory.Rows.Add();
+            int diabetes = datagridFamMedHistory.Rows.Add();
+            int thyroidD = datagridFamMedHistory.Rows.Add();
+            int heartD = datagridFamMedHistory.Rows.Add();
+            int lungD = datagridFamMedHistory.Rows.Add();
+            int lungC = datagridFamMedHistory.Rows.Add();
+            int gastroD = datagridFamMedHistory.Rows.Add();
+            int colonC = datagridFamMedHistory.Rows.Add();
+            int pacreaC = datagridFamMedHistory.Rows.Add();
+            int kidneyD = datagridFamMedHistory.Rows.Add();
+            int kidneyC = datagridFamMedHistory.Rows.Add();
+            int bladderD = datagridFamMedHistory.Rows.Add();
+            int bladderC = datagridFamMedHistory.Rows.Add();
+            int reproD = datagridFamMedHistory.Rows.Add();
+            int ovarianC = datagridFamMedHistory.Rows.Add();
+            int endoC = datagridFamMedHistory.Rows.Add();
+            int cervicalC = datagridFamMedHistory.Rows.Add();
+            int osteo = datagridFamMedHistory.Rows.Add();
+            int otherDC = datagridFamMedHistory.Rows.Add();
+            datagridFamMedHistory.RowCount = 21;
+
+            datagridFamMedHistory.Rows[highBlood].Cells[0].Value = "High Blood";
+            datagridFamMedHistory.Rows[stroke].Cells[0].Value = "Stroke";
+            datagridFamMedHistory.Rows[bleedDisorder].Cells[0].Value = "Bleed Disorder";
+            datagridFamMedHistory.Rows[diabetes].Cells[0].Value = "Diabetes";
+            datagridFamMedHistory.Rows[thyroidD].Cells[0].Value = "Thyroid Disease";
+            datagridFamMedHistory.Rows[heartD].Cells[0].Value = "Heart Disease";
+            datagridFamMedHistory.Rows[lungC].Cells[0].Value = "Lung Cancer";
+            datagridFamMedHistory.Rows[lungD].Cells[0].Value = "Lung Disease";
+            datagridFamMedHistory.Rows[gastroD].Cells[0].Value = "Gastrointestinal Disease";
+            datagridFamMedHistory.Rows[colonC].Cells[0].Value = "Colon Cancer";
+            datagridFamMedHistory.Rows[pacreaC].Cells[0].Value = "Pancreatic Cancer";
+            datagridFamMedHistory.Rows[kidneyD].Cells[0].Value = "Kidney Disease";
+            datagridFamMedHistory.Rows[kidneyC].Cells[0].Value = "Kidney Cancer";
+            datagridFamMedHistory.Rows[bladderD].Cells[0].Value = "Bladder Disease";
+            datagridFamMedHistory.Rows[bladderC].Cells[0].Value = "Bladder Cancer";
+            datagridFamMedHistory.Rows[reproD].Cells[0].Value = "Reproductive Disease";
+            datagridFamMedHistory.Rows[ovarianC].Cells[0].Value = "Ovarian Cancer";
+            datagridFamMedHistory.Rows[endoC].Cells[0].Value = "Endometrial Cancer";
+            datagridFamMedHistory.Rows[cervicalC].Cells[0].Value = "Cervical Cancer";
+            datagridFamMedHistory.Rows[osteo].Cells[0].Value = "Osteoporosis";
+            datagridFamMedHistory.Rows[otherDC].Cells[0].Value = "Other Diseases/Cancer";
+            datagridFamMedHistory.Columns["colType"].ReadOnly = true;
+        }
         private void addhistory()
         {
-            int a = datagridpersonalhistory.Rows.Add();
-            int b = datagridpersonalhistory.Rows.Add();
-            int c = datagridpersonalhistory.Rows.Add();
-            int d = datagridpersonalhistory.Rows.Add();
-            int f = datagridpersonalhistory.Rows.Add();
+            int alchol = datagridpersonalhistory.Rows.Add();
+            int smoke = datagridpersonalhistory.Rows.Add();
+            int caffeine = datagridpersonalhistory.Rows.Add();
+            int drugs = datagridpersonalhistory.Rows.Add();
+            int excercise = datagridpersonalhistory.Rows.Add();
             datagridpersonalhistory.RowCount = 5;
-            datagridpersonalhistory.Rows[a].Cells[0].Value = "Alcohol";
-            datagridpersonalhistory.Rows[b].Cells[0].Value = "Tobacco/Cigar";
-            datagridpersonalhistory.Rows[c].Cells[0].Value = "Caffeine";
-            datagridpersonalhistory.Rows[d].Cells[0].Value = "Drugs";
-            datagridpersonalhistory.Rows[f].Cells[0].Value = "Excercise";
+            datagridpersonalhistory.Rows[alchol].Cells[0].Value = "Alcohol";
+            datagridpersonalhistory.Rows[smoke].Cells[0].Value = "Tobacco/Cigar";
+            datagridpersonalhistory.Rows[caffeine].Cells[0].Value = "Caffeine";
+            datagridpersonalhistory.Rows[drugs].Cells[0].Value = "Drugs";
+            datagridpersonalhistory.Rows[excercise].Cells[0].Value = "Excercise";
             datagridpersonalhistory.Columns["colActivity"].ReadOnly = true;
         }
         private void PersonalInfo_Load(object sender, EventArgs e)
@@ -373,7 +427,7 @@ namespace PMS.UserControls
         {
             if (radFemale.Checked == true)
             {
-                foreach (Control textbox in groupBox9.Controls)
+                foreach (Control textbox in grpboxMentrualandObs.Controls)
                 {
 
                     if (textbox is TextBox)
@@ -386,7 +440,7 @@ namespace PMS.UserControls
             }
             else
             {
-                foreach (Control textbox in groupBox9.Controls)
+                foreach (Control textbox in grpboxMentrualandObs.Controls)
                 {
 
                     if (textbox is TextBox)
@@ -569,10 +623,10 @@ namespace PMS.UserControls
         private void DatagridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             patientid = datagridPatients.CurrentRow.Cells[0].Value.ToString();
-            radUpdate.Checked = true;                                 
+            radUpdate.Checked = true;            
             searchPatient();
         }
-
+               
         private void btnSearch_Click(object sender, EventArgs e)
         {
             radUpdate.Checked = true;            
@@ -580,10 +634,10 @@ namespace PMS.UserControls
             patientid = txtSearch.Text;
             searchPatient();
         }
-
-        
+      
         private void searchPatient()
         {
+            clearAll();
             //Search query using Full Name
             connect.Open();                     
             command.CommandText = "Select patientid FROM patients WHERE CONCAT(firstname, ' ', middlename, ' ', lastname) = '"+ fullName + "' OR patientid = '" + patientid + "'";
@@ -598,29 +652,39 @@ namespace PMS.UserControls
 
             //SQL query for Searching
             connect.Open();
-            foreach (int check in chkListMedical.CheckedIndices)
-            {
-                chkListMedical.SetItemCheckState(check, CheckState.Unchecked);
-            }
-
+            
+            //fill currentmed dgvtable
             MySqlDataAdapter adaptercurrentmed = new MySqlDataAdapter("Select * FROM currentmedication WHERE currentmedication.patientid = '" + patientid + "'", connect);
             DataTable tablecurrentmed = new DataTable();
             adaptercurrentmed.Fill(tablecurrentmed);
             dataGridCurrentMeds.AutoGenerateColumns = false;
             dataGridCurrentMeds.DataSource = tablecurrentmed;
+            //fill currentmed dgvtable end
 
-
+            //fill supplements dgvtable
             MySqlDataAdapter adaptersupplements = new MySqlDataAdapter("Select * FROM supplements WHERE supplements.patientid = '" + patientid + "'", connect);
             DataTable tablesupplements = new DataTable();
             adaptersupplements.Fill(tablesupplements);
             dataGridSupMeds.AutoGenerateColumns = false;
             dataGridSupMeds.DataSource = tablesupplements;
+            //fill supplements dgvtable end
 
+            //fill personalhistory dgvtable
             MySqlDataAdapter adapterpersonalhistory = new MySqlDataAdapter("Select * FROM personalandsocialhistory WHERE personalandsocialhistory.patientid = '" + patientid + "'", connect);
             DataTable tablepersonalhistory = new DataTable();
             adapterpersonalhistory.Fill(tablepersonalhistory);
             datagridpersonalhistory.AutoGenerateColumns = false;
             datagridpersonalhistory.DataSource = tablepersonalhistory;
+            //fill personalhistory dgvtable end
+
+            //fill family medical history dgvtable
+            MySqlDataAdapter adaptfamilymedhistory = new MySqlDataAdapter("Select * FROM familymedhistory WHERE familymedhistory.patientid = '" + patientid + "'", connect);
+            DataTable tablefammedhistory = new DataTable();
+            adaptfamilymedhistory.Fill(tablefammedhistory);
+            datagridFamMedHistory.AutoGenerateColumns = false;
+            datagridFamMedHistory.DataSource = tablefammedhistory;
+            //fill family medical history dgvtable end
+
 
             //Search query using patientID
             command.CommandText = "Select * FROM patients, healthandwellnessgoals, medicationhistory, menstrual WHERE patients.patientid = '" + patientid + "' AND medicationhistory.patientid = '" + patientid + "'  AND menstrual.patientid = '" + patientid + "' AND healthandwellnessgoals.patientid = '" + patientid + "'";
@@ -762,162 +826,10 @@ namespace PMS.UserControls
                         chkListAllergy.SetItemChecked(i, true);
                     }
 
-                }
+                }            
+               
 
-                fammedhistory = msqlReader["familymedicalhistory"].ToString();
-                if (fammedhistory.Contains("High Blood Pressure"))
-                {
-                    From = fammedhistory.IndexOf("High Blood Pressure(") + "High Blood Pressure(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txthb.Text = result;
-                }
-                if (fammedhistory.Contains("Stroke"))
-                {
-                    From = fammedhistory.IndexOf("Stroke(") + "Stroke(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtstroke.Text = result;
-                }
-                if (fammedhistory.Contains("Bleeding Disorder"))
-                {
-                    From = fammedhistory.IndexOf("Bleeding Disorder(") + "Bleeding Disorder(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtbleeding.Text = result;
-                }
-                if (fammedhistory.Contains("Diabetes"))
-                {
-                    From = fammedhistory.IndexOf("Diabetes(") + "Diabetes(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtdiabetes.Text = result;
-                }
-                if (fammedhistory.Contains("Thyroid Disease"))
-                {
-                    From = fammedhistory.IndexOf("Thyroid Disease(") + "Thyroid Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtthyroid.Text = result;
-                }
-                if (fammedhistory.Contains("Heart Disease"))
-                {
-                    From = fammedhistory.IndexOf("Heart Disease(") + "Heart Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtheartd.Text = result;
-                }
-                if (fammedhistory.Contains("Lung Disease"))
-                {
-                    From = fammedhistory.IndexOf("Lung Disease(") + "Lung Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtlungd.Text = result;
-                    result = "";
-                }
-                if (fammedhistory.Contains("Lung Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Lung Cancer(") + "Lung Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtlungc.Text = result;
-                }
-                if (fammedhistory.Contains("Gastrointestinal Disease"))
-                {
-                    From = fammedhistory.IndexOf("Gastrointestinal Disease(") + "Gastrointestinal Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtgastro.Text = result;
-                }
-                if (fammedhistory.Contains("Colon Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Colon Cancer(") + "Colon Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtcolonc.Text = result;
-                }
-                if (fammedhistory.Contains("Pancreatic Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Pancreatic Cancer(") + "Pancreatic Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtpancrea.Text = result;
-                }
-                if (fammedhistory.Contains("Kidney Disease"))
-                {
-                    From = fammedhistory.IndexOf("Kidney Disease(") + "Kidney Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtkidneyd.Text = result;
-                }
-                if (fammedhistory.Contains("Kidney Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Kidney Cancer(") + "Kidney Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtkidneyc.Text = result;
-                }
-                if (fammedhistory.Contains("Bladder Disease"))
-                {
-                    From = fammedhistory.IndexOf("Bladder Disease(") + "Bladder Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtbladderd.Text = result;
-                }
-                if (fammedhistory.Contains("Bladder Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Bladder Cancer(") + "Bladder Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtbladderc.Text = result;
-                }
-                if (fammedhistory.Contains("Reproductive Disease"))
-                {
-                    From = fammedhistory.IndexOf("Reproductive Disease(") + "Reproductive Disease(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtreprod.Text = result;
-                }
-                if (fammedhistory.Contains("Ovarian Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Ovarian Cancer(") + "Ovarian Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtovarianc.Text = result;
-                }
-                if (fammedhistory.Contains("Endometrial Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Endometrial Cancer(") + "Endometrial Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtendoc.Text = result;
-                }
-                if (fammedhistory.Contains("Cervical Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Cervical Cancer(") + "Cervical Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtcervc.Text = result;
-                }
-                if (fammedhistory.Contains("Osteoporosis"))
-                {
-                    From = fammedhistory.IndexOf("Osteoporosis(") + "Osteoporosis(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtosteo.Text = result;
-                }
-                if (fammedhistory.Contains("Other Disease/Cancer"))
-                {
-                    From = fammedhistory.IndexOf("Other Disease/Cancer(") + "Other Disease/Cancer(".Length;
-                    To = fammedhistory.IndexOf(")", From);
-                    result = fammedhistory.Substring(From, To - From);
-                    txtotherdc.Text = result;
-                }
-                else
-                {
-                    result = "";
-                }
-
+                //Retrieve Freview of past 6months from Database start
                 reviews = msqlReader["reviewpast6months"].ToString();
                 String[] rev = reviews.Split(',');
                 for (int i = 0; i < rev.Length; i++)
@@ -1065,6 +977,7 @@ namespace PMS.UserControls
                     }
 
                 }
+                //Retrieve Freview of past 6months from Database end
 
 
             }
@@ -1087,7 +1000,7 @@ namespace PMS.UserControls
         {
             if (radFemale.Checked == true)
             {
-                foreach (Control textbox in groupBox9.Controls)
+                foreach (Control textbox in grpboxMentrualandObs.Controls)
                 {
 
                     if (textbox is TextBox)
@@ -1100,7 +1013,7 @@ namespace PMS.UserControls
             }
             else
             {
-                foreach (Control textbox in groupBox9.Controls)
+                foreach (Control textbox in grpboxMentrualandObs.Controls)
                 {
 
                     if (textbox is TextBox)
@@ -1144,6 +1057,7 @@ namespace PMS.UserControls
                 txtPatientID.Text = "P" + count.ToString();
                 connect.Close();
                 addhistory();
+                addFamMedHistory();
             }          
         }
 
@@ -1185,14 +1099,7 @@ namespace PMS.UserControls
         }
 
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            this.Controls.Clear();
-            this.InitializeComponent();
-            infoReload();
-
-        }
-
+       
         private void addPatient()
         {
             foreach (RadioButton rad in grpGender.Controls)
@@ -1221,141 +1128,159 @@ namespace PMS.UserControls
 
             connect.Close();
 
-            if ((txtname.Text == "") || (txtmidname.Text == "") || (txtsurname.Text == "") || (txtmobileno.Text == " ") || (txthome.Text == " ") || (txtage.Text == "") || (txtaddress.Text == "") || (txtnamemergency.Text == "")
-                || (txtEmobile.Text == "") || (txtrelationship.Text == "Relationship") || (gender == ""))
+            foreach(Control obj in grpboxGenInfo.Controls)
             {
-                MessageBox.Show("Please complete details on personal informations");
-
-            }
-
-            else
-            {
-
-                connect.Open();
-
-                foreach (Object itemChecked in chkListMedical.CheckedItems)
+                if(obj is TextBox)
                 {
-                    medical += itemChecked.ToString() + ", ";
-                }
-                medical += "Other( " + txtothersmed.Text + " )";
-                medical = medical.TrimEnd(',', ' ');
-
-                foreach (Object itemChecked in chkListSurgical.CheckedItems)
-                {
-                    surgical += itemChecked.ToString() + ", ";
-                }
-                surgical += "Other( " + txtotherssurgical.Text + " )";
-                surgical = surgical.TrimEnd(',', ' ');
-
-
-                foreach (Object itemChecked in chkListAllergy.CheckedItems)
-                {
-
-                    allergies += itemChecked.ToString() + ", ";
-
-                }
-                allergies = allergies.TrimEnd(',', ' ');
-
-
-                foreach (Control textbox in grpboxfam.Controls)
-                {
-
-                    if ((textbox is TextBox) && (!(String.IsNullOrEmpty(textbox.Text))))
+                    TextBox textBoxes = obj as TextBox;
+                    if (string.IsNullOrEmpty(textBoxes.Text))
                     {
-                        fammedhistory += textbox.Tag + "(" + textbox.Text + ")" + ", ";
-
+                        MessageBox.Show("Please complete details on general information");
+                        break;
                     }
+                    else
+                    {
+                        connect.Open();
 
-                }
-                fammedhistory = fammedhistory.TrimEnd(',', ' ');
+                        foreach (Object itemChecked in chkListMedical.CheckedItems)
+                        {
+                            medical += itemChecked.ToString() + ", ";
+                        }
+                        medical += "Other( " + txtothersmed.Text + " )";
+                        medical = medical.TrimEnd(',', ' ');
 
-                foreach (Object item in chkListGeneral.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListNeuro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListSkin.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListCardio.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListGastro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListKidney.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListRepro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListEyes.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListRespi.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListEndo.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListHema.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListSkel.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListPsych.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                reviews = reviews.TrimEnd(',', ' ');
+                        foreach (Object itemChecked in chkListSurgical.CheckedItems)
+                        {
+                            surgical += itemChecked.ToString() + ", ";
+                        }
+                        surgical += "Other( " + txtotherssurgical.Text + " )";
+                        surgical = surgical.TrimEnd(',', ' ');
 
 
-                foreach (Control radbox in grpboxregularity.Controls)
-                {
+                        foreach (Object itemChecked in chkListAllergy.CheckedItems)
+                        {
 
-                    if ((radbox is RadioButton) && ((RadioButton)radbox).Checked)
-                        regularity = radbox.Text;
-                }
+                            allergies += itemChecked.ToString() + ", ";
 
-                command.Parameters.Clear();
-                command.CommandText = "Select COUNT(*) from patients";
-                int count = Convert.ToInt16(command.ExecuteScalar()) + 1;
-                txtPatientID.Text = "P" + count.ToString();
+                        }
+                        allergies = allergies.TrimEnd(',', ' ');
 
-                command.CommandText = @"INSERT INTO patients(patientid, firstname, middlename, lastname, gender, birthday, age, address, email, religion, mobileno, homeno, emergencyname, emergencycontact, emergencyrelationship, avesleep, work, occupation, prevoccupation, numberofchildren) 
+
+                       /* foreach (Control textbox in grpboxfam.Controls)
+                        {
+
+                            if ((textbox is TextBox) && (!(String.IsNullOrEmpty(textbox.Text))))
+                            {
+                                fammedhistory += textbox.Tag + "(" + textbox.Text + ")" + ", ";
+
+                            }
+
+                        }
+                        fammedhistory = fammedhistory.TrimEnd(',', ' ');*/
+
+
+                        /*
+                        foreach (DataGridViewRow rowPaternal in datagridFamMedHistory.Rows)
+                        {
+                            if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colPaternal"]).Value) == true)
+                            {
+                                fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Paternal), ";
+                            }
+                            if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colMaternal"]).Value) == true)
+                            {
+                                fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Maternal), ";
+
+                            }
+
+                        }*/
+
+                        foreach (Object item in chkListGeneral.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListNeuro.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+
+                        foreach (Object item in chkListSkin.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+
+                        foreach (Object item in chkListCardio.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+
+                        foreach (Object item in chkListGastro.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListKidney.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListRepro.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListEyes.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListRespi.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListEndo.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListHema.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListSkel.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        foreach (Object item in chkListPsych.CheckedItems)
+                        {
+                            reviews += item.ToString() + ", ";
+
+                        }
+                        reviews = reviews.TrimEnd(',', ' ');
+
+
+                        foreach (Control radbox in grpboxregularity.Controls)
+                        {
+
+                            if ((radbox is RadioButton) && ((RadioButton)radbox).Checked)
+                                regularity = radbox.Text;
+                        }
+
+                        command.Parameters.Clear();
+                        command.CommandText = "Select COUNT(*) from patients";
+                        int count = Convert.ToInt16(command.ExecuteScalar()) + 1;
+                        patientid = "P" + count.ToString();
+
+                        command.CommandText = @"INSERT INTO patients(patientid, firstname, middlename, lastname, gender, birthday, age, address, email, religion, mobileno, homeno, emergencyname, emergencycontact, emergencyrelationship, avesleep, work, occupation, prevoccupation, numberofchildren) 
                                                     VALUES (@patientid, @firstname, @middlename, @lastname, @gender, @birthday, @age, @address, @email, @religion, @mobileno, @homeno, @emergencyname, @emergencycontact, @emergencyrelationship, @avesleep, @work, @occupation, @prevoccupation, @numberofchildren);
-                                    INSERT INTO medicationhistory(patientid, historyofillness, medicalhistory, surgicalhistory, medicationsuppallergyhistory, familymedicalhistory, reviewpast6months) 
-                                                    VALUES(@patientid, @historyofillness, @medicalhistory, @surgicalhistory, @medicationsuppallergyhistory, @familymedicalhistory, @reviewpast6months);                                   
+                                    INSERT INTO medicationhistory(patientid, historyofillness, medicalhistory, surgicalhistory, medicationsuppallergyhistory, reviewpast6months) 
+                                                    VALUES(@patientid, @historyofillness, @medicalhistory, @surgicalhistory, @medicationsuppallergyhistory, @reviewpast6months);                                   
                                     INSERT INTO healthandwellnessgoals(patientid, goals, challenges)
                                                     VALUES(@patientid, @goals, @challenges);
                                     INSERT INTO menstrual(patientid, ageofmens, padperday, daysofmens, regularity, menscycle, agemenopause, nopregnancies, nochildren, nomiscarriage)
@@ -1363,124 +1288,145 @@ namespace PMS.UserControls
 
 
 
-                command.Parameters.AddWithValue("@patientid", txtPatientID.Text);
-                command.Parameters.AddWithValue("@firstname", txtname.Text);
-                command.Parameters.AddWithValue("@middlename", txtmidname.Text);
-                command.Parameters.AddWithValue("@lastname", txtsurname.Text);
-                command.Parameters.AddWithValue("@gender", gender);
-                command.Parameters.AddWithValue("@birthday", dtBirthday.Text);
-                command.Parameters.AddWithValue("@age", txtage.Text);
-                command.Parameters.AddWithValue("@address", txtaddress.Text);
-                command.Parameters.AddWithValue("@email", txtemail.Text);
-                command.Parameters.AddWithValue("@religion", txtreligion.Text);
-                command.Parameters.AddWithValue("@mobileno", txtmobileno.Text);
-                command.Parameters.AddWithValue("@homeno", txthome.Text);
-                command.Parameters.AddWithValue("@emergencyname", txtnamemergency.Text);
-                command.Parameters.AddWithValue("@emergencycontact", txtEmobile.Text);
-                command.Parameters.AddWithValue("@emergencyrelationship", txtrelationship.Text);
+                        command.Parameters.AddWithValue("@patientid", patientid);
+                        command.Parameters.AddWithValue("@firstname", txtname.Text);
+                        command.Parameters.AddWithValue("@middlename", txtmidname.Text);
+                        command.Parameters.AddWithValue("@lastname", txtsurname.Text);
+                        command.Parameters.AddWithValue("@gender", gender);
+                        command.Parameters.AddWithValue("@birthday", dtBirthday.Text);
+                        command.Parameters.AddWithValue("@age", txtage.Text);
+                        command.Parameters.AddWithValue("@address", txtaddress.Text);
+                        command.Parameters.AddWithValue("@email", txtemail.Text);
+                        command.Parameters.AddWithValue("@religion", txtreligion.Text);
+                        command.Parameters.AddWithValue("@mobileno", txtmobileno.Text);
+                        command.Parameters.AddWithValue("@homeno", txthome.Text);
+                        command.Parameters.AddWithValue("@emergencyname", txtnamemergency.Text);
+                        command.Parameters.AddWithValue("@emergencycontact", txtEmobile.Text);
+                        command.Parameters.AddWithValue("@emergencyrelationship", txtrelationship.Text);
 
-                command.Parameters.AddWithValue("@avesleep", txtsleep.Text);
-                command.Parameters.AddWithValue("@work", txtwork.Text);
-                command.Parameters.AddWithValue("@occupation", txtoccupation.Text);
-                command.Parameters.AddWithValue("@prevoccupation", txtprevoccupation.Text);
-                command.Parameters.AddWithValue("@numberofchildren", txtnoofchild.Text);
+                        command.Parameters.AddWithValue("@avesleep", txtsleep.Text);
+                        command.Parameters.AddWithValue("@work", txtwork.Text);
+                        command.Parameters.AddWithValue("@occupation", txtoccupation.Text);
+                        command.Parameters.AddWithValue("@prevoccupation", txtprevoccupation.Text);
+                        command.Parameters.AddWithValue("@numberofchildren", txtnoofchild.Text);
 
-                command.Parameters.AddWithValue("@historyofillness", txthistory.Text);
-                command.Parameters.AddWithValue("@medicalhistory", medical);
-                command.Parameters.AddWithValue("@surgicalhistory", surgical);
-                command.Parameters.AddWithValue("@medicationsuppallergyhistory", allergies);
-                command.Parameters.AddWithValue("@familymedicalhistory", fammedhistory);
-                command.Parameters.AddWithValue("@reviewpast6months", reviews);
-
-
-                command.Parameters.AddWithValue("@goals", txtgoals.Text);
-                command.Parameters.AddWithValue("@challenges", txtchallenges.Text);
-
-                command.Parameters.AddWithValue("@ageofmens", txtagemens.Text);
-                command.Parameters.AddWithValue("@padperday", txtpads.Text);
-                command.Parameters.AddWithValue("@daysofmens", txtdaysmens.Text);
-                command.Parameters.AddWithValue("@regularity", regularity);
-                command.Parameters.AddWithValue("@menscycle", txtmenscycle.Text);
-                command.Parameters.AddWithValue("@agemenopause", txtageofmenopause.Text);
-                command.Parameters.AddWithValue("@nopregnancies", txtnoofpreg.Text);
-                command.Parameters.AddWithValue("@nochildren", txtnoofchild.Text);
-                command.Parameters.AddWithValue("@nomiscarriage", txtnomiscar.Text);
-
-                command.ExecuteNonQuery();
-                connect.Close();
+                        command.Parameters.AddWithValue("@historyofillness", txthistory.Text);
+                        command.Parameters.AddWithValue("@medicalhistory", medical);
+                        command.Parameters.AddWithValue("@surgicalhistory", surgical);
+                        command.Parameters.AddWithValue("@medicationsuppallergyhistory", allergies);
+                        //command.Parameters.AddWithValue("@familymedicalhistory", fammedhistory);
+                        command.Parameters.AddWithValue("@reviewpast6months", reviews);
 
 
-                foreach (DataGridViewRow row in dataGridCurrentMeds.Rows)
-                {
-                    command.Parameters.Clear();
-                    if (!row.IsNewRow)
-                    {
-                        command.CommandText = @"INSERT INTO currentmedication(patientid, brandname,   dosage, frequency, lasttaken, regularly)
+                        command.Parameters.AddWithValue("@goals", txtgoals.Text);
+                        command.Parameters.AddWithValue("@challenges", txtchallenges.Text);
+
+                        command.Parameters.AddWithValue("@ageofmens", txtagemens.Text);
+                        command.Parameters.AddWithValue("@padperday", txtpads.Text);
+                        command.Parameters.AddWithValue("@daysofmens", txtdaysmens.Text);
+                        command.Parameters.AddWithValue("@regularity", regularity);
+                        command.Parameters.AddWithValue("@menscycle", txtmenscycle.Text);
+                        command.Parameters.AddWithValue("@agemenopause", txtageofmenopause.Text);
+                        command.Parameters.AddWithValue("@nopregnancies", txtnoofpreg.Text);
+                        command.Parameters.AddWithValue("@nochildren", txtnoofchild.Text);
+                        command.Parameters.AddWithValue("@nomiscarriage", txtnomiscar.Text);
+
+                        command.ExecuteNonQuery();
+                        connect.Close();
+
+                        foreach (DataGridViewRow row in datagridFamMedHistory.Rows)
+                        {
+                            command.Parameters.Clear();
+                            if (!row.IsNewRow)
+                            {
+                                command.CommandText = @"INSERT INTO familymedhistory(patientid, type, paternal, maternal)
+                                                       VALUES (@patientid, @type, @paternal, @maternal)";
+                                command.Parameters.AddWithValue("@patientid", patientid);
+                                command.Parameters.AddWithValue("@type", row.Cells["colType"].Value);
+                                command.Parameters.AddWithValue("@paternal", row.Cells["colPaternal"].Value);
+                                command.Parameters.AddWithValue("@maternal", row.Cells["colMaternal"].Value);
+                                connect.Open();
+                                command.ExecuteNonQuery();
+                                connect.Close();
+                            }
+                        }
+
+                        foreach (DataGridViewRow row in dataGridCurrentMeds.Rows)
+                        {
+                            command.Parameters.Clear();
+                            if (!row.IsNewRow)
+                            {
+                                command.CommandText = @"INSERT INTO currentmedication(patientid, brandname,   dosage, frequency, lasttaken, regularly)
                                                     VALUES( @patientids, @brandname, @dosage, @frequency, @lasttaken, @regularly)";
 
 
-                        command.Parameters.AddWithValue("@patientids", txtSearch.Text);
-                        command.Parameters.AddWithValue("@brandname", row.Cells["colName"].Value);
-                        command.Parameters.AddWithValue("@dosage", row.Cells["colDosage"].Value);
-                        command.Parameters.AddWithValue("@frequency", row.Cells["colFreq"].Value);
-                        command.Parameters.AddWithValue("@lasttaken", row.Cells["collastTaken"].Value);
-                        command.Parameters.AddWithValue("@regularly", row.Cells["colTaken"].Value);
-                        connect.Open();
-                        command.ExecuteNonQuery();
-                        connect.Close();
-                    }
-                }
+                                command.Parameters.AddWithValue("@patientids", patientid);
+                                command.Parameters.AddWithValue("@brandname", row.Cells["colName"].Value);
+                                command.Parameters.AddWithValue("@dosage", row.Cells["colDosage"].Value);
+                                command.Parameters.AddWithValue("@frequency", row.Cells["colFreq"].Value);
+                                command.Parameters.AddWithValue("@lasttaken", row.Cells["collastTaken"].Value);
+                                command.Parameters.AddWithValue("@regularly", row.Cells["colTaken"].Value);
+                                connect.Open();
+                                command.ExecuteNonQuery();
+                                connect.Close();
+                            }
+                        }
 
-                foreach (DataGridViewRow row in dataGridSupMeds.Rows)
-                {
-                    command.Parameters.Clear();
-                    if (!row.IsNewRow)
-                    {
-                        command.CommandText = @"INSERT INTO supplements(patientid, brandname, dosage, frequency, lasttaken, regularly)
+                        foreach (DataGridViewRow row in dataGridSupMeds.Rows)
+                        {
+                            command.Parameters.Clear();
+                            if (!row.IsNewRow)
+                            {
+                                command.CommandText = @"INSERT INTO supplements(patientid, brandname, dosage, frequency, lasttaken, regularly)
                                                     VALUES( @patientids, @brandname, @dosage, @frequency, @lasttaken, @regularly)";
 
 
-                        command.Parameters.AddWithValue("@patientids", txtSearch.Text);
-                        command.Parameters.AddWithValue("@brandname", row.Cells["colSupname"].Value);
-                        command.Parameters.AddWithValue("@dosage", row.Cells["colSupdosage"].Value);
-                        command.Parameters.AddWithValue("@frequency", row.Cells["colSupFreq"].Value);
-                        command.Parameters.AddWithValue("@lasttaken", row.Cells["colSuptaken"].Value);
-                        command.Parameters.AddWithValue("@regularly", row.Cells["colSupRegular"].Value);
-                        connect.Open();
-                        command.ExecuteNonQuery();
-                        connect.Close();
-                    }
-                }
+                                command.Parameters.AddWithValue("@patientids", patientid);
+                                command.Parameters.AddWithValue("@brandname", row.Cells["colSupname"].Value);
+                                command.Parameters.AddWithValue("@dosage", row.Cells["colSupdosage"].Value);
+                                command.Parameters.AddWithValue("@frequency", row.Cells["colSupFreq"].Value);
+                                command.Parameters.AddWithValue("@lasttaken", row.Cells["colSuptaken"].Value);
+                                command.Parameters.AddWithValue("@regularly", row.Cells["colSupRegular"].Value);
+                                connect.Open();
+                                command.ExecuteNonQuery();
+                                connect.Close();
+                            }
+                        }
 
-                foreach (DataGridViewRow row in datagridpersonalhistory.Rows)
-                {
-                    command.Parameters.Clear();
-                    //if ((Convert.ToBoolean(row.Cells[0].Value) == true))
-                    //{
-                    command.CommandText = @"INSERT INTO personalandsocialhistory(patientid, activity, day, week, kind, month)
+
+                        
+
+                        foreach (DataGridViewRow row in datagridpersonalhistory.Rows)
+                        {
+                            command.Parameters.Clear();                            
+                            command.CommandText = @"INSERT INTO personalandsocialhistory(patientid, activity, day, week, kind, month)
                                                     VALUES( @patientid, @activity, @day, @week, @kind, @month)";
 
-                    command.Parameters.AddWithValue("@patientid", txtPatientID.Text);
-                    command.Parameters.AddWithValue("@activity", row.Cells["colActivity"].Value);
-                    command.Parameters.AddWithValue("@day", row.Cells["colPerDay"].Value);
-                    command.Parameters.AddWithValue("@week", row.Cells["colPerWeek"].Value);
-                    command.Parameters.AddWithValue("@kind", row.Cells["colKind"].Value);
-                    command.Parameters.AddWithValue("@month", row.Cells["colMonth"].Value);
+                            command.Parameters.AddWithValue("@patientid", patientid);
+                            command.Parameters.AddWithValue("@activity", row.Cells["colActivity"].Value);
+                            command.Parameters.AddWithValue("@day", row.Cells["colPerDay"].Value);
+                            command.Parameters.AddWithValue("@week", row.Cells["colPerWeek"].Value);
+                            command.Parameters.AddWithValue("@kind", row.Cells["colKind"].Value);
+                            command.Parameters.AddWithValue("@month", row.Cells["colMonth"].Value);
 
 
-                    connect.Open();
-                    command.ExecuteNonQuery();
+                            connect.Open();
+                            command.ExecuteNonQuery();
+                            connect.Close();
+                        }
+                        clearAll();
+                        MessageBox.Show("Recorded, New Patient ID: " + patientid);
+                        this.Controls.Clear();
+                        this.InitializeComponent();
+                        infoReload();
+                    }
                     connect.Close();
 
-                    //}
                 }
-                clearAll();
-                MessageBox.Show("Recorded, New Patient ID: " + txtPatientID.Text);
-                this.Controls.Clear();
-                this.InitializeComponent();
-                infoReload();
+                
             }
-            connect.Close();
+
+                
         }
         
         private void updatePatient()
@@ -1525,7 +1471,7 @@ namespace PMS.UserControls
                 allergies = allergies.TrimEnd(',', ' ');
 
 
-                foreach (Control textbox in grpboxfam.Controls)
+                /*foreach (Control textbox in grpboxfam.Controls)
                 {
 
                     if ((textbox is TextBox) && (!(String.IsNullOrEmpty(textbox.Text))))
@@ -1535,8 +1481,23 @@ namespace PMS.UserControls
                     }
 
                 }
-                fammedhistory = fammedhistory.TrimEnd(',', ' ');
+                fammedhistory = fammedhistory.TrimEnd(',', ' ');*/
+/*
+                foreach (DataGridViewRow rowPaternal in datagridFamMedHistory.Rows)
+                {
+                    if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colPaternal"]).Value) == true)
+                    {
+                        fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Paternal), ";
+                    }  
+                        if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colMaternal"]).Value) == true)
+                    {
+                        fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Maternal), ";
+                       
+                    }
 
+                }*/
+
+                
                 foreach (Object item in chkListGeneral.CheckedItems)
                 {
                     reviews += item.ToString() + ", ";
@@ -1616,19 +1577,19 @@ namespace PMS.UserControls
                         regularity = radbox.Text;
                 }
 
-                command.CommandText = @"UPDATE patients SET patientid = @patientid, firstname = @firstname, middlename = @middlename, lastname = @lastname, gender = @gender, birthday = @birthday, age = @age, address = @address, email = @email, religion = @religion, mobileno =@mobileno, homeno = @homeno, emergencyname = @emergencyname, emergencycontact = @emergencycontact, emergencyrelationship = @emergencyrelationship, avesleep = @avesleep, work = @work, occupation = @occupation, prevoccupation = @prevoccupation, numberofchildren = @numberofchildren 
+                command.CommandText = @"UPDATE patients SET firstname = @firstname, middlename = @middlename, lastname = @lastname, gender = @gender, birthday = @birthday, age = @age, address = @address, email = @email, religion = @religion, mobileno =@mobileno, homeno = @homeno, emergencyname = @emergencyname, emergencycontact = @emergencycontact, emergencyrelationship = @emergencyrelationship, avesleep = @avesleep, work = @work, occupation = @occupation, prevoccupation = @prevoccupation, numberofchildren = @numberofchildren 
                                                 WHERE patientid = @patientid;
 
-                                                UPDATE medicationhistory SET patientid = @patientid, historyofillness = @historyofillness, medicalhistory = @medicalhistory, surgicalhistory = @surgicalhistory, medicationsuppallergyhistory = @medicationsuppallergyhistory, familymedicalhistory = @familymedicalhistory, reviewpast6months = @reviewpast6months
+                                                UPDATE medicationhistory SET historyofillness = @historyofillness, medicalhistory = @medicalhistory, surgicalhistory = @surgicalhistory, medicationsuppallergyhistory = @medicationsuppallergyhistory, reviewpast6months = @reviewpast6months
                                                 WHERE patientid = @patientid;
 
-                                                UPDATE healthandwellnessgoals SET patientid = @patientid, goals = @goals, challenges = @challenges
+                                                UPDATE healthandwellnessgoals SET goals = @goals, challenges = @challenges
                                                 WHERE patientid = @patientid; 
 
-                                                UPDATE menstrual SET patientid = @patientid, ageofmens = @ageofmens, padperday = padperday, daysofmens = @daysofmens, regularity = @regularity, menscycle = @menscycle, agemenopause = @agemenopause, nopregnancies = @nopregnancies, nochildren = @nochildren, nomiscarriage = @nomiscarriage
+                                                UPDATE menstrual SET ageofmens = @ageofmens, padperday = padperday, daysofmens = @daysofmens, regularity = @regularity, menscycle = @menscycle, agemenopause = @agemenopause, nopregnancies = @nopregnancies, nochildren = @nochildren, nomiscarriage = @nomiscarriage
                                                 WHERE patientid = @patientid";
 
-                command.Parameters.AddWithValue("@patientid", txtPatientID.Text);
+                command.Parameters.AddWithValue("@patientid", patientid);
                 command.Parameters.AddWithValue("@firstname", txtname.Text);
                 command.Parameters.AddWithValue("@middlename", txtmidname.Text);
                 command.Parameters.AddWithValue("@lastname", txtsurname.Text);
@@ -1654,7 +1615,7 @@ namespace PMS.UserControls
                 command.Parameters.AddWithValue("@medicalhistory", medical);
                 command.Parameters.AddWithValue("@surgicalhistory", surgical);
                 command.Parameters.AddWithValue("@medicationsuppallergyhistory", allergies);
-                command.Parameters.AddWithValue("@familymedicalhistory", fammedhistory);
+                //command.Parameters.AddWithValue("@familymedicalhistory", fammedhistory);
                 command.Parameters.AddWithValue("@reviewpast6months", reviews);
 
 
@@ -1672,7 +1633,27 @@ namespace PMS.UserControls
                 command.Parameters.AddWithValue("@nomiscarriage", txtnomiscar.Text);
 
                 command.ExecuteNonQuery();
-                connect.Close();                
+                connect.Close();
+
+                foreach (DataGridViewRow row in datagridFamMedHistory.Rows)
+                {
+                    command.Parameters.Clear();
+                    if (!row.IsNewRow)
+                    {
+                        command.CommandText = @"UPDATE familymedhistory SET type = @type, paternal = @paternal, maternal = @maternal
+                                                       WHERE patientid = @patientid";
+                        command.Parameters.AddWithValue("@patientid", patientid);
+                        command.Parameters.AddWithValue("@type", row.Cells["colType"].Value);
+                        command.Parameters.AddWithValue("@paternal", row.Cells["colPaternal"].Value);
+                        command.Parameters.AddWithValue("@maternal", row.Cells["colMaternal"].Value);
+                        connect.Open();
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                    }
+                }
+
+
+
                 MessageBox.Show("Informations succesfully updated!");
                 this.Controls.Clear();
                 this.InitializeComponent();
@@ -1685,13 +1666,14 @@ namespace PMS.UserControls
             if (radAdd.Checked)
             {
                 addPatient();
-                
+                this.InitializeComponent();
+                infoReload();
             }
             else if (radUpdate.Checked)
             {
                 connect.Open();
                 command.Parameters.Clear();
-                command.CommandText = "Select * FROM patients, medicationhistory, healthandwellnessgoals, menstrual WHERE patients.patientid = '" + txtPatientID.Text + "' AND medicationhistory.patientid = '" + txtPatientID.Text + "'  AND menstrual.patientid = '" + txtPatientID.Text + "'";
+                command.CommandText = "Select * FROM patients, medicationhistory, healthandwellnessgoals, menstrual WHERE patients.patientid = '" + patientid + "' AND medicationhistory.patientid = '" + patientid + "'  AND menstrual.patientid = '" + patientid + "'";
 
 
                 MySqlDataReader msqlReader = command.ExecuteReader();
