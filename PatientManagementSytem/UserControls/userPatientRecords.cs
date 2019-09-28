@@ -276,8 +276,6 @@ namespace PMS.UserControls
                 MessageBox.Show("Treatment Updated!");
                         
         }
-
-
         private void addTreatment()
         {   
                     

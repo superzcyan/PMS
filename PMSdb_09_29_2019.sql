@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   `start` varchar(45) DEFAULT NULL,
   `end` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `currentmedication` (
   `lasttaken` varchar(45) DEFAULT NULL,
   `regularly` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,8 +73,35 @@ CREATE TABLE `currentmedication` (
 
 LOCK TABLES `currentmedication` WRITE;
 /*!40000 ALTER TABLE `currentmedication` DISABLE KEYS */;
-INSERT INTO `currentmedication` VALUES (3,'P2','Biogesic','500','1','Today','Yes');
 /*!40000 ALTER TABLE `currentmedication` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `familymedhistory`
+--
+
+DROP TABLE IF EXISTS `familymedhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `familymedhistory` (
+  `count` int(11) NOT NULL AUTO_INCREMENT,
+  `patientid` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `paternal` tinyint(4) DEFAULT NULL,
+  `maternal` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`count`),
+  UNIQUE KEY `count_UNIQUE` (`count`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `familymedhistory`
+--
+
+LOCK TABLES `familymedhistory` WRITE;
+/*!40000 ALTER TABLE `familymedhistory` DISABLE KEYS */;
+INSERT INTO `familymedhistory` VALUES (1,'P1','High Blood',NULL,NULL),(2,'P1','Stroke',NULL,NULL),(3,'P1','Bleed Disorder',NULL,NULL),(4,'P1','Diabetes',NULL,NULL),(5,'P1','Thyroid Disease',NULL,NULL),(6,'P1','Heart Disease',NULL,NULL),(7,'P1','Lung Disease',NULL,NULL),(8,'P1','Lung Cancer',NULL,NULL),(9,'P1','Gastrointestinal Disease',NULL,NULL),(10,'P1','Colon Cancer',NULL,NULL),(11,'P1','Pancreatic Cancer',NULL,NULL),(12,'P1','Kidney Disease',NULL,NULL),(13,'P1','Kidney Cancer',NULL,NULL),(14,'P1','Bladder Disease',NULL,NULL),(15,'P1','Bladder Cancer',NULL,NULL),(16,'P1','Reproductive Disease',NULL,NULL),(17,'P1','Ovarian Cancer',NULL,NULL),(18,'P1','Endometrial Cancer',NULL,NULL),(19,'P1','Cervical Cancer',NULL,NULL),(20,'P1','Osteoporosis',NULL,NULL),(21,'P1','Other Diseases/Cancer',NULL,NULL);
+/*!40000 ALTER TABLE `familymedhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -99,7 +126,7 @@ CREATE TABLE `healthandwellnessgoals` (
 
 LOCK TABLES `healthandwellnessgoals` WRITE;
 /*!40000 ALTER TABLE `healthandwellnessgoals` DISABLE KEYS */;
-INSERT INTO `healthandwellnessgoals` VALUES ('P1','',''),('P2','',''),('P3','None','None'),('P4','Be fat','Food'),('P5','','');
+INSERT INTO `healthandwellnessgoals` VALUES ('P1','','');
 /*!40000 ALTER TABLE `healthandwellnessgoals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +156,7 @@ CREATE TABLE `medicationhistory` (
 
 LOCK TABLES `medicationhistory` WRITE;
 /*!40000 ALTER TABLE `medicationhistory` DISABLE KEYS */;
-INSERT INTO `medicationhistory` VALUES ('P001','Unirary Tract Infection','Agina(Chest Pain), Asthma, Kidney Stones, Stomach/Peptic Ulcer, Other( Sleepless )','Thyroidectomy, Heart Valve, Gallbladder, Hemorrhoidectomy, Bariatric Surgery, Mastectomy, Other( Peralized )','','',''),('P002','Toothache','Other(    )','Other(    )','','',''),('P003','Toothache','Other(    )','Other(    )','','',''),('P004','Toothache','Other(              )','Thyroidectomy, Heart Valve, Gallbladder, Hemorrhoidectomy, Bariatric Surgery, Mastectomy, Other(              )','','',''),('P1','Unirary Tract Infection','Other(          )','Cataracts, CABG, Heart Valve, Bowel/Stomach Resection, Colonoscopy, Tubal Ligation, Cesarean Section, Other(          )','Tree Nuts, Nuts, Soy','Pancreatic Cancer(M), Colon Cancer(M), Gastrointestinal Disease(M), Lung Cancer(M), Lung Disease(M), Heart Disease(M), Thyroid Disease(P), Diabetes(P), Bleeding Disorder(M), Stroke(P), High Blood Pressure(M)',''),('P2','Toothache','Other(              )','Cataracts, CABG, Heart Valve, Bowel/Stomach Resection, Colonoscopy, Tubal Ligation, Cesarean Section, Other(              )','Tree Nuts, Nuts, Soy','Pancreatic Cancer(M), Colon Cancer(M), Gastrointestinal Disease(M), Lung Cancer(M), Lung Disease(M), Heart Disease(M), Thyroid Disease(P), Diabetes(P), Bleeding Disorder(M), Stroke(P), High Blood Pressure(M)',''),('P3','Noseless','Kidney Disease, Crohn\'s Disease, Anemia, Stomach/Peptic Ulcer, Rheumatic fever, Other(    )','Cataracts, CABG, Heart Valve, Bowel/Stomach Resection, Colonoscopy, Tubal Ligation, Cesarean Section, Other(    )','','',''),('P4','Nothing','Agina(Chest Pain), Asthma, Other(  )','Pacemaker, Heart Valve, Bariatric Surgery, Spinal Surgery, Other(  )','Tree Nuts, Nuts, Soy, Milk','Bleeding Disorder(P), Stroke(P), High Blood Pressure(M)','Reproductive problems, Double Vision, Loss of Vision, Neck pain, Muscle / Joint pains'),('P5','Eargaasm','Kidney Disease, Crohn\'s Disease, Anemia, Stomach/Peptic Ulcer, Rheumatic fever, Other(    )Hypothyroidism, Cancer, Kidney Disease, Stomach/Peptic Ulcer, Other(  )','Cataracts, CABG, Heart Valve, Bowel/Stomach Resection, Colonoscopy, Tubal Ligation, Cesarean Section, Other(    )Cardiac Stents, Bariatric Surgery, Tubal Ligation, Prostate Surgery/Resection, Other(  )','Fish, Tree Nuts, Wheat, Soy, Eggs','','');
+INSERT INTO `medicationhistory` VALUES ('P1','Strechable','Diabetes, Kidney Disease, Kidney Stones, Other(  )','Hysterectomy, Mastectomy, Other(  )','',NULL,'');
 /*!40000 ALTER TABLE `medicationhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +188,7 @@ CREATE TABLE `menstrual` (
 
 LOCK TABLES `menstrual` WRITE;
 /*!40000 ALTER TABLE `menstrual` DISABLE KEYS */;
-INSERT INTO `menstrual` VALUES ('P001','','','','','','','','',''),('P002','','','','Irregular','','','','',''),('P003','','','','Irregular','','','','',''),('P004','','','','Irregular','','','','',''),('P1','','','','Irregular','','','','',''),('P2','','','','Regular','1','','','',''),('P3','','','','Irregular','','','','',''),('P4','14','','','Irregular','3','','','',''),('P5','','','','Irregular','','','','','');
+INSERT INTO `menstrual` VALUES ('P1','','','','','','','','','');
 /*!40000 ALTER TABLE `menstrual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +231,7 @@ CREATE TABLE `patients` (
 
 LOCK TABLES `patients` WRITE;
 /*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES ('P1','Zcyrel','','Cortejo','Male','Quezon City','July 03, 1990',29,'zcycortejo@gmail.com','09151745313','43434313','Catholic','Elizabeth Patron','097543134','Mother','','','','',''),('P2','Heidi','Patron','Cortejo','Female','Quezon City','January 05, 2000',19,'h@gmail.com','09754313131','64634343','Catholic','Roque Cortejo','09154531545','Father','','','','',''),('P3','Clarisse','Patron','Cortejo','Female','Quezon City','October 03, 2001',17,'cla@gmail.com','09874131354','32132333','Catholic','Roque Cortejo','09875136546','Father','1','','','',''),('P4','Happy','B','Barozo','Female','Antipolo','December 26, 1988',30,'hbb@gmail.com','09753132154','46434578','Iglesia','Tatie Manera','0987843213','Team Lead','5','BPO','BPO','BPO',''),('P5','Clara','C','Benin','Female','Makati','May 19, 1989',30,'cb@gmail.com','098213454','47643313','Catholic','Gabba Santiago','09143154769','Boyfriend','','','','','');
+INSERT INTO `patients` VALUES ('P1','Luffy','D','Monkey','Male','Foosha Village','May 05, 1989',30,'gomugomu@gmail.com','09785132588','43454165','Pirate','Garp D Monkey','09875315698','Grand Father','','','','','');
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +252,7 @@ CREATE TABLE `personalandsocialhistory` (
   `month` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`),
   UNIQUE KEY `count_UNIQUE` (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +261,7 @@ CREATE TABLE `personalandsocialhistory` (
 
 LOCK TABLES `personalandsocialhistory` WRITE;
 /*!40000 ALTER TABLE `personalandsocialhistory` DISABLE KEYS */;
-INSERT INTO `personalandsocialhistory` VALUES (31,'P1','Alcohol',NULL,NULL,NULL,NULL),(32,'P1','Tobacco/Cigar',NULL,NULL,NULL,NULL),(33,'P1','Caffeine',NULL,NULL,NULL,NULL),(34,'P1','Drugs',NULL,NULL,NULL,NULL),(35,'P1','Excercise',NULL,NULL,NULL,NULL),(36,'P3','Alcohol','5','5','Beer','5'),(37,'P3','Tobacco/Cigar','3','2','Cigar','3'),(38,'P3','Caffeine','20','5','Coffee','12'),(39,'P3','Drugs','1','1','Paracetamol','1'),(40,'P3','Excercise','0','0','0','0'),(41,'P4','Alcohol','1','2','Beer','3'),(42,'P4','Tobacco/Cigar','1','1','Cigar','5'),(43,'P4','Caffeine','2','1','Coffee',NULL),(44,'P4','Drugs',NULL,NULL,NULL,NULL),(45,'P4','Excercise',NULL,NULL,NULL,NULL),(46,'P5','Alcohol',NULL,NULL,NULL,NULL),(47,'P5','Tobacco/Cigar',NULL,NULL,NULL,NULL),(48,'P5','Caffeine',NULL,NULL,NULL,NULL),(49,'P5','Drugs',NULL,NULL,NULL,NULL),(50,'P5','Excercise',NULL,NULL,NULL,NULL);
+INSERT INTO `personalandsocialhistory` VALUES (1,'P1','Alcohol',NULL,NULL,NULL,NULL),(2,'P1','Tobacco/Cigar',NULL,NULL,NULL,NULL),(3,'P1','Caffeine',NULL,NULL,NULL,NULL),(4,'P1','Drugs',NULL,NULL,NULL,NULL),(5,'P1','Excercise',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `personalandsocialhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +285,7 @@ CREATE TABLE `prescriptions` (
   `doctor` varchar(45) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +318,7 @@ CREATE TABLE `schedules` (
   `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`),
   UNIQUE KEY `count_UNIQUE` (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,7 +354,7 @@ CREATE TABLE `staffs` (
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`),
   UNIQUE KEY `count_UNIQUE` (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -336,7 +363,7 @@ CREATE TABLE `staffs` (
 
 LOCK TABLES `staffs` WRITE;
 /*!40000 ALTER TABLE `staffs` DISABLE KEYS */;
-INSERT INTO `staffs` VALUES (1,'E1','Zcyrel','Patron','Cortejo','Male','zcycortejo@gmail.com','091517422319','000','1990-07-14','Cortejo','Quezon City','admin','qweasd'),(5,'E2','Nami','Cat','Burglar','Female','namiburglar@gmail.com','0999784531','605-6644','2019-09-06','Burglar','Quezon City','Receptionist','qweasd'),(6,'E3','Tony','Tony','Chopper','Male','tonytonychopper@gmail.com','09405478132','701-4310','1990-04-02','Chopper','Drum Island','Doctor','qweasd'),(7,'E4','Tony','Tony','Chopper','Male','tonytonychopper@gmail.com','09655457871','706-4512','1990-04-02','Chopper','tonytonychopper','Nurse','qweasd');
+INSERT INTO `staffs` VALUES (1,'E1','Zcyrel','Patron','Cortejo','Male','zcycortejo@gmail.com','09151742319','4347540','1990-07-03','28','Quezon City','admin','qweasd'),(2,'E2','Tony','Tony','Chopper','Male','tonytonychopper@gmail.com','09875431254','434-1546','1990-12-04','Chopper','Drum Island','Doctor','qweasd'),(3,'E3','Namy','Cat','Burglar','Female','catburglar@gmail.com','0978321545','434-5165','1990-07-03','Burglar','Cocoyasi Village','Receptionist','qweasd'),(4,'E4','Nico','R','Robin','Female','devilchild@gmail.com','09875321548','635-4313','1985-02-06','Robin','Ohara','Nurse','qweasd');
 /*!40000 ALTER TABLE `staffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -357,7 +384,7 @@ CREATE TABLE `supplements` (
   `regularly` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`),
   UNIQUE KEY `count_UNIQUE` (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -366,7 +393,6 @@ CREATE TABLE `supplements` (
 
 LOCK TABLES `supplements` WRITE;
 /*!40000 ALTER TABLE `supplements` DISABLE KEYS */;
-INSERT INTO `supplements` VALUES (3,'P2','Protein Whey','200','3','Yesterday','No');
 /*!40000 ALTER TABLE `supplements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,7 +413,7 @@ CREATE TABLE `treatments` (
   `doctor` varchar(45) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -396,7 +422,6 @@ CREATE TABLE `treatments` (
 
 LOCK TABLES `treatments` WRITE;
 /*!40000 ALTER TABLE `treatments` DISABLE KEYS */;
-INSERT INTO `treatments` VALUES (2,'P1','Disection','Sleepless','3','Secret mission','Jasper Agustin','09/20/2019'),(3,'P1','Disection','Sleepless','3','Secret mission','Jasper Agustin','09/20/2019');
 /*!40000 ALTER TABLE `treatments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -409,4 +434,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-21 17:33:27
+-- Dump completed on 2019-09-29  7:55:15

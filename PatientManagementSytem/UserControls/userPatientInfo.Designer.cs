@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userPatientInfo));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -98,14 +98,26 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridSupMeds = new System.Windows.Forms.DataGridView();
+            this.colSupname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupdosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSuptaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupRegular = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridCurrentMeds = new System.Windows.Forms.DataGridView();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.collastTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTaken = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grpboxallegergies = new System.Windows.Forms.GroupBox();
             this.chkListAllergy = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.grpboxfam = new System.Windows.Forms.GroupBox();
             this.datagridFamMedHistory = new System.Windows.Forms.DataGridView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colMaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grpboxreview = new System.Windows.Forms.GroupBox();
             this.chkListPsych = new System.Windows.Forms.CheckedListBox();
@@ -177,22 +189,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtchallenges = new System.Windows.Forms.TextBox();
             this.txtgoals = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colMaternal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colSupname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupdosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSuptaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupRegular = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collastTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTaken = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridPatients)).BeginInit();
@@ -266,7 +266,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(175, 23);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(84, 28);
-            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.TabIndex = 24;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -275,10 +275,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(13, 24);
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(13, 33);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(109, 17);
+            this.label13.Size = new System.Drawing.Size(92, 16);
             this.label13.TabIndex = 60;
             this.label13.Text = "Existing Patients";
             // 
@@ -344,7 +344,7 @@
             this.datagridPatients.RowHeadersVisible = false;
             this.datagridPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridPatients.Size = new System.Drawing.Size(243, 518);
-            this.datagridPatients.TabIndex = 59;
+            this.datagridPatients.TabIndex = 25;
             this.datagridPatients.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DatagridPatients_CellMouseClick);
             // 
             // colPatientID
@@ -391,7 +391,7 @@
             this.txtotherssurgical.Multiline = true;
             this.txtotherssurgical.Name = "txtotherssurgical";
             this.txtotherssurgical.Size = new System.Drawing.Size(148, 50);
-            this.txtotherssurgical.TabIndex = 66;
+            this.txtotherssurgical.TabIndex = 21;
             // 
             // chkListSurgical
             // 
@@ -428,7 +428,7 @@
             this.chkListSurgical.Location = new System.Drawing.Point(6, 22);
             this.chkListSurgical.Name = "chkListSurgical";
             this.chkListSurgical.Size = new System.Drawing.Size(166, 384);
-            this.chkListSurgical.TabIndex = 0;
+            this.chkListSurgical.TabIndex = 20;
             // 
             // chkboxOther1
             // 
@@ -460,7 +460,7 @@
             this.txtothersmed.Multiline = true;
             this.txtothersmed.Name = "txtothersmed";
             this.txtothersmed.Size = new System.Drawing.Size(148, 50);
-            this.txtothersmed.TabIndex = 66;
+            this.txtothersmed.TabIndex = 19;
             // 
             // chkListMedical
             // 
@@ -499,7 +499,7 @@
             this.chkListMedical.Location = new System.Drawing.Point(6, 22);
             this.chkListMedical.Name = "chkListMedical";
             this.chkListMedical.Size = new System.Drawing.Size(148, 416);
-            this.chkListMedical.TabIndex = 0;
+            this.chkListMedical.TabIndex = 18;
             // 
             // chkboxOther
             // 
@@ -573,7 +573,7 @@
             this.txthistory.Multiline = true;
             this.txthistory.Name = "txthistory";
             this.txthistory.Size = new System.Drawing.Size(258, 96);
-            this.txthistory.TabIndex = 66;
+            this.txthistory.TabIndex = 14;
             // 
             // label23
             // 
@@ -595,7 +595,7 @@
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.ReadOnly = true;
             this.txtPatientID.Size = new System.Drawing.Size(113, 21);
-            this.txtPatientID.TabIndex = 67;
+            this.txtPatientID.TabIndex = 1;
             this.txtPatientID.TextChanged += new System.EventHandler(this.TxtPatientID_TextChanged);
             // 
             // label22
@@ -736,7 +736,7 @@
             this.txtEmobile.MaxLength = 11;
             this.txtEmobile.Name = "txtEmobile";
             this.txtEmobile.Size = new System.Drawing.Size(128, 21);
-            this.txtEmobile.TabIndex = 15;
+            this.txtEmobile.TabIndex = 17;
             // 
             // txthome
             // 
@@ -746,7 +746,7 @@
             this.txthome.MaxLength = 8;
             this.txthome.Name = "txthome";
             this.txthome.Size = new System.Drawing.Size(120, 21);
-            this.txthome.TabIndex = 7;
+            this.txthome.TabIndex = 8;
             // 
             // txtmobileno
             // 
@@ -756,7 +756,7 @@
             this.txtmobileno.MaxLength = 11;
             this.txtmobileno.Name = "txtmobileno";
             this.txtmobileno.Size = new System.Drawing.Size(163, 21);
-            this.txtmobileno.TabIndex = 6;
+            this.txtmobileno.TabIndex = 7;
             // 
             // dtBirthday
             // 
@@ -766,7 +766,7 @@
             this.dtBirthday.Location = new System.Drawing.Point(96, 205);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Size = new System.Drawing.Size(163, 21);
-            this.dtBirthday.TabIndex = 9;
+            this.dtBirthday.TabIndex = 10;
             this.dtBirthday.Validated += new System.EventHandler(this.DtBirthday_Validated);
             // 
             // txtrelationship
@@ -775,7 +775,7 @@
             this.txtrelationship.Location = new System.Drawing.Point(96, 421);
             this.txtrelationship.Name = "txtrelationship";
             this.txtrelationship.Size = new System.Drawing.Size(128, 21);
-            this.txtrelationship.TabIndex = 14;
+            this.txtrelationship.TabIndex = 16;
             // 
             // txtnamemergency
             // 
@@ -783,7 +783,7 @@
             this.txtnamemergency.Location = new System.Drawing.Point(96, 398);
             this.txtnamemergency.Name = "txtnamemergency";
             this.txtnamemergency.Size = new System.Drawing.Size(260, 21);
-            this.txtnamemergency.TabIndex = 13;
+            this.txtnamemergency.TabIndex = 15;
             // 
             // label1
             // 
@@ -801,7 +801,7 @@
             this.txtreligion.Location = new System.Drawing.Point(96, 182);
             this.txtreligion.Name = "txtreligion";
             this.txtreligion.Size = new System.Drawing.Size(163, 21);
-            this.txtreligion.TabIndex = 8;
+            this.txtreligion.TabIndex = 9;
             // 
             // txtemail
             // 
@@ -810,7 +810,7 @@
             this.txtemail.Multiline = true;
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(258, 20);
-            this.txtemail.TabIndex = 11;
+            this.txtemail.TabIndex = 13;
             // 
             // txtaddress
             // 
@@ -818,7 +818,7 @@
             this.txtaddress.Location = new System.Drawing.Point(96, 228);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(359, 21);
-            this.txtaddress.TabIndex = 10;
+            this.txtaddress.TabIndex = 12;
             // 
             // txtage
             // 
@@ -829,7 +829,7 @@
             this.txtage.Name = "txtage";
             this.txtage.ReadOnly = true;
             this.txtage.Size = new System.Drawing.Size(50, 21);
-            this.txtage.TabIndex = 5;
+            this.txtage.TabIndex = 11;
             // 
             // txtsurname
             // 
@@ -887,7 +887,7 @@
             this.radFemale.Location = new System.Drawing.Point(68, 13);
             this.radFemale.Name = "radFemale";
             this.radFemale.Size = new System.Drawing.Size(65, 20);
-            this.radFemale.TabIndex = 1;
+            this.radFemale.TabIndex = 6;
             this.radFemale.TabStop = true;
             this.radFemale.Text = "Female";
             this.radFemale.UseVisualStyleBackColor = true;
@@ -901,7 +901,7 @@
             this.radMale.Location = new System.Drawing.Point(8, 13);
             this.radMale.Name = "radMale";
             this.radMale.Size = new System.Drawing.Size(54, 20);
-            this.radMale.TabIndex = 0;
+            this.radMale.TabIndex = 5;
             this.radMale.TabStop = true;
             this.radMale.Text = "Male";
             this.radMale.UseVisualStyleBackColor = true;
@@ -979,6 +979,51 @@
             this.dataGridSupMeds.Size = new System.Drawing.Size(721, 150);
             this.dataGridSupMeds.TabIndex = 0;
             // 
+            // colSupname
+            // 
+            this.colSupname.DataPropertyName = "brandname";
+            this.colSupname.FillWeight = 125.7609F;
+            this.colSupname.HeaderText = "Name";
+            this.colSupname.Name = "colSupname";
+            this.colSupname.Width = 223;
+            // 
+            // colSupdosage
+            // 
+            this.colSupdosage.DataPropertyName = "dosage";
+            this.colSupdosage.FillWeight = 61.2802F;
+            this.colSupdosage.HeaderText = "Dosage(mg/ml)";
+            this.colSupdosage.Name = "colSupdosage";
+            this.colSupdosage.Width = 107;
+            // 
+            // colSupFreq
+            // 
+            this.colSupFreq.DataPropertyName = "frequency";
+            this.colSupFreq.FillWeight = 48.05496F;
+            this.colSupFreq.HeaderText = "Frequency";
+            this.colSupFreq.Name = "colSupFreq";
+            this.colSupFreq.Width = 95;
+            // 
+            // colSuptaken
+            // 
+            this.colSuptaken.DataPropertyName = "lasttaken";
+            this.colSuptaken.FillWeight = 71.78851F;
+            this.colSuptaken.HeaderText = "Last Taken (MM/dd/yy)";
+            this.colSuptaken.Name = "colSuptaken";
+            this.colSuptaken.Width = 160;
+            // 
+            // colSupRegular
+            // 
+            this.colSupRegular.DataPropertyName = "regularly";
+            this.colSupRegular.FillWeight = 71.78851F;
+            this.colSupRegular.HeaderText = "Taken Regularly";
+            this.colSupRegular.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.colSupRegular.Name = "colSupRegular";
+            this.colSupRegular.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSupRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSupRegular.Width = 127;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridCurrentMeds);
@@ -1013,6 +1058,54 @@
             this.dataGridCurrentMeds.RowHeadersVisible = false;
             this.dataGridCurrentMeds.Size = new System.Drawing.Size(721, 150);
             this.dataGridCurrentMeds.TabIndex = 0;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "brandname";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colName.FillWeight = 163.501F;
+            this.colName.HeaderText = "Name ";
+            this.colName.Name = "colName";
+            this.colName.Width = 225;
+            // 
+            // colDosage
+            // 
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.FillWeight = 86.86781F;
+            this.colDosage.HeaderText = "Dosage(mg/ml)";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.Width = 105;
+            // 
+            // colFreq
+            // 
+            this.colFreq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colFreq.DataPropertyName = "frequency";
+            this.colFreq.FillWeight = 50.76142F;
+            this.colFreq.HeaderText = "Frequency";
+            this.colFreq.Name = "colFreq";
+            this.colFreq.Width = 90;
+            // 
+            // collastTaken
+            // 
+            this.collastTaken.DataPropertyName = "lasttaken";
+            this.collastTaken.FillWeight = 103.4628F;
+            this.collastTaken.HeaderText = "Last Taken (MM/dd/yy)";
+            this.collastTaken.Name = "collastTaken";
+            this.collastTaken.Width = 170;
+            // 
+            // colTaken
+            // 
+            this.colTaken.DataPropertyName = "regularly";
+            this.colTaken.FillWeight = 95.40694F;
+            this.colTaken.HeaderText = "Taken Regularly";
+            this.colTaken.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.colTaken.Name = "colTaken";
+            this.colTaken.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTaken.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colTaken.Width = 120;
             // 
             // grpboxallegergies
             // 
@@ -1114,11 +1207,30 @@
             this.datagridFamMedHistory.Size = new System.Drawing.Size(300, 490);
             this.datagridFamMedHistory.TabIndex = 64;
             // 
-            // imageList1
+            // colType
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth4Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(5, 26);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.colType.DataPropertyName = "type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.Width = 180;
+            // 
+            // colPaternal
+            // 
+            this.colPaternal.DataPropertyName = "paternal";
+            this.colPaternal.HeaderText = "Paternal";
+            this.colPaternal.Name = "colPaternal";
+            this.colPaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colPaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colPaternal.Width = 60;
+            // 
+            // colMaternal
+            // 
+            this.colMaternal.DataPropertyName = "maternal";
+            this.colMaternal.HeaderText = "Maternal";
+            this.colMaternal.Name = "colMaternal";
+            this.colMaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMaternal.Width = 60;
             // 
             // tabPage3
             // 
@@ -1987,6 +2099,12 @@
             this.txtgoals.Size = new System.Drawing.Size(360, 194);
             this.txtgoals.TabIndex = 0;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth4Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(5, 26);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.Transparent;
@@ -1999,7 +2117,7 @@
             this.btnClear.Location = new System.Drawing.Point(1092, 686);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(90, 35);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 23;
             this.btnClear.Text = "Clear";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -2021,7 +2139,7 @@
             this.btnSave.Location = new System.Drawing.Point(988, 686);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 35);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
@@ -2039,124 +2157,6 @@
             this.label18.Size = new System.Drawing.Size(319, 42);
             this.label18.TabIndex = 9;
             this.label18.Text = "Patient Information";
-            // 
-            // colType
-            // 
-            this.colType.DataPropertyName = "type";
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.Width = 180;
-            // 
-            // colPaternal
-            // 
-            this.colPaternal.DataPropertyName = "paternal";
-            this.colPaternal.HeaderText = "Paternal";
-            this.colPaternal.Name = "colPaternal";
-            this.colPaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colPaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colPaternal.Width = 60;
-            // 
-            // colMaternal
-            // 
-            this.colMaternal.DataPropertyName = "maternal";
-            this.colMaternal.HeaderText = "Maternal";
-            this.colMaternal.Name = "colMaternal";
-            this.colMaternal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMaternal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMaternal.Width = 60;
-            // 
-            // colSupname
-            // 
-            this.colSupname.DataPropertyName = "brandname";
-            this.colSupname.FillWeight = 125.7609F;
-            this.colSupname.HeaderText = "Name";
-            this.colSupname.Name = "colSupname";
-            this.colSupname.Width = 223;
-            // 
-            // colSupdosage
-            // 
-            this.colSupdosage.DataPropertyName = "dosage";
-            this.colSupdosage.FillWeight = 61.2802F;
-            this.colSupdosage.HeaderText = "Dosage(mg/ml)";
-            this.colSupdosage.Name = "colSupdosage";
-            this.colSupdosage.Width = 107;
-            // 
-            // colSupFreq
-            // 
-            this.colSupFreq.DataPropertyName = "frequency";
-            this.colSupFreq.FillWeight = 48.05496F;
-            this.colSupFreq.HeaderText = "Frequency";
-            this.colSupFreq.Name = "colSupFreq";
-            this.colSupFreq.Width = 95;
-            // 
-            // colSuptaken
-            // 
-            this.colSuptaken.DataPropertyName = "lasttaken";
-            this.colSuptaken.FillWeight = 71.78851F;
-            this.colSuptaken.HeaderText = "Last Taken (MM/dd/yy)";
-            this.colSuptaken.Name = "colSuptaken";
-            this.colSuptaken.Width = 160;
-            // 
-            // colSupRegular
-            // 
-            this.colSupRegular.DataPropertyName = "regularly";
-            this.colSupRegular.FillWeight = 71.78851F;
-            this.colSupRegular.HeaderText = "Taken Regularly";
-            this.colSupRegular.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.colSupRegular.Name = "colSupRegular";
-            this.colSupRegular.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSupRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSupRegular.Width = 127;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "brandname";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colName.FillWeight = 163.501F;
-            this.colName.HeaderText = "Name ";
-            this.colName.Name = "colName";
-            this.colName.Width = 225;
-            // 
-            // colDosage
-            // 
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.FillWeight = 86.86781F;
-            this.colDosage.HeaderText = "Dosage(mg/ml)";
-            this.colDosage.Name = "colDosage";
-            this.colDosage.Width = 105;
-            // 
-            // colFreq
-            // 
-            this.colFreq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colFreq.DataPropertyName = "frequency";
-            this.colFreq.FillWeight = 50.76142F;
-            this.colFreq.HeaderText = "Frequency";
-            this.colFreq.Name = "colFreq";
-            this.colFreq.Width = 90;
-            // 
-            // collastTaken
-            // 
-            this.collastTaken.DataPropertyName = "lasttaken";
-            this.collastTaken.FillWeight = 103.4628F;
-            this.collastTaken.HeaderText = "Last Taken (MM/dd/yy)";
-            this.collastTaken.Name = "collastTaken";
-            this.collastTaken.Width = 170;
-            // 
-            // colTaken
-            // 
-            this.colTaken.DataPropertyName = "regularly";
-            this.colTaken.FillWeight = 95.40694F;
-            this.colTaken.HeaderText = "Taken Regularly";
-            this.colTaken.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.colTaken.Name = "colTaken";
-            this.colTaken.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTaken.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colTaken.Width = 120;
             // 
             // userPatientInfo
             // 

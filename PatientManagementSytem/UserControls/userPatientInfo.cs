@@ -20,7 +20,7 @@ namespace PMS.UserControls
         MySqlDataReader msqlReader;
         TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
         String allergies = "", medical = "", surgical = "", fammedhistory = "", reviews = "", regularity = "", gender = "", result = "", patientid = "", fullName = "";
-        int From, To, paternalRow;
+        int From, To, age, paternalRow;
         public userPatientInfo()
         {
             InitializeComponent();
@@ -190,19 +190,18 @@ namespace PMS.UserControls
             dataGridCurrentMeds.DataSource = null;
             dataGridSupMeds.DataSource = null;
             datagridpersonalhistory.DataSource = null;
+            datagridpersonalhistory.Rows.Clear();
+            datagridFamMedHistory.DataSource = null;
+            datagridFamMedHistory.Rows.Clear();
             datagridPatients.Refresh();            
 
-        }
-        
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        }        
+        public void checkDOB()
         {
-            command.Parameters.Clear();
-            DateTime from = dtBirthday.Value;
-            DateTime to = DateTime.Now;
-            TimeSpan span = to - from;
-            double days = span.TotalDays;
-            txtage.Text = Math.Truncate(days / 365).ToString("0");
+            if (age==0){
+                MessageBox.Show("Birthday should be in the past");
+                dtBirthday.Focus();
+            }
         }
 
         public void infoReload()
@@ -571,9 +570,7 @@ namespace PMS.UserControls
         }
 
 
-        private void radUpdate_CheckedChanged(object sender, EventArgs e){
-            datagridpersonalhistory.DataSource = null;
-            datagridpersonalhistory.Rows.Clear();
+        private void radUpdate_CheckedChanged(object sender, EventArgs e){           
             clearAll();            
         }
 
@@ -1042,7 +1039,9 @@ namespace PMS.UserControls
             DateTime to = DateTime.Now;
             TimeSpan span = to - from;
             double days = span.TotalDays;
-            txtage.Text = Math.Truncate(days / 365).ToString("0");
+            age = Convert.ToInt32(Math.Truncate(days / 365));
+            txtage.Text = age.ToString();
+            checkDOB();
         }       
         private void radAdd_CheckedChanged(object sender, EventArgs e)
         {
