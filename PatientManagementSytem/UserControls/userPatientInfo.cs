@@ -21,6 +21,7 @@ namespace PMS.UserControls
         TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
         String allergies = "", medical = "", surgical = "", fammedhistory = "", famMedHistorytype, reviews = "", regularity = "", gender = "", result = "", patientid = "", fullName = "";
         int From, To, age, paternalRow;
+        bool genInfo;
         public userPatientInfo()
         {
             InitializeComponent();
@@ -1162,105 +1163,18 @@ namespace PMS.UserControls
                         }
                         allergies = allergies.TrimEnd(',', ' ');
 
-
-                       /* foreach (Control textbox in grpboxfam.Controls)
+                        //get values of Checked Items in Review of Systems start
+                        foreach (CheckedListBox checkedListBox in grpboxreview.Controls.OfType<CheckedListBox>())
                         {
 
-                            if ((textbox is TextBox) && (!(String.IsNullOrEmpty(textbox.Text))))
+                            foreach (Object checkedItem in checkedListBox.CheckedItems)
                             {
-                                fammedhistory += textbox.Tag + "(" + textbox.Text + ")" + ", ";
-
+                                reviews += checkedItem.ToString() + ", ";
                             }
-
-                        }
-                        fammedhistory = fammedhistory.TrimEnd(',', ' ');*/
-
-
-                        /*
-                        foreach (DataGridViewRow rowPaternal in datagridFamMedHistory.Rows)
-                        {
-                            if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colPaternal"]).Value) == true)
-                            {
-                                fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Paternal), ";
-                            }
-                            if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colMaternal"]).Value) == true)
-                            {
-                                fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Maternal), ";
-
-                            }
-
-                        }*/
-
-                        foreach (Object item in chkListGeneral.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListNeuro.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-
-                        foreach (Object item in chkListSkin.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-
-                        foreach (Object item in chkListCardio.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-
-                        foreach (Object item in chkListGastro.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListKidney.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListRepro.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListEyes.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListRespi.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListEndo.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListHema.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListSkel.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
-
-                        }
-                        foreach (Object item in chkListPsych.CheckedItems)
-                        {
-                            reviews += item.ToString() + ", ";
 
                         }
                         reviews = reviews.TrimEnd(',', ' ');
-
+                        //get values of Checked Items in Review of Systems end
 
                         foreach (Control radbox in grpboxregularity.Controls)
                         {
@@ -1432,8 +1346,17 @@ namespace PMS.UserControls
             allergies = "";
             fammedhistory = "";
 
-            if (String.IsNullOrEmpty(txtname.Text) || String.IsNullOrEmpty(txtmidname.Text) || String.IsNullOrEmpty(txtsurname.Text) || String.IsNullOrEmpty(txtmobileno.Text) || String.IsNullOrEmpty(txthome.Text) || String.IsNullOrEmpty(txtage.Text) || String.IsNullOrEmpty(txtaddress.Text) || String.IsNullOrEmpty(txtnamemergency.Text)
-               || String.IsNullOrEmpty(txtEmobile.Text) || String.IsNullOrEmpty(txtrelationship.Text) || String.IsNullOrEmpty(gender))
+            foreach(Control control in grpboxGenInfo.Controls)
+            {                
+                if (control is TextBox) 
+                {
+                    if (String.IsNullOrEmpty(control.Text)){
+                        genInfo = true;
+                    }
+                }
+            }
+
+            if (genInfo)
             {
                 MessageBox.Show("Please complete details on personal informations");
             }
@@ -1442,6 +1365,8 @@ namespace PMS.UserControls
                 connect.Close();
                 connect.Open();
                 command.Parameters.Clear();
+
+                
 
                 foreach (Object itemChecked in chkListMedical.CheckedItems)
                 {
@@ -1470,77 +1395,20 @@ namespace PMS.UserControls
 
                 }
                 allergies = allergies.TrimEnd(',', ' ');
-                                
-                foreach (Object item in chkListGeneral.CheckedItems)
+
+
+                //get values of Checked Items in Review of Systems start
+                foreach (CheckedListBox checkedListBox in grpboxreview.Controls.OfType<CheckedListBox>())
                 {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListNeuro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListSkin.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListCardio.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-
-                foreach (Object item in chkListGastro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListKidney.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListRepro.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListEyes.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListRespi.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListEndo.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListHema.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListSkel.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
-
-                }
-                foreach (Object item in chkListPsych.CheckedItems)
-                {
-                    reviews += item.ToString() + ", ";
+                                  
+                        foreach (Object checkedItem in checkedListBox.CheckedItems)
+                        {
+                            reviews += checkedItem.ToString() + ", ";
+                        }                   
 
                 }
                 reviews = reviews.TrimEnd(',', ' ');
+                //get values of Checked Items in Review of Systems end
 
 
                 foreach (Control radbox in grpboxregularity.Controls)
