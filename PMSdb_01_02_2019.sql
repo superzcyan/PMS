@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   `start` varchar(45) DEFAULT NULL,
   `end` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`count`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ CREATE TABLE `familymedhistory` (
 
 LOCK TABLES `familymedhistory` WRITE;
 /*!40000 ALTER TABLE `familymedhistory` DISABLE KEYS */;
-INSERT INTO `familymedhistory` VALUES (1,'P1','High Blood',NULL,NULL),(2,'P1','Stroke',NULL,NULL),(3,'P1','Bleed Disorder',NULL,NULL),(4,'P1','Diabetes',NULL,NULL),(5,'P1','Thyroid Disease',NULL,NULL),(6,'P1','Heart Disease',NULL,NULL),(7,'P1','Lung Disease',NULL,NULL),(8,'P1','Lung Cancer',NULL,NULL),(9,'P1','Gastrointestinal Disease',NULL,NULL),(10,'P1','Colon Cancer',NULL,NULL),(11,'P1','Pancreatic Cancer',NULL,NULL),(12,'P1','Kidney Disease',NULL,NULL),(13,'P1','Kidney Cancer',NULL,NULL),(14,'P1','Bladder Disease',NULL,NULL),(15,'P1','Bladder Cancer',NULL,NULL),(16,'P1','Reproductive Disease',NULL,NULL),(17,'P1','Ovarian Cancer',NULL,NULL),(18,'P1','Endometrial Cancer',NULL,NULL),(19,'P1','Cervical Cancer',NULL,NULL),(20,'P1','Osteoporosis',NULL,NULL),(21,'P1','Other Diseases/Cancer',NULL,NULL);
+INSERT INTO `familymedhistory` VALUES (1,'P1','High Blood',1,1),(2,'P1','Stroke',1,1),(3,'P1','Bleed Disorder',NULL,NULL),(4,'P1','Diabetes',NULL,NULL),(5,'P1','Thyroid Disease',NULL,NULL),(6,'P1','Heart Disease',NULL,NULL),(7,'P1','Lung Disease',NULL,NULL),(8,'P1','Lung Cancer',NULL,NULL),(9,'P1','Gastrointestinal Disease',NULL,NULL),(10,'P1','Colon Cancer',NULL,NULL),(11,'P1','Pancreatic Cancer',NULL,NULL),(12,'P1','Kidney Disease',NULL,NULL),(13,'P1','Kidney Cancer',NULL,NULL),(14,'P1','Bladder Disease',NULL,NULL),(15,'P1','Bladder Cancer',NULL,NULL),(16,'P1','Reproductive Disease',NULL,NULL),(17,'P1','Ovarian Cancer',NULL,NULL),(18,'P1','Endometrial Cancer',NULL,NULL),(19,'P1','Cervical Cancer',NULL,NULL),(20,'P1','Osteoporosis',NULL,NULL),(21,'P1','Other Diseases/Cancer',1,1);
 /*!40000 ALTER TABLE `familymedhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `medicationhistory` (
 
 LOCK TABLES `medicationhistory` WRITE;
 /*!40000 ALTER TABLE `medicationhistory` DISABLE KEYS */;
-INSERT INTO `medicationhistory` VALUES ('P1','Strechable','Diabetes, Kidney Disease, Kidney Stones, Other(  )','Hysterectomy, Mastectomy, Other(  )','',NULL,'');
+INSERT INTO `medicationhistory` VALUES ('P1','Poisoned','Diabetes, High Blood Pressure, Cataracts, Anemia, Jaundice','None, Spinal Surgery','Fish, Shellﬁsh, Tree Nuts, Nuts, Wheat, Soy, Eggs',NULL,'');
 /*!40000 ALTER TABLE `medicationhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +188,7 @@ CREATE TABLE `menstrual` (
 
 LOCK TABLES `menstrual` WRITE;
 /*!40000 ALTER TABLE `menstrual` DISABLE KEYS */;
-INSERT INTO `menstrual` VALUES ('P1','','','','','','','','','');
+INSERT INTO `menstrual` VALUES ('P1','','','','Irregular','','','','','');
 /*!40000 ALTER TABLE `menstrual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +231,7 @@ CREATE TABLE `patients` (
 
 LOCK TABLES `patients` WRITE;
 /*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES ('P1','Luffy','D','Monkey','Male','Foosha Village','May 05, 1989',30,'gomugomu@gmail.com','09785132588','43454165','Pirate','Garp D Monkey','09875315698','Grand Father','','','','','');
+INSERT INTO `patients` VALUES ('P1','Luffy','D','Monkey','Male','Grand Line','December 26, 1988',30,'gomugomunu@gmail.com','09721546546','43431225','Pirate','Garp D Monkey','09787543123','Grand Father','','','','','');
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,4 +434,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-29  7:55:15
+-- Dump completed on 2019-10-02 15:24:45

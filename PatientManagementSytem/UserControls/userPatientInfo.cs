@@ -19,7 +19,7 @@ namespace PMS.UserControls
         MySqlCommand command = new MySqlCommand();
         MySqlDataReader msqlReader;
         TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-        String allergies = "", medical = "", surgical = "", fammedhistory = "", reviews = "", regularity = "", gender = "", result = "", patientid = "", fullName = "";
+        String allergies = "", medical = "", surgical = "", fammedhistory = "", famMedHistorytype, reviews = "", regularity = "", gender = "", result = "", patientid = "", fullName = "";
         int From, To, age, paternalRow;
         public userPatientInfo()
         {
@@ -63,8 +63,7 @@ namespace PMS.UserControls
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            this.InitializeComponent();
+            
             infoReload();
             
         }
@@ -206,6 +205,8 @@ namespace PMS.UserControls
 
         public void infoReload()
         {
+            this.Controls.Clear();
+            this.InitializeComponent();
             txtSearch.Focus();
             radAdd.Checked = true;
             connect.Open();
@@ -218,7 +219,6 @@ namespace PMS.UserControls
             datagridPatients.DataSource = tablepatients;
             datagridPatients.ClearSelection();
             
-
             command.CommandText = "Select COUNT(*) from patients";
             int count = Convert.ToInt16(command.ExecuteScalar()) + 1;
             txtPatientID.Text = "P" + count.ToString();
@@ -595,9 +595,7 @@ namespace PMS.UserControls
             btnClear.ForeColor = Color.Black;
         }               
         private void BtnRefresh_Click(object sender, EventArgs e)
-        {
-            this.Controls.Clear();
-            this.InitializeComponent();
+        {           
             infoReload();
         }
 
@@ -1414,9 +1412,7 @@ namespace PMS.UserControls
                             connect.Close();
                         }
                         clearAll();
-                        MessageBox.Show("Recorded, New Patient ID: " + patientid);
-                        this.Controls.Clear();
-                        this.InitializeComponent();
+                        MessageBox.Show("Recorded, New Patient ID: " + patientid);                        
                         infoReload();
                     }
                     connect.Close();
@@ -1436,8 +1432,8 @@ namespace PMS.UserControls
             allergies = "";
             fammedhistory = "";
 
-            if ((txtname.Text == "Name") || (txtmidname.Text == "MiddleName") || (txtsurname.Text == "Surname") || (txtmobileno.Text == " ") || (txthome.Text == " ") || (txtage.Text == "Age") || (txtaddress.Text == "Address") || (txtnamemergency.Text == "Name")
-               || (txtEmobile.Text == "Contact") || (txtrelationship.Text == "Relationship") || (gender == "Gender"))
+            if (String.IsNullOrEmpty(txtname.Text) || String.IsNullOrEmpty(txtmidname.Text) || String.IsNullOrEmpty(txtsurname.Text) || String.IsNullOrEmpty(txtmobileno.Text) || String.IsNullOrEmpty(txthome.Text) || String.IsNullOrEmpty(txtage.Text) || String.IsNullOrEmpty(txtaddress.Text) || String.IsNullOrEmpty(txtnamemergency.Text)
+               || String.IsNullOrEmpty(txtEmobile.Text) || String.IsNullOrEmpty(txtrelationship.Text) || String.IsNullOrEmpty(gender))
             {
                 MessageBox.Show("Please complete details on personal informations");
             }
@@ -1446,20 +1442,26 @@ namespace PMS.UserControls
                 connect.Close();
                 connect.Open();
                 command.Parameters.Clear();
+
                 foreach (Object itemChecked in chkListMedical.CheckedItems)
                 {
                     medical += itemChecked.ToString() + ", ";
                 }
-                medical += "Other( " + txtothersmed.Text + " )";
+                if (!(String.IsNullOrEmpty(txtothersmed.Text)))
+                {
+                    medical += "Other( " + txtothersmed.Text + " )";                    
+                }
                 medical = medical.TrimEnd(',', ' ');
 
                 foreach (Object itemChecked in chkListSurgical.CheckedItems)
                 {
                     surgical += itemChecked.ToString() + ", ";
                 }
-                surgical += "Other( " + txtotherssurgical.Text + " )";
+                if (!(String.IsNullOrEmpty(txtotherssurgical.Text)))
+                {
+                    surgical += "Other( " + txtotherssurgical.Text + " )";                    
+                }
                 surgical = surgical.TrimEnd(',', ' ');
-
 
                 foreach (Object itemChecked in chkListAllergy.CheckedItems)
                 {
@@ -1468,35 +1470,7 @@ namespace PMS.UserControls
 
                 }
                 allergies = allergies.TrimEnd(',', ' ');
-
-
-                /*foreach (Control textbox in grpboxfam.Controls)
-                {
-
-                    if ((textbox is TextBox) && (!(String.IsNullOrEmpty(textbox.Text))))
-                    {
-                        fammedhistory += textbox.Tag + "(" + textbox.Text + ")" + ", ";
-
-                    }
-
-                }
-                fammedhistory = fammedhistory.TrimEnd(',', ' ');*/
-/*
-                foreach (DataGridViewRow rowPaternal in datagridFamMedHistory.Rows)
-                {
-                    if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colPaternal"]).Value) == true)
-                    {
-                        fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Paternal), ";
-                    }  
-                        if (Convert.ToBoolean(((DataGridViewCheckBoxCell)rowPaternal.Cells["colMaternal"]).Value) == true)
-                    {
-                        fammedhistory += datagridFamMedHistory.Rows[0].Cells["colType"].Value.ToString() + " (Maternal), ";
-                       
-                    }
-
-                }*/
-
-                
+                                
                 foreach (Object item in chkListGeneral.CheckedItems)
                 {
                     reviews += item.ToString() + ", ";
@@ -1613,8 +1587,7 @@ namespace PMS.UserControls
                 command.Parameters.AddWithValue("@historyofillness", txthistory.Text);
                 command.Parameters.AddWithValue("@medicalhistory", medical);
                 command.Parameters.AddWithValue("@surgicalhistory", surgical);
-                command.Parameters.AddWithValue("@medicationsuppallergyhistory", allergies);
-                //command.Parameters.AddWithValue("@familymedicalhistory", fammedhistory);
+                command.Parameters.AddWithValue("@medicationsuppallergyhistory", allergies);                
                 command.Parameters.AddWithValue("@reviewpast6months", reviews);
 
 
@@ -1630,63 +1603,33 @@ namespace PMS.UserControls
                 command.Parameters.AddWithValue("@nopregnancies", txtnoofpreg.Text);
                 command.Parameters.AddWithValue("@nochildren", txtnoofchild.Text);
                 command.Parameters.AddWithValue("@nomiscarriage", txtnomiscar.Text);
-
                 command.ExecuteNonQuery();
-                connect.Close();
-
+               
                 foreach (DataGridViewRow row in datagridFamMedHistory.Rows)
                 {
                     command.Parameters.Clear();
-                    if (!row.IsNewRow)
-                    {
-                        command.CommandText = @"UPDATE familymedhistory SET type = @type, paternal = @paternal, maternal = @maternal
-                                                       WHERE patientid = @patientid";
-                        command.Parameters.AddWithValue("@patientid", patientid);
-                        command.Parameters.AddWithValue("@type", row.Cells["colType"].Value);
-                        command.Parameters.AddWithValue("@paternal", row.Cells["colPaternal"].Value);
-                        command.Parameters.AddWithValue("@maternal", row.Cells["colMaternal"].Value);
-                        connect.Open();
-                        command.ExecuteNonQuery();
-                        connect.Close();
-                    }
+                    famMedHistorytype = row.Cells["colType"].Value.ToString();
+                    command.CommandText = @"UPDATE familymedhistory SET paternal = @paternal, maternal = @maternal
+                                                            WHERE patientid = '" + patientid + "' AND type = '" + famMedHistorytype + "'";
+                    command.Parameters.AddWithValue("@paternal", row.Cells["colPaternal"].Value);
+                    command.Parameters.AddWithValue("@maternal", row.Cells["colMaternal"].Value);
+                    command.ExecuteNonQuery();
                 }
-
-
-
-                MessageBox.Show("Informations succesfully updated!");
-                this.Controls.Clear();
-                this.InitializeComponent();
-                infoReload();                
-                radAdd.Checked = true;
+                connect.Close();
+                
+                MessageBox.Show("Informations succesfully updated!");                
+                infoReload();
             }
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (radAdd.Checked)
             {
-                addPatient();
-                this.InitializeComponent();
-                infoReload();
+                addPatient();              
             }
             else if (radUpdate.Checked)
             {
-                connect.Open();
-                command.Parameters.Clear();
-                command.CommandText = "Select * FROM patients, medicationhistory, healthandwellnessgoals, menstrual WHERE patients.patientid = '" + patientid + "' AND medicationhistory.patientid = '" + patientid + "'  AND menstrual.patientid = '" + patientid + "'";
-
-
-                MySqlDataReader msqlReader = command.ExecuteReader();
-                if (msqlReader.Read())
-                {
-                    updatePatient();                                                    
-
-                }
-                else
-                {
-                    MessageBox.Show("Please check inputs");
-                }
-                connect.Close();
-
+                updatePatient();                                                    
             }
 
         }
