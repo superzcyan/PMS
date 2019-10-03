@@ -70,122 +70,42 @@ namespace PMS.UserControls
         }
 
         public void clearAll()
-        {
-            foreach (Control obj in grpboxGenInfo.Controls)
+        {           
+            //Clear Controls start
+            foreach (TabPage tabPage in tabControl1.Controls.OfType<TabPage>())
             {
-
-                if (obj is TextBox)
+                foreach (TextBox textBox in tabPage.Controls.OfType<TextBox>())
                 {
-                    obj.Text = "";
-                }                
-            }
-
-            foreach (int i in chkListMedical.CheckedIndices)
-            {
-                chkListMedical.SetItemCheckState(i, CheckState.Unchecked);
-            }
-
-            foreach (int i in chkListSurgical.CheckedIndices)
-            {
-                chkListSurgical.SetItemCheckState(i, CheckState.Unchecked);
-            }
-
-            foreach (int i in chkListAllergy.CheckedIndices)
-            {
-                chkListAllergy.SetItemCheckState(i, CheckState.Unchecked);
-            }
-
-            foreach (int i in chkListGeneral.CheckedIndices)
-            {
-                chkListGeneral.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListNeuro.CheckedIndices)
-            {
-                chkListNeuro.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-
-            foreach (int i in chkListSkin.CheckedIndices)
-            {
-                chkListSkin.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-
-            foreach (int i in chkListCardio.CheckedIndices)
-            {
-                chkListCardio.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-
-            foreach (int i in chkListGastro.CheckedIndices)
-            {
-                chkListGastro.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListKidney.CheckedIndices)
-            {
-                chkListKidney.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListRepro.CheckedIndices)
-            {
-                chkListRepro.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListEyes.CheckedIndices)
-            {
-                chkListEyes.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListRespi.CheckedIndices)
-            {
-                chkListRespi.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListEndo.CheckedIndices)
-            {
-                chkListEndo.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListHema.CheckedIndices)
-            {
-                chkListHema.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListSkel.CheckedIndices)
-            {
-                chkListSkel.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-            foreach (int i in chkListPsych.CheckedIndices)
-            {
-                chkListPsych.SetItemCheckState(i, CheckState.Unchecked);
-
-            }
-
-            foreach (Control obj in grpboxfam.Controls)
-            {
-                if (obj is TextBox)
-                {
-                    obj.Text = "";
+                    textBox.Text = null;
                 }
-            }
-            foreach (Control obj in grpboxHistory.Controls)
-            {
-                if (obj is TextBox)
+
+                foreach (GroupBox groupBox in tabPage.Controls.OfType<GroupBox>())
                 {
-                    obj.Text = "";
-                }
+
+                    foreach(TextBox textBox in groupBox.Controls.OfType<TextBox>())
+                    {
+                        textBox.Text = null;
+                    }
+
+                    foreach (CheckedListBox checkedListBox in groupBox.Controls.OfType<CheckedListBox>())
+                    {
+
+                        foreach (int i in checkedListBox.CheckedIndices)
+                        {
+                            checkedListBox.SetItemCheckState(i, CheckState.Unchecked);
+                        }
+                    }
+
+                    foreach(CheckBox checkBox in groupBox.Controls.OfType<CheckBox>())
+                    {
+                        checkBox.Checked = false;
+                    }
+                }               
             }
-            
             dtBirthday.ResetText();
-            chkboxOther.Checked = false;
-            chkboxOther1.Checked = false;
-            txtothersmed.Text = "";
-            txtotherssurgical.Text = "";
-            txtgoals.Text = "";
-            txtchallenges.Text = "";
+            //Clear Controls end            
+            
+           
 
             dataGridCurrentMeds.DataSource = null;
             dataGridSupMeds.DataSource = null;
@@ -603,8 +523,7 @@ namespace PMS.UserControls
         private void TxtPatientID_TextChanged(object sender, EventArgs e)
         {           
             txtPatientID.Text = textInfo.ToTitleCase(txtPatientID.Text);
-        }
-
+        }            
         private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -825,7 +744,7 @@ namespace PMS.UserControls
                 }            
                
 
-                //Retrieve Freview of past 6months from Database start
+                //Retrieve Review of past 6months from Database start
                 reviews = msqlReader["reviewpast6months"].ToString();
                 String[] rev = reviews.Split(',');
                 for (int i = 0; i < rev.Length; i++)
@@ -977,15 +896,17 @@ namespace PMS.UserControls
 
 
             }
-            else if (txtPatientID.Text == "")
+            else if (String.IsNullOrEmpty(txtSearch.Text))
             {
-                MessageBox.Show("Please input patient ID number");
+                MessageBox.Show("Please input patient ID number or Name");
+                radAdd.Checked = true;
 
             }
             else
             {
                 MessageBox.Show("Patient don't exist");
-                clearAll();
+                radAdd.Checked = true;
+                
             }
 
 
@@ -1044,9 +965,9 @@ namespace PMS.UserControls
         }       
         private void radAdd_CheckedChanged(object sender, EventArgs e)
         {
-            if (radAdd.Checked == true)
-            {
+            
                 clearAll();
+                connect.Close();
                 txtPatientID.Enabled = false;
                 connect.Open();
                 command.Connection = connect;
@@ -1056,7 +977,7 @@ namespace PMS.UserControls
                 connect.Close();
                 addhistory();
                 addFamMedHistory();
-            }          
+         
         }
 
         private void txtsurname_Validated(object sender, EventArgs e)
@@ -1176,7 +1097,7 @@ namespace PMS.UserControls
                         reviews = reviews.TrimEnd(',', ' ');
                         //get values of Checked Items in Review of Systems end
 
-                        foreach (Control radbox in grpboxregularity.Controls)
+                        foreach (Control radbox in grpboxMentrualandObs.Controls)
                         {
 
                             if ((radbox is RadioButton) && ((RadioButton)radbox).Checked)
@@ -1411,7 +1332,7 @@ namespace PMS.UserControls
                 //get values of Checked Items in Review of Systems end
 
 
-                foreach (Control radbox in grpboxregularity.Controls)
+                foreach (Control radbox in grpboxMentrualandObs.Controls)
                 {
 
                     if ((radbox is RadioButton) && ((RadioButton)radbox).Checked)

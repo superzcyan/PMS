@@ -147,7 +147,9 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.grpboxMentrualandObs = new System.Windows.Forms.GroupBox();
+            this.radregular = new System.Windows.Forms.RadioButton();
             this.txtnomiscar = new System.Windows.Forms.TextBox();
+            this.radirreg = new System.Windows.Forms.RadioButton();
             this.label43 = new System.Windows.Forms.Label();
             this.txtnoofchild = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -163,9 +165,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.txtagemens = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.grpboxregularity = new System.Windows.Forms.GroupBox();
-            this.radregular = new System.Windows.Forms.RadioButton();
-            this.radirreg = new System.Windows.Forms.RadioButton();
             this.grpboxHistory = new System.Windows.Forms.GroupBox();
             this.datagridpersonalhistory = new System.Windows.Forms.DataGridView();
             this.colActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -211,7 +210,6 @@
             this.tabPage3.SuspendLayout();
             this.grpboxreview.SuspendLayout();
             this.grpboxMentrualandObs.SuspendLayout();
-            this.grpboxregularity.SuspendLayout();
             this.grpboxHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridpersonalhistory)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -1643,7 +1641,9 @@
             // 
             // grpboxMentrualandObs
             // 
+            this.grpboxMentrualandObs.Controls.Add(this.radregular);
             this.grpboxMentrualandObs.Controls.Add(this.txtnomiscar);
+            this.grpboxMentrualandObs.Controls.Add(this.radirreg);
             this.grpboxMentrualandObs.Controls.Add(this.label43);
             this.grpboxMentrualandObs.Controls.Add(this.txtnoofchild);
             this.grpboxMentrualandObs.Controls.Add(this.label37);
@@ -1659,7 +1659,6 @@
             this.grpboxMentrualandObs.Controls.Add(this.label39);
             this.grpboxMentrualandObs.Controls.Add(this.txtagemens);
             this.grpboxMentrualandObs.Controls.Add(this.label40);
-            this.grpboxMentrualandObs.Controls.Add(this.grpboxregularity);
             this.grpboxMentrualandObs.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpboxMentrualandObs.Location = new System.Drawing.Point(6, 372);
             this.grpboxMentrualandObs.Name = "grpboxMentrualandObs";
@@ -1667,6 +1666,19 @@
             this.grpboxMentrualandObs.TabIndex = 1;
             this.grpboxMentrualandObs.TabStop = false;
             this.grpboxMentrualandObs.Text = "Menstrual and Obstetric History";
+            // 
+            // radregular
+            // 
+            this.radregular.AutoSize = true;
+            this.radregular.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radregular.Enabled = false;
+            this.radregular.Location = new System.Drawing.Point(148, 111);
+            this.radregular.Name = "radregular";
+            this.radregular.Size = new System.Drawing.Size(85, 20);
+            this.radregular.TabIndex = 0;
+            this.radregular.TabStop = true;
+            this.radregular.Text = "Regular:     ";
+            this.radregular.UseVisualStyleBackColor = true;
             // 
             // txtnomiscar
             // 
@@ -1676,6 +1688,20 @@
             this.txtnomiscar.Name = "txtnomiscar";
             this.txtnomiscar.Size = new System.Drawing.Size(38, 23);
             this.txtnomiscar.TabIndex = 7;
+            // 
+            // radirreg
+            // 
+            this.radirreg.AutoSize = true;
+            this.radirreg.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radirreg.Enabled = false;
+            this.radirreg.Location = new System.Drawing.Point(146, 134);
+            this.radirreg.Name = "radirreg";
+            this.radirreg.Size = new System.Drawing.Size(87, 20);
+            this.radirreg.TabIndex = 1;
+            this.radirreg.TabStop = true;
+            this.radirreg.Text = "Irregular:     ";
+            this.radirreg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radirreg.UseVisualStyleBackColor = true;
             // 
             // label43
             // 
@@ -1744,15 +1770,15 @@
             // 
             this.txtmenscycle.Enabled = false;
             this.txtmenscycle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmenscycle.Location = new System.Drawing.Point(236, 161);
+            this.txtmenscycle.Location = new System.Drawing.Point(207, 160);
             this.txtmenscycle.Name = "txtmenscycle";
-            this.txtmenscycle.Size = new System.Drawing.Size(38, 23);
+            this.txtmenscycle.Size = new System.Drawing.Size(70, 23);
             this.txtmenscycle.TabIndex = 3;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(21, 164);
+            this.label36.Location = new System.Drawing.Point(25, 164);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(177, 16);
             this.label36.TabIndex = 39;
@@ -1811,40 +1837,6 @@
             this.label40.Size = new System.Drawing.Size(138, 16);
             this.label40.TabIndex = 0;
             this.label40.Text = "Age of first Menstruation:";
-            // 
-            // grpboxregularity
-            // 
-            this.grpboxregularity.Controls.Add(this.radregular);
-            this.grpboxregularity.Controls.Add(this.radirreg);
-            this.grpboxregularity.Location = new System.Drawing.Point(36, 115);
-            this.grpboxregularity.Name = "grpboxregularity";
-            this.grpboxregularity.Size = new System.Drawing.Size(209, 40);
-            this.grpboxregularity.TabIndex = 51;
-            this.grpboxregularity.TabStop = false;
-            // 
-            // radregular
-            // 
-            this.radregular.AutoSize = true;
-            this.radregular.Enabled = false;
-            this.radregular.Location = new System.Drawing.Point(6, 13);
-            this.radregular.Name = "radregular";
-            this.radregular.Size = new System.Drawing.Size(67, 20);
-            this.radregular.TabIndex = 0;
-            this.radregular.TabStop = true;
-            this.radregular.Text = "Regular";
-            this.radregular.UseVisualStyleBackColor = true;
-            // 
-            // radirreg
-            // 
-            this.radirreg.AutoSize = true;
-            this.radirreg.Enabled = false;
-            this.radirreg.Location = new System.Drawing.Point(115, 13);
-            this.radirreg.Name = "radirreg";
-            this.radirreg.Size = new System.Drawing.Size(69, 20);
-            this.radirreg.TabIndex = 1;
-            this.radirreg.TabStop = true;
-            this.radirreg.Text = "Irregular";
-            this.radirreg.UseVisualStyleBackColor = true;
             // 
             // grpboxHistory
             // 
@@ -2196,8 +2188,6 @@
             this.grpboxreview.PerformLayout();
             this.grpboxMentrualandObs.ResumeLayout(false);
             this.grpboxMentrualandObs.PerformLayout();
-            this.grpboxregularity.ResumeLayout(false);
-            this.grpboxregularity.PerformLayout();
             this.grpboxHistory.ResumeLayout(false);
             this.grpboxHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridpersonalhistory)).EndInit();
@@ -2315,7 +2305,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtagemens;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.GroupBox grpboxregularity;
         private System.Windows.Forms.RadioButton radregular;
         private System.Windows.Forms.RadioButton radirreg;
         private System.Windows.Forms.GroupBox grpboxHistory;
