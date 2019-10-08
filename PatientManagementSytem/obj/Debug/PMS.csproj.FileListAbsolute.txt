@@ -79,15 +79,9 @@ C:\Users\zcyco\Documents\Zcy_02_06_2019\Programs\PMS\PMSWorking\PatientManagemen
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\bin\Debug\PMS.exe.config
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\bin\Debug\PMS.exe
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\bin\Debug\PMS.pdb
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.AddAppointment.resources
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.Appointments.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.Forms.Dashboard.resources
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.EmployeeSchedule.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.Login.resources
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.PatientView.resources
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.PatientInfo.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.Properties.Resources.resources
-E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.Employee.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.UserControls.userAppointments.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.UserControls.userHome.resources
 E:\Documents\Zcy\PMSWorking\PatientManagementSytem\obj\Debug\PMS.UserControls.userPatientRecords.resources

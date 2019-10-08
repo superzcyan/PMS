@@ -50,13 +50,13 @@
             this.colFName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.grpboxSurgical = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.txtotherssurgical = new System.Windows.Forms.TextBox();
             this.chkListSurgical = new System.Windows.Forms.CheckedListBox();
-            this.chkboxOther1 = new System.Windows.Forms.CheckBox();
             this.grpboxMedical = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtothersmed = new System.Windows.Forms.TextBox();
             this.chkListMedical = new System.Windows.Forms.CheckedListBox();
-            this.chkboxOther = new System.Windows.Forms.CheckBox();
             this.grpboxGenInfo = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txthistory = new System.Windows.Forms.TextBox();
@@ -86,7 +86,7 @@
             this.txtemail = new System.Windows.Forms.TextBox();
             this.txtaddress = new System.Windows.Forms.TextBox();
             this.txtage = new System.Windows.Forms.TextBox();
-            this.txtsurname = new System.Windows.Forms.TextBox();
+            this.txtlastname = new System.Windows.Forms.TextBox();
             this.txtmidname = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -172,7 +172,6 @@
             this.colPerWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKind = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkboxChild = new System.Windows.Forms.CheckBox();
             this.txtchildnum = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.txtprevoccupation = new System.Windows.Forms.TextBox();
@@ -372,9 +371,9 @@
             // 
             // grpboxSurgical
             // 
+            this.grpboxSurgical.Controls.Add(this.label25);
             this.grpboxSurgical.Controls.Add(this.txtotherssurgical);
             this.grpboxSurgical.Controls.Add(this.chkListSurgical);
-            this.grpboxSurgical.Controls.Add(this.chkboxOther1);
             this.grpboxSurgical.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpboxSurgical.Location = new System.Drawing.Point(965, 43);
             this.grpboxSurgical.Name = "grpboxSurgical";
@@ -382,6 +381,16 @@
             this.grpboxSurgical.TabIndex = 17;
             this.grpboxSurgical.TabStop = false;
             this.grpboxSurgical.Text = "Surgical";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(6, 447);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 16);
+            this.label25.TabIndex = 55;
+            this.label25.Text = "Other:";
             // 
             // txtotherssurgical
             // 
@@ -428,22 +437,11 @@
             this.chkListSurgical.Size = new System.Drawing.Size(166, 384);
             this.chkListSurgical.TabIndex = 20;
             // 
-            // chkboxOther1
-            // 
-            this.chkboxOther1.AutoSize = true;
-            this.chkboxOther1.Location = new System.Drawing.Point(8, 444);
-            this.chkboxOther1.Name = "chkboxOther1";
-            this.chkboxOther1.Size = new System.Drawing.Size(58, 20);
-            this.chkboxOther1.TabIndex = 1;
-            this.chkboxOther1.Text = "Other";
-            this.chkboxOther1.UseVisualStyleBackColor = true;
-            this.chkboxOther1.Click += new System.EventHandler(this.chkOther1_CheckedChanged);
-            // 
             // grpboxMedical
             // 
+            this.grpboxMedical.Controls.Add(this.label9);
             this.grpboxMedical.Controls.Add(this.txtothersmed);
             this.grpboxMedical.Controls.Add(this.chkListMedical);
-            this.grpboxMedical.Controls.Add(this.chkboxOther);
             this.grpboxMedical.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpboxMedical.Location = new System.Drawing.Point(762, 43);
             this.grpboxMedical.Name = "grpboxMedical";
@@ -451,6 +449,16 @@
             this.grpboxMedical.TabIndex = 16;
             this.grpboxMedical.TabStop = false;
             this.grpboxMedical.Text = "Medical";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 447);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 16);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "Other:";
             // 
             // txtothersmed
             // 
@@ -499,17 +507,6 @@
             this.chkListMedical.Size = new System.Drawing.Size(148, 416);
             this.chkListMedical.TabIndex = 18;
             // 
-            // chkboxOther
-            // 
-            this.chkboxOther.AutoSize = true;
-            this.chkboxOther.Location = new System.Drawing.Point(7, 441);
-            this.chkboxOther.Name = "chkboxOther";
-            this.chkboxOther.Size = new System.Drawing.Size(58, 20);
-            this.chkboxOther.TabIndex = 1;
-            this.chkboxOther.Text = "Other";
-            this.chkboxOther.UseVisualStyleBackColor = true;
-            this.chkboxOther.Click += new System.EventHandler(this.chkboxOther_CheckedChanged);
-            // 
             // grpboxGenInfo
             // 
             this.grpboxGenInfo.Controls.Add(this.label24);
@@ -540,7 +537,7 @@
             this.grpboxGenInfo.Controls.Add(this.txtemail);
             this.grpboxGenInfo.Controls.Add(this.txtaddress);
             this.grpboxGenInfo.Controls.Add(this.txtage);
-            this.grpboxGenInfo.Controls.Add(this.txtsurname);
+            this.grpboxGenInfo.Controls.Add(this.txtlastname);
             this.grpboxGenInfo.Controls.Add(this.txtmidname);
             this.grpboxGenInfo.Controls.Add(this.txtname);
             this.grpboxGenInfo.Controls.Add(this.label14);
@@ -821,21 +818,20 @@
             // txtage
             // 
             this.txtage.BackColor = System.Drawing.Color.White;
-            this.txtage.Enabled = false;
             this.txtage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtage.Location = new System.Drawing.Point(304, 205);
             this.txtage.Name = "txtage";
             this.txtage.ReadOnly = true;
-            this.txtage.Size = new System.Drawing.Size(50, 21);
+            this.txtage.Size = new System.Drawing.Size(39, 21);
             this.txtage.TabIndex = 11;
             // 
-            // txtsurname
+            // txtlastname
             // 
-            this.txtsurname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsurname.Location = new System.Drawing.Point(96, 99);
-            this.txtsurname.Name = "txtsurname";
-            this.txtsurname.Size = new System.Drawing.Size(233, 21);
-            this.txtsurname.TabIndex = 4;
+            this.txtlastname.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlastname.Location = new System.Drawing.Point(96, 99);
+            this.txtlastname.Name = "txtlastname";
+            this.txtlastname.Size = new System.Drawing.Size(233, 21);
+            this.txtlastname.TabIndex = 4;
             // 
             // txtmidname
             // 
@@ -889,7 +885,7 @@
             this.radFemale.TabStop = true;
             this.radFemale.Text = "Female";
             this.radFemale.UseVisualStyleBackColor = true;
-            this.radFemale.CheckedChanged += new System.EventHandler(this.RadFemale_CheckedChanged_1);
+            this.radFemale.CheckedChanged += new System.EventHandler(this.radFemale_CheckedChanged);
             // 
             // radMale
             // 
@@ -903,6 +899,7 @@
             this.radMale.TabStop = true;
             this.radMale.Text = "Male";
             this.radMale.UseVisualStyleBackColor = true;
+            this.radMale.CheckedChanged += new System.EventHandler(this.RadMale_CheckedChanged);
             // 
             // txtSearch
             // 
@@ -1660,9 +1657,9 @@
             this.grpboxMentrualandObs.Controls.Add(this.txtagemens);
             this.grpboxMentrualandObs.Controls.Add(this.label40);
             this.grpboxMentrualandObs.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpboxMentrualandObs.Location = new System.Drawing.Point(6, 372);
+            this.grpboxMentrualandObs.Location = new System.Drawing.Point(6, 343);
             this.grpboxMentrualandObs.Name = "grpboxMentrualandObs";
-            this.grpboxMentrualandObs.Size = new System.Drawing.Size(565, 193);
+            this.grpboxMentrualandObs.Size = new System.Drawing.Size(565, 222);
             this.grpboxMentrualandObs.TabIndex = 1;
             this.grpboxMentrualandObs.TabStop = false;
             this.grpboxMentrualandObs.Text = "Menstrual and Obstetric History";
@@ -1671,7 +1668,6 @@
             // 
             this.radregular.AutoSize = true;
             this.radregular.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radregular.Enabled = false;
             this.radregular.Location = new System.Drawing.Point(148, 111);
             this.radregular.Name = "radregular";
             this.radregular.Size = new System.Drawing.Size(85, 20);
@@ -1682,7 +1678,6 @@
             // 
             // txtnomiscar
             // 
-            this.txtnomiscar.Enabled = false;
             this.txtnomiscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomiscar.Location = new System.Drawing.Point(401, 106);
             this.txtnomiscar.Name = "txtnomiscar";
@@ -1693,7 +1688,6 @@
             // 
             this.radirreg.AutoSize = true;
             this.radirreg.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radirreg.Enabled = false;
             this.radirreg.Location = new System.Drawing.Point(146, 134);
             this.radirreg.Name = "radirreg";
             this.radirreg.Size = new System.Drawing.Size(87, 20);
@@ -1714,7 +1708,6 @@
             // 
             // txtnoofchild
             // 
-            this.txtnoofchild.Enabled = false;
             this.txtnoofchild.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnoofchild.Location = new System.Drawing.Point(401, 81);
             this.txtnoofchild.Name = "txtnoofchild";
@@ -1732,7 +1725,6 @@
             // 
             // txtnoofpreg
             // 
-            this.txtnoofpreg.Enabled = false;
             this.txtnoofpreg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnoofpreg.Location = new System.Drawing.Point(401, 56);
             this.txtnoofpreg.Name = "txtnoofpreg";
@@ -1750,7 +1742,6 @@
             // 
             // txtageofmenopause
             // 
-            this.txtageofmenopause.Enabled = false;
             this.txtageofmenopause.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtageofmenopause.Location = new System.Drawing.Point(401, 30);
             this.txtageofmenopause.Name = "txtageofmenopause";
@@ -1768,7 +1759,6 @@
             // 
             // txtmenscycle
             // 
-            this.txtmenscycle.Enabled = false;
             this.txtmenscycle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmenscycle.Location = new System.Drawing.Point(207, 160);
             this.txtmenscycle.Name = "txtmenscycle";
@@ -1786,7 +1776,6 @@
             // 
             // txtdaysmens
             // 
-            this.txtdaysmens.Enabled = false;
             this.txtdaysmens.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdaysmens.Location = new System.Drawing.Point(207, 84);
             this.txtdaysmens.Name = "txtdaysmens";
@@ -1804,7 +1793,6 @@
             // 
             // txtpads
             // 
-            this.txtpads.Enabled = false;
             this.txtpads.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpads.Location = new System.Drawing.Point(207, 57);
             this.txtpads.Name = "txtpads";
@@ -1822,7 +1810,6 @@
             // 
             // txtagemens
             // 
-            this.txtagemens.Enabled = false;
             this.txtagemens.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagemens.Location = new System.Drawing.Point(207, 30);
             this.txtagemens.Name = "txtagemens";
@@ -1841,7 +1828,6 @@
             // grpboxHistory
             // 
             this.grpboxHistory.Controls.Add(this.datagridpersonalhistory);
-            this.grpboxHistory.Controls.Add(this.chkboxChild);
             this.grpboxHistory.Controls.Add(this.txtchildnum);
             this.grpboxHistory.Controls.Add(this.label32);
             this.grpboxHistory.Controls.Add(this.txtprevoccupation);
@@ -1855,7 +1841,7 @@
             this.grpboxHistory.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpboxHistory.Location = new System.Drawing.Point(6, 6);
             this.grpboxHistory.Name = "grpboxHistory";
-            this.grpboxHistory.Size = new System.Drawing.Size(565, 357);
+            this.grpboxHistory.Size = new System.Drawing.Size(565, 331);
             this.grpboxHistory.TabIndex = 0;
             this.grpboxHistory.TabStop = false;
             this.grpboxHistory.Text = "Personal and  Social History";
@@ -1938,36 +1924,23 @@
             this.colMonth.Name = "colMonth";
             this.colMonth.Width = 59;
             // 
-            // chkboxChild
-            // 
-            this.chkboxChild.AutoSize = true;
-            this.chkboxChild.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkboxChild.Location = new System.Drawing.Point(47, 289);
-            this.chkboxChild.Name = "chkboxChild";
-            this.chkboxChild.Size = new System.Drawing.Size(151, 20);
-            this.chkboxChild.TabIndex = 4;
-            this.chkboxChild.Text = "Do you have children?";
-            this.chkboxChild.UseVisualStyleBackColor = true;
-            this.chkboxChild.CheckedChanged += new System.EventHandler(this.ChkboxChild_CheckedChanged);
-            // 
             // txtchildnum
             // 
-            this.txtchildnum.Enabled = false;
             this.txtchildnum.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtchildnum.Location = new System.Drawing.Point(261, 288);
+            this.txtchildnum.Location = new System.Drawing.Point(156, 288);
             this.txtchildnum.Name = "txtchildnum";
-            this.txtchildnum.Size = new System.Drawing.Size(58, 21);
+            this.txtchildnum.Size = new System.Drawing.Size(42, 21);
             this.txtchildnum.TabIndex = 5;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(194, 290);
+            this.label32.Location = new System.Drawing.Point(31, 293);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(58, 16);
+            this.label32.Size = new System.Drawing.Size(119, 16);
             this.label32.TabIndex = 51;
-            this.label32.Text = "Numbers:";
+            this.label32.Text = "Numbers of Children:";
             // 
             // txtprevoccupation
             // 
@@ -2161,7 +2134,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "userPatientInfo";
             this.Size = new System.Drawing.Size(1200, 750);
-            this.Load += new System.EventHandler(this.PersonalInfo_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -2211,10 +2183,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox grpboxSurgical;
         private System.Windows.Forms.CheckedListBox chkListSurgical;
-        private System.Windows.Forms.CheckBox chkboxOther1;
         private System.Windows.Forms.GroupBox grpboxMedical;
         private System.Windows.Forms.CheckedListBox chkListMedical;
-        private System.Windows.Forms.CheckBox chkboxOther;
         private System.Windows.Forms.GroupBox grpboxGenInfo;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label23;
@@ -2244,7 +2214,7 @@
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.TextBox txtaddress;
         private System.Windows.Forms.TextBox txtage;
-        private System.Windows.Forms.TextBox txtsurname;
+        private System.Windows.Forms.TextBox txtlastname;
         private System.Windows.Forms.TextBox txtmidname;
         private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Label label14;
@@ -2308,7 +2278,6 @@
         private System.Windows.Forms.RadioButton radregular;
         private System.Windows.Forms.RadioButton radirreg;
         private System.Windows.Forms.GroupBox grpboxHistory;
-        private System.Windows.Forms.CheckBox chkboxChild;
         private System.Windows.Forms.TextBox txtchildnum;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txtprevoccupation;
@@ -2354,5 +2323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFreq;
         private System.Windows.Forms.DataGridViewTextBoxColumn collastTaken;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTaken;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -277,9 +277,7 @@ namespace PMS.UserControls
                         
         }
         private void addTreatment()
-        {   
-                    
-                         
+        {                       
                     command.Parameters.Clear();
                     command.CommandText = @"INSERT INTO treatments(patientid, proceed, targetillness, sessions, result, doctor, date )
                                                     VALUES(@patientids, @proceed, @targetillness, @sessions, @result, @doctor, @date)";
@@ -302,33 +300,23 @@ namespace PMS.UserControls
                     adapter7.Fill(table7);
                     dgvtreatment.AutoGenerateColumns = false;
                     dgvtreatment.DataSource = table7;
-
                     treatmentReset();
-
                     MessageBox.Show("Recorded");
-                    btnAddTreat.Text = "Add";                              
-            
+                    btnAddTreat.Text = "Add";                                          
         }
-
-
-
-
         private void BtnAddTreat_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtproceed.Text) || string.IsNullOrEmpty(txtillness.Text) || string.IsNullOrEmpty(txtsession.Text) || string.IsNullOrEmpty(cmbDoctor.Text) || string.IsNullOrEmpty(txtOtherTreat.Text))
             {
                 MessageBox.Show("Please complete all fields");
             }
-
             else
             {
                 addTreatment();
             }
-        }
-               
+        }               
         public void fillTreamentTextbox()
         {
-
             treatcount = Convert.ToInt32(dgvtreatment.CurrentRow.Cells[0].Value);
             procedure = dgvtreatment.CurrentRow.Cells[1].Value.ToString();
             targetillness = dgvtreatment.CurrentRow.Cells[2].Value.ToString();
@@ -342,15 +330,10 @@ namespace PMS.UserControls
             txtOtherTreat.Text = results;
             cmbDoctor.Text = treatDoctor;
         }      
-
-        
-       
         private void Dgvtreatment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             fillTreamentTextbox();            
         }
-
-
         private void BtnDeleteTreat_Click(object sender, EventArgs e)
         {
             patientid = txtpatientid.Text;
@@ -381,10 +364,7 @@ namespace PMS.UserControls
                     dgvtreatment.DataSource = table7;
                     connect.Close();
                     treatmentReset();
-                    MessageBox.Show("Deleted!");
-                    
-
-
+                    MessageBox.Show("Deleted!");                                    
                 }
                 else if (dialogResult == DialogResult.No)
                 {
